@@ -22,7 +22,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const input = $input.first().json;\n\nconst appointmentId = input.appointment_id || input.id_agendamento || null;\nconst patientPhone = input.patient_phone || input.telefone_paciente || null;\nconst reason = input.reason || input.motivo || '';\n\nif (!appointmentId || !patientPhone) {\n  return [{ json: { error: true, message: 'É necessário o ID do agendamento e o telefone do paciente para cancelar.' } }];\n}\n\nreturn [{ json: { appointment_id: parseInt(appointmentId), patient_phone: patientPhone, reason } }];"
+        "jsCode": "const input = $input.first().json;\n\nconst appointmentId = input.appointment_id || input.id_agendamento || null;\nconst patientPhone = input.patient_phone || input.telefone_paciente || null;\nconst reason = input.reason || input.motivo || ' ';\n\nif (!appointmentId || !patientPhone) {\n  return [{ json: { error: true, message: 'É necessário o ID do agendamento e o telefone do paciente para cancelar.' } }];\n}\n\nreturn [{ json: { appointment_id: parseInt(appointmentId), patient_phone: patientPhone, reason } }];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -38,7 +38,7 @@
         "operation": "executeQuery",
         "query": "SELECT * FROM abo.cancelar_agendamento($1::bigint, $2::varchar, NULLIF(TRIM($3::text), ''));",
         "options": {
-          "queryReplacement": "={{ $json.appointment_id }},={{ $json.patient_phone }},={{ $json.reason }}"
+          "queryReplacement": "={{ [$json.appointment_id, $json.patient_phone, $json.reason] }}"
         }
       },
       "type": "n8n-nodes-base.postgres",
