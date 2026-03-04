@@ -1105,3 +1105,39 @@ COMMENT ON FUNCTION abo.obter_resumo_financeiro_paciente IS 'Resumo financeiro d
 COMMENT ON FUNCTION abo.buscar_paciente_por_telefone IS 'Buscar dados do paciente por telefone';
 COMMENT ON FUNCTION abo.criar_agendamento_whatsapp IS 'Criar agendamento via WhatsApp';
 COMMENT ON FUNCTION abo.cancelar_agendamento IS 'Cancelar um agendamento existente';
+
+-- ============================================
+-- FUNÇÃO: Listar especialidades disponíveis
+-- ============================================
+CREATE OR REPLACE FUNCTION abo.listar_especialidades_disponiveis()
+RETURNS TABLE (
+  especialidade VARCHAR,
+  dentistas_disponiveis BIGINT,
+  nomes_dentistas TEXT
+) AS $$
+BEGIN
+  RETURN QUERY
+  SELECT
+    sub.esp,
+    COUNT(DISTINCT sub.dentista_id),
+    STRING_AGG(DISTINCT sub.dentista_nome, ', ' ORDER BY sub.dentista_nome)
+  FROM (
+    SELECT
+      UNNEST(
+        CASE
+          WHEN d.especialidades IS NOT NULL AND array_length(d.especialidades, 1) > 0
+          THEN d.especialidades
+          ELSE ARRAY[d.especialidade]
+        END
+      )::VARCHAR AS esp,
+      d.id AS dentista_id,
+      d.nome AS dentista_nome
+    FROM abo.dentistas d
+    WHERE d.ativo = true
+  ) sub
+  GROUP BY sub.esp
+  ORDER BY sub.esp;
+END;
+$$ LANGUAGE plpgsql;
+
+COMMENT ON FUNCTION abo.listar_especialidades_disponiveis IS 'Lista todas as especialidades disponíveis com quantidade de dentistas';
