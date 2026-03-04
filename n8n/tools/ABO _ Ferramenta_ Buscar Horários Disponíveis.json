@@ -2,7 +2,15 @@
   "name": "ABO / Ferramenta: Buscar Horários Disponíveis",
   "nodes": [
     {
-      "parameters": {},
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            { "name": "dentist_id", "type": "string" },
+            { "name": "date", "type": "string" },
+            { "name": "specialty", "type": "string" }
+          ]
+        }
+      },
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [

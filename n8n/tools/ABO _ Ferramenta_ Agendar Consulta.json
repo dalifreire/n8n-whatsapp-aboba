@@ -2,7 +2,19 @@
   "name": "ABO / Ferramenta: Agendar Consulta",
   "nodes": [
     {
-      "parameters": {},
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            { "name": "patient_phone", "type": "string" },
+            { "name": "patient_name", "type": "string" },
+            { "name": "dentist_id", "type": "string" },
+            { "name": "procedure_id", "type": "string" },
+            { "name": "date", "type": "string" },
+            { "name": "time", "type": "string" },
+            { "name": "notes", "type": "string" }
+          ]
+        }
+      },
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [

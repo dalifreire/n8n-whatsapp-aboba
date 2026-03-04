@@ -2,7 +2,13 @@
   "name": "ABO / Ferramenta: Resumo Financeiro do Paciente",
   "nodes": [
     {
-      "parameters": {},
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            { "name": "patient_phone", "type": "string" }
+          ]
+        }
+      },
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
