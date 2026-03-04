@@ -1,0 +1,97 @@
+{
+  "name": "ABO / Ferramenta: Reiniciar Conversa",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "patient_phone"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0549fb0a-bcf9-46bf-93fd-36257c654265",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM abo.reiniciar_conversa($1::varchar);",
+        "options": {
+          "queryReplacement": "={{ $json.patient_phone || $json.telefone || $json.phone }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        240,
+        0
+      ],
+      "id": "cd6de1fe-0aca-4244-a5c3-feebe46ed151",
+      "name": "Reiniciar Conversa",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.first().json;\n\nif (result.success) {\n  return [{ json: { resultado: `Conversa reiniciada com sucesso! O contexto da IA foi limpo (${result.chat_messages_deleted} mensagens de contexto removidas). O histórico de atendimentos anteriores continua salvo. Estou pronta para um novo atendimento. Como posso ajudar?` } }];\n}\n\nreturn [{ json: { resultado: 'Não foi possível reiniciar a conversa. Tente novamente.' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        0
+      ],
+      "id": "d90a01b7-d9c0-41c0-9ac4-5466f376ed92",
+      "name": "Formatar Resultado"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Reiniciar Conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reiniciar Conversa": {
+      "main": [
+        [
+          {
+            "node": "Formatar Resultado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "3182980a-b960-477e-8601-7125ca3b923d",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "lx9-IOQgHW7cEn_EyV-nO",
+  "tags": []
+}

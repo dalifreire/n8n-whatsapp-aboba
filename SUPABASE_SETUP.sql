@@ -1059,6 +1059,33 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- ============================================
+-- FUNÇÃO: REINICIAR CONVERSA (limpar contexto)
+-- ============================================
+CREATE OR REPLACE FUNCTION abo.reiniciar_conversa(p_telefone VARCHAR)
+RETURNS JSON
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+DECLARE
+  v_chat_deleted INT;
+BEGIN
+  -- Limpar histórico de chat do n8n (memória do agente)
+  -- Nota: a tabela abo.conversas é preservada para fins de histórico e análise
+  DELETE FROM abo.n8n_chat_histories
+  WHERE session_id = p_telefone;
+  GET DIAGNOSTICS v_chat_deleted = ROW_COUNT;
+
+  RETURN json_build_object(
+    'success', true,
+    'chat_messages_deleted', v_chat_deleted,
+    'message', 'Conversa reiniciada com sucesso. O contexto anterior foi limpo.'
+  );
+END;
+$$;
+
+COMMENT ON FUNCTION abo.reiniciar_conversa IS 'Limpa o histórico de chat e conversas de um telefone para reiniciar o contexto da IA';
+
+-- ============================================
 -- COMENTÁRIOS DE DOCUMENTAÇÃO
 -- ============================================
 COMMENT ON TABLE abo.dentistas IS 'Cadastro de dentistas e profissionais do consultório';
