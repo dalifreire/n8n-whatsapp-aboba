@@ -54,10 +54,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        7488,
-        832
+        8864,
+        1312
       ],
-      "id": "82be9690-e641-40a5-9c27-994269db5b89",
+      "id": "49007fed-f3cb-41d3-92e3-aca870053c00",
       "name": "Extrair Dados da Mensagem"
     },
     {
@@ -67,10 +67,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        8928,
-        832
+        10304,
+        1312
       ],
-      "id": "87750c24-a0d2-4392-a09c-11e444ce4224",
+      "id": "86593665-3942-4db0-a4a4-f2d7aeff828c",
       "name": "Validar Dados da Mensagem"
     },
     {
@@ -98,13 +98,13 @@
         },
         "options": {}
       },
-      "id": "0b404bd1-61a5-48c7-938a-3191ea3b98ef",
+      "id": "a21e87d5-0fa1-4ff7-9119-f3f4db051895",
       "name": "Gerar Embedding da Mensagem",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        9552,
-        848
+        10928,
+        1328
       ],
       "credentials": {
         "openaiApi": {
@@ -134,10 +134,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        9776,
-        848
+        11152,
+        1328
       ],
-      "id": "ee66c50f-7889-4e74-85cf-becefd65ab06",
+      "id": "8955b4d7-9182-4a4e-a861-5529caf1888d",
       "name": "Extrair Embedding"
     },
     {
@@ -148,13 +148,13 @@
           "queryReplacement": "={{ '['+ $json.embedding + ']'}}]'"
         }
       },
-      "id": "aebab89e-13f0-4727-904e-f86c087129db",
+      "id": "01ce2259-0e8b-4588-84b3-13cca9d1f6da",
       "name": "RAG - Busca Conhecimento ABO",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        9984,
-        848
+        11360,
+        1328
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -173,10 +173,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        7168,
-        832
+        8544,
+        1312
       ],
-      "id": "5eb252a8-8dad-4237-be09-b79ec0b621b0",
+      "id": "1bbcd437-635a-4fbf-beb7-09905d24a12d",
       "name": "Webhook",
       "webhookId": "66c1e19b-70ba-4ece-8a9c-c6ad6819a091"
     },
@@ -187,10 +187,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        10208,
-        848
+        11584,
+        1328
       ],
-      "id": "fea6580f-605b-4de1-b3d9-10616dff66c7",
+      "id": "117380b0-5dcd-4bed-846c-5d0b5e7e6702",
       "name": "Code in JavaScript"
     },
     {
@@ -202,10 +202,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        10496,
-        848
+        11872,
+        1328
       ],
-      "id": "c364417e-ca33-4671-9e16-70c1bc94baae",
+      "id": "551d0521-5089-4700-b6a0-3d9ba2c8f967",
       "name": "AI Agent"
     },
     {
@@ -222,10 +222,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        10336,
-        1088
+        11712,
+        1568
       ],
-      "id": "efaddca3-85c5-4357-9d58-6b441a53d88d",
+      "id": "db7214d8-8f67-4155-8a48-5a48e93a39a1",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -244,10 +244,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
       "typeVersion": 1.3,
       "position": [
-        10480,
-        1168
+        11856,
+        1648
       ],
-      "id": "9c5bb040-5f90-420d-908c-fa2a5a0f5628",
+      "id": "d9cbb963-b73d-4647-8ab6-11a1b9f8ee0d",
       "name": "Postgres Chat Memory",
       "credentials": {
         "postgres": {
@@ -261,10 +261,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolThink",
       "typeVersion": 1.1,
       "position": [
-        10720,
-        1136
+        12096,
+        1616
       ],
-      "id": "fa12a582-8f36-4876-8895-668b58e446de",
+      "id": "0970cd72-cd32-4257-863c-c61db00c3ca3",
       "name": "Think"
     },
     {
@@ -274,10 +274,10 @@
       "type": "n8n-nodes-base.dateTimeTool",
       "typeVersion": 2,
       "position": [
-        10592,
-        1104
+        11968,
+        1584
       ],
-      "id": "c69836b4-83e4-471a-987d-7d45a55253c9",
+      "id": "e4ad5439-fb87-4176-9c78-fd4b7b602030",
       "name": "Date & Time"
     },
     {
@@ -285,131 +285,301 @@
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
       "position": [
-        10832,
-        1232
+        12208,
+        1712
       ],
-      "id": "440124b1-e76c-4905-a3c4-21238f07f6a4",
+      "id": "17474200-7527-4568-af5d-ab1916c876f9",
       "name": "Calculator"
     },
     {
       "parameters": {
         "name": "buscar_paciente",
-        "description": "Busca dados do paciente pelo número de telefone. Retorna nome, alergias, condições médicas, convênio, histórico de consultas e tratamentos ativos. Use quando precisar identificar o paciente ou ver informações dele. Parâmetros: patient_phone (string, obrigatório - número de telefone do paciente).",
+        "description": "Busca dados do paciente pelo número de telefone. Retorna nome, alergias, condições médicas, convênio, histórico de consultas e tratamentos ativos. Use quando precisar identificar o paciente ou ver informações dele.",
         "workflowId": {
           "__rl": true,
           "value": "={{'qP7AmtAMWSJq2NuowOxCi'}}",
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "patient_phone": "={{ $('Extrair Dados da Mensagem').first().json.sender_phone }}"
+          },
+          "matchingColumns": [
+            "patient_phone"
+          ],
+          "schema": [
+            {
+              "id": "patient_phone",
+              "displayName": "patient_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        10960,
-        1200
+        12336,
+        1680
       ],
-      "id": "b5054466-65e8-449b-9b7d-8385fb3c2e4b",
+      "id": "f9ecf259-309d-486f-9b26-3df9c15a2a68",
       "name": "Buscar Paciente"
     },
     {
       "parameters": {
         "name": "buscar_horarios_disponiveis",
-        "description": "Busca horários disponíveis de dentistas para uma data específica. Pode filtrar por dentista (dentist_id) ou especialidade. Parâmetros: date (string, obrigatório - formato YYYY-MM-DD), dentist_id (number, opcional), specialty (string, opcional - ex: endodontia, ortodontia).",
+        "description": "Busca horários disponíveis de dentistas para uma data específica. Pode filtrar por dentista (dentist_id) ou especialidade.",
         "workflowId": {
           "__rl": true,
           "value": "={{'UgkezWSTlblPiMvGEjhRJ'}}",
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $fromAI('date', 'Data no formato YYYY-MM-DD', 'string') }}",
+            "dentist_id": "={{ $fromAI('dentist_id', 'ID do dentista (opcional)', 'number') }}",
+            "specialty": "={{ $fromAI('specialty', 'Especialidade do dentista, ex: endodontia, ortodontia (opcional)', 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "dentist_id",
+              "displayName": "dentist_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "specialty",
+              "displayName": "specialty",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        11056,
-        1104
+        12432,
+        1584
       ],
-      "id": "452c524e-a4d5-4df5-959f-f93397e1c2a1",
+      "id": "26f5dd92-d289-487f-8f94-c1314b432715",
       "name": "Buscar Horários"
     },
     {
       "parameters": {
         "name": "agendar_consulta",
-        "description": "Cria um novo agendamento de consulta odontológica. IMPORTANTE: só use após confirmar TODOS os dados com o paciente. Parâmetros: patient_phone (string, obrigatório), patient_name (string, obrigatório), dentist_id (number, obrigatório), procedure_id (number, opcional), date (string, obrigatório - YYYY-MM-DD), time (string, obrigatório - HH:MM), notes (string, opcional).",
+        "description": "Cria um novo agendamento de consulta odontológica. IMPORTANTE: só use após confirmar TODOS os dados com o paciente.",
         "workflowId": {
           "__rl": true,
           "value": "={{'6z60DDRnhv_0k90bvvEAY'}}",
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "patient_phone": "={{ $('Extrair Dados da Mensagem').first().json.sender_phone }}",
+            "patient_name": "={{ $fromAI('patient_name', 'Nome completo do paciente', 'string') }}",
+            "dentist_id": "={{ $fromAI('dentist_id', 'ID do dentista', 'number') }}",
+            "procedure_id": "={{ $fromAI('procedure_id', 'ID do procedimento (opcional)', 'number') }}",
+            "date": "={{ $fromAI('date', 'Data da consulta no formato YYYY-MM-DD', 'string') }}",
+            "time": "={{ $fromAI('time', 'Horário da consulta no formato HH:MM', 'string') }}",
+            "notes": "={{ $fromAI('notes', 'Observações opcionais sobre a consulta', 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "patient_phone",
+              "displayName": "patient_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "patient_name",
+              "displayName": "patient_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "dentist_id",
+              "displayName": "dentist_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "procedure_id",
+              "displayName": "procedure_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "time",
+              "displayName": "time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "notes",
+              "displayName": "notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        11168,
-        1184
+        12544,
+        1664
       ],
-      "id": "bb063347-5758-46fb-b3b9-ee7ff982f01d",
+      "id": "6fc0528e-00e5-4be1-afba-04e66f39c9d2",
       "name": "Agendar Consulta"
     },
     {
       "parameters": {
         "name": "cancelar_consulta",
-        "description": "Cancela um agendamento existente. Precisa do ID do agendamento e do telefone do paciente para validação. Parâmetros: appointment_id (number, obrigatório), patient_phone (string, obrigatório), reason (string, opcional - motivo do cancelamento).",
+        "description": "Cancela um agendamento existente. Precisa do ID do agendamento e do telefone do paciente para validação.",
         "workflowId": {
           "__rl": true,
           "value": "={{'BW61kcoin51HUb3gD_-p2'}}",
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "appointment_id": "={{ $fromAI('appointment_id', 'ID do agendamento a ser cancelado', 'number') }}",
+            "patient_phone": "={{ $('Extrair Dados da Mensagem').first().json.sender_phone }}",
+            "reason": "={{ $fromAI('reason', 'Motivo do cancelamento (opcional)', 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "appointment_id",
+              "displayName": "appointment_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "patient_phone",
+              "displayName": "patient_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "reason",
+              "displayName": "reason",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        11280,
-        1104
+        12656,
+        1584
       ],
-      "id": "acff9578-3fab-4a10-9a70-f99abca8d259",
+      "id": "b43f1b5d-823d-4c3b-9d3a-1b7e3a8f8230",
       "name": "Cancelar Consulta"
     },
     {
       "parameters": {
         "name": "consultar_agendamentos",
-        "description": "Lista os próximos agendamentos futuros de um paciente. Retorna data, horário, dentista, procedimento e status. Parâmetros: patient_phone (string, obrigatório), status (string, opcional - filtrar por: agendado, confirmado, concluido).",
+        "description": "Lista os próximos agendamentos futuros de um paciente. Retorna data, horário, dentista, procedimento e status.",
         "workflowId": {
           "__rl": true,
           "value": "={{'98P80bb9GyKUueDO6CTu1'}}",
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "patient_phone": "={{ $fromAI('patient_phone', 'Telefone do paciente', 'string') }}",
+            "status": "={{ $fromAI('status', 'Filtrar por status: agendado, confirmado, concluido (opcional)', 'string') }}"
+          }
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        11392,
-        1184
+        12768,
+        1664
       ],
-      "id": "43e3cc2e-8039-4a4f-8350-bdf23a411718",
+      "id": "c689e046-5660-4d64-941d-cb436a1a590a",
       "name": "Consultar Agendamentos"
     },
     {
       "parameters": {
         "name": "listar_dentistas_procedimentos",
-        "description": "Lista dentistas disponíveis ou procedimentos odontológicos oferecidos. Para dentistas, retorna nome, CRO e especialidades. Para procedimentos, retorna nome, categoria, duração e preço. Parâmetros: type (string, obrigatório - 'dentistas' ou 'procedimentos'), specialty (string, opcional - filtro de especialidade), category (string, opcional - filtro de categoria ex: preventivo, restaurador, cirurgico, endodontia, ortodontia, estetica, protese, implantodontia).",
+        "description": "Lista dentistas disponíveis ou procedimentos odontológicos oferecidos. Para dentistas, retorna nome, CRO e especialidades. Para procedimentos, retorna nome, categoria, duração e preço.",
         "workflowId": {
           "__rl": true,
           "value": "={{'Avz5jBevAoikbkoDADkRY'}}",
@@ -417,23 +587,59 @@
           "cachedResultUrl": "/workflow/=%7B%7B'Avz5jBevAoikbkoDADkRY'%7D%7D"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "type": "={{ $fromAI('type', 'Tipo de listagem: dentistas ou procedimentos', 'string') }}",
+            "specialty": "={{ $fromAI('specialty', 'Filtro de especialidade (opcional)', 'string') }}",
+            "category": "={{ $fromAI('category', 'Filtro de categoria: preventivo, restaurador, cirurgico, endodontia, ortodontia, estetica, protese, implantodontia (opcional)', 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "specialty",
+              "displayName": "specialty",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        11504,
-        1104
+        12880,
+        1584
       ],
-      "id": "f04e5cdc-0db2-4a57-91e2-465bb550b734",
+      "id": "7b854558-d16e-4ca1-bd65-1fbaf7cd6f86",
       "name": "Listar Dentistas/Procedimentos"
     },
     {
       "parameters": {
         "name": "resumo_financeiro",
-        "description": "Retorna o resumo financeiro do paciente: total cobrado, pago, pendente, atrasado e próximos vencimentos. Parâmetros: patient_phone (string, obrigatório).",
+        "description": "Retorna o resumo financeiro do paciente: total cobrado, pago, pendente, atrasado e próximos vencimentos.",
         "workflowId": {
           "__rl": true,
           "value": "={{'gQaJfKayq-yF1nyHn9IfF'}}",
@@ -441,40 +647,78 @@
           "cachedResultUrl": "/workflow/=%7B%7B'gQaJfKayq-yF1nyHn9IfF'%7D%7D"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "patient_phone": "={{ $('Extrair Dados da Mensagem').first().json.sender_phone }}"
+          },
+          "matchingColumns": [
+            "patient_phone"
+          ],
+          "schema": [
+            {
+              "id": "patient_phone",
+              "displayName": "patient_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        11616,
-        1184
+        12992,
+        1664
       ],
-      "id": "0596fe45-d1d9-40d5-80c8-f02c26b48c32",
+      "id": "cefb0588-c61f-4999-8428-96474bc4af65",
       "name": "Resumo Financeiro"
     },
     {
       "parameters": {
         "name": "reiniciar_conversa",
-        "description": "Reinicia a conversa do paciente, limpando todo o histórico e contexto anterior. Use quando o paciente pedir para reiniciar, limpar ou começar uma nova conversa. Parâmetros: patient_phone (string, obrigatório - número de telefone do paciente).",
+        "description": "Reinicia a conversa do paciente, limpando todo o histórico e contexto anterior. Use quando o paciente pedir para reiniciar, limpar ou começar uma nova conversa.",
         "workflowId": {
           "__rl": true,
           "value": "={{'lx9-IOQgHW7cEn_EyV-nO'}}",
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
+          "mappingMode": "defineBelow",
+          "value": {
+            "patient_phone": "={{ $('Extrair Dados da Mensagem').first().json.sender_phone }}"
+          },
+          "matchingColumns": [
+            "patient_phone"
+          ],
+          "schema": [
+            {
+              "id": "patient_phone",
+              "displayName": "patient_phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        11728,
-        1184
+        13104,
+        1600
       ],
-      "id": "c4ac3065-2186-4605-8728-f8042369293f",
+      "id": "19dc92d6-ac64-4513-9030-1315e7a9e006",
       "name": "Reiniciar Conversa"
     },
     {
@@ -504,10 +748,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        9248,
-        832
+        10624,
+        1312
       ],
-      "id": "4b9a1f3c-5124-4a68-9593-3e46a24a7442",
+      "id": "aff0708f-a4cb-4afa-a3c8-9a3244bcda37",
       "name": "É comando reiniciar?"
     },
     {
@@ -521,10 +765,10 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        9552,
-        576
+        10928,
+        1056
       ],
-      "id": "136e495d-b78b-4ae9-8232-1684c2b59d7b",
+      "id": "0c39f552-db17-44e0-9818-27f256fafa33",
       "name": "Executar Reset",
       "alwaysOutputData": true,
       "credentials": {
@@ -541,10 +785,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        9776,
-        576
+        11152,
+        1056
       ],
-      "id": "b704cc75-58dd-422d-8009-be23ae4700d2",
+      "id": "014a5c2a-fd70-495e-a81d-084229829230",
       "name": "Mensagem de Reset"
     },
     {
@@ -668,10 +912,10 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        10896,
-        688
+        12272,
+        1168
       ],
-      "id": "71c36cf0-99ba-4f17-82cc-226cf1c47e22",
+      "id": "28502d81-45cd-4c35-a956-7a69d3d30d41",
       "name": "Salvar Conversa no BD",
       "credentials": {
         "postgres": {
@@ -691,10 +935,10 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        11808,
-        864
+        13184,
+        1344
       ],
-      "id": "c5f263f1-c1db-4318-b7bd-683fbb253073",
+      "id": "3799cc62-4a68-4f97-9e21-9e3407129437",
       "name": "Enviar texto",
       "credentials": {
         "evolutionApi": {
@@ -710,10 +954,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        11104,
-        848
+        12480,
+        1328
       ],
-      "id": "9d761437-5ee6-4d81-9fe8-2b706afc3db5",
+      "id": "2da9abc4-72e0-499a-ab09-b39378e7e506",
       "name": "Code in JavaScript2"
     },
     {
@@ -723,10 +967,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        11488,
-        848
+        12864,
+        1328
       ],
-      "id": "10544113-191a-49d1-8855-bd021920e8cc",
+      "id": "d37b085d-5f58-4090-b4aa-d0621b9b824f",
       "name": "Loop Over Items"
     },
     {
@@ -756,10 +1000,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        7728,
-        832
+        9104,
+        1312
       ],
-      "id": "dfd4a144-d5e1-4f9a-842f-be44b75f57b0",
+      "id": "ea53081f-3e4f-4c19-95d7-2d9f859797bd",
       "name": "É áudio?"
     },
     {
@@ -776,7 +1020,6 @@
           ]
         },
         "sendBody": true,
-        "contentType": "json",
         "specifyBody": "json",
         "jsonBody": "={{ JSON.stringify({ message: { key: $('Webhook').first().json.body.data.key } }) }}",
         "options": {}
@@ -784,10 +1027,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        7968,
-        440
+        9344,
+        912
       ],
-      "id": "335125ff-b578-4e84-bd4f-0cd945f730ff",
+      "id": "8e83a8e0-5ebb-42d0-8ea0-621e450bdb0e",
       "name": "Baixar Áudio"
     },
     {
@@ -797,10 +1040,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        8208,
-        440
+        9584,
+        912
       ],
-      "id": "057d2ae5-08a8-42a9-be21-c2a8f1f46b16",
+      "id": "e5ad2f21-e89a-42ae-aed9-144cebc1804f",
       "name": "Preparar Áudio"
     },
     {
@@ -819,12 +1062,10 @@
               "inputDataFieldName": "audio"
             },
             {
-              "parameterType": "formData",
               "name": "model",
               "value": "whisper-1"
             },
             {
-              "parameterType": "formData",
               "name": "language",
               "value": "pt"
             }
@@ -835,10 +1076,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        8448,
-        440
+        9824,
+        912
       ],
-      "id": "1f7df57e-83bf-4af2-a3f9-472ed02d6144",
+      "id": "afa3a74a-7989-4db4-9cb1-fac449a90168",
       "name": "Transcrever Áudio",
       "credentials": {
         "httpBearerAuth": {
@@ -854,10 +1095,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        8688,
-        440
+        10064,
+        912
       ],
-      "id": "d93e452b-82bd-4769-85de-d2cc110df02c",
+      "id": "03bb1b04-781b-47de-8d58-d5091f6b6f14",
       "name": "Definir Texto Transcrito"
     }
   ],
@@ -1373,7 +1614,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "e2d16499-4f98-45c1-8769-825c9d5974e5",
+  "versionId": "29b99cb6-3cf0-480e-884d-3739fb23e24f",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
