@@ -620,6 +620,8 @@ ALTER TABLE abo.prescricoes ENABLE ROW LEVEL SECURITY;
 -- FUNÇÕES UTILITÁRIAS
 -- ============================================
 
+CREATE EXTENSION IF NOT EXISTS unaccent;
+
 -- Buscar horários disponíveis de um dentista em uma data
 CREATE OR REPLACE FUNCTION abo.obter_slots_disponiveis(
   p_id_dentista BIGINT,
