@@ -1,0 +1,61 @@
+{
+  "name": "ABO / Ferramenta: Agendar Consulta",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [340, 300],
+      "id": "trigger-agendar",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\n\nconst patientPhone = input.patient_phone || input.telefone_paciente || null;\nconst patientName = input.patient_name || input.nome_paciente || null;\nconst dentistId = input.dentist_id || input.id_dentista || null;\nconst procedureId = input.procedure_id || input.id_procedimento || null;\nconst date = input.date || input.data || null;\nconst time = input.time || input.horario || null;\nconst notes = input.notes || input.observacoes || null;\n\nconst errors = [];\nif (!patientPhone) errors.push('telefone do paciente');\nif (!patientName) errors.push('nome do paciente');\nif (!dentistId) errors.push('ID do dentista');\nif (!date) errors.push('data da consulta (YYYY-MM-DD)');\nif (!time) errors.push('horário (HH:MM)');\n\nif (errors.length > 0) {\n  return [{ json: { error: true, message: `Dados obrigatórios faltando: ${errors.join(', ')}. Peça essas informações ao paciente.` } }];\n}\n\nreturn [{ json: { patient_phone: patientPhone, patient_name: patientName, dentist_id: parseInt(dentistId), procedure_id: procedureId ? parseInt(procedureId) : null, date, time, notes } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [560, 300],
+      "id": "parse-input-agendar",
+      "name": "Parsear Entrada"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM abo.criar_agendamento_whatsapp($1::varchar, $2::varchar, $3::bigint, $4::bigint, $5::date, $6::time, $7::text);",
+        "options": {
+          "queryReplacement": "={{ $json.patient_phone }},={{ $json.patient_name }},={{ $json.dentist_id }},={{ $json.procedure_id }},={{ $json.date }},={{ $json.time }},={{ $json.notes }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [780, 300],
+      "id": "query-agendar",
+      "name": "Criar Agendamento",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.first().json;\n\nif (result.error) {\n  return [{ json: { resultado: result.mensagem } }];\n}\n\nif (result.sucesso) {\n  return [{ json: { resultado: `✅ ${result.mensagem} (ID: ${result.id_agendamento}). Enviaremos um lembrete 24h antes. Para cancelar, informe o ID do agendamento.` } }];\n} else {\n  return [{ json: { resultado: `❌ ${result.mensagem}` } }];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 300],
+      "id": "format-agendar",
+      "name": "Formatar Resultado"
+    }
+  ],
+  "connections": {
+    "Trigger": { "main": [[{ "node": "Parsear Entrada", "type": "main", "index": 0 }]] },
+    "Parsear Entrada": { "main": [[{ "node": "Criar Agendamento", "type": "main", "index": 0 }]] },
+    "Criar Agendamento": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": true }
+}

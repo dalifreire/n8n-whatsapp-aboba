@@ -1,0 +1,61 @@
+{
+  "name": "ABO / Ferramenta: Listar Dentistas e Procedimentos",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [340, 300],
+      "id": "trigger-listar",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst type = input.type || input.tipo || 'dentists';\nconst specialty = input.specialty || input.especialidade || null;\nconst category = input.category || input.categoria || null;\n\nreturn [{ json: { type, specialty, category } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [560, 300],
+      "id": "parse-input-listar",
+      "name": "Parsear Entrada"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Dentistas\nSELECT 'dentista' as record_type, d.id, d.nome, d.cro, d.especialidade as detail1, array_to_string(d.especialidades, ', ') as detail2, NULL as detail3, NULL::decimal as price\nFROM abo.dentistas d\nWHERE d.ativo = true\n  AND ($1::text = 'dentistas')\n  AND ($2::text IS NULL OR d.especialidade ILIKE '%' || $2::text || '%' OR $2::text = ANY(d.especialidades))\n\nUNION ALL\n\n-- Procedimentos\nSELECT 'procedimento' as record_type, p.id, p.nome, p.codigo as cro, p.categoria as detail1, p.descricao as detail2, p.duracao_media_min || ' min' as detail3, p.preco_base as price\nFROM abo.procedimentos p\nWHERE p.ativo = true\n  AND ($1::text = 'procedimentos')\n  AND ($3::text IS NULL OR p.categoria ILIKE '%' || $3::text || '%')\n\nORDER BY record_type, nome\nLIMIT 30;",
+        "options": {
+          "queryReplacement": "={{ $json.type }},={{ $json.specialty }},={{ $json.category }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [780, 300],
+      "id": "query-listar",
+      "name": "Buscar Dados",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst records = items.filter(i => i.json.id);\n\nif (records.length === 0) {\n  return [{ json: { resultado: 'Nenhum registro encontrado.' } }];\n}\n\nconst dentists = records.filter(r => r.json.record_type === 'dentista');\nconst procedures = records.filter(r => r.json.record_type === 'procedimento');\n\nlet resultado = '';\n\nif (dentists.length > 0) {\n  resultado += '👨‍⚕️ Dentistas disponíveis:\\n';\n  for (const d of dentists) {\n    resultado += `  • Dr(a). ${d.json.nome} - ${d.json.detail1 || 'Clínica Geral'} (CRO: ${d.json.cro}) - ID: ${d.json.id}\\n`;\n    if (d.json.detail2) resultado += `    Especialidades: ${d.json.detail2}\\n`;\n  }\n}\n\nif (procedures.length > 0) {\n  resultado += '\\n🦷 Procedimentos disponíveis:\\n';\n  for (const p of procedures) {\n    resultado += `  • ${p.json.nome} (${p.json.detail1}) - ID: ${p.json.id}\\n`;\n    if (p.json.price) resultado += `    💰 R$ ${parseFloat(p.json.price).toFixed(2)} | ⏱️ ${p.json.detail3}\\n`;\n  }\n}\n\nreturn [{ json: { resultado } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 300],
+      "id": "format-listar",
+      "name": "Formatar Resultado"
+    }
+  ],
+  "connections": {
+    "Trigger": { "main": [[{ "node": "Parsear Entrada", "type": "main", "index": 0 }]] },
+    "Parsear Entrada": { "main": [[{ "node": "Buscar Dados", "type": "main", "index": 0 }]] },
+    "Buscar Dados": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": true }
+}

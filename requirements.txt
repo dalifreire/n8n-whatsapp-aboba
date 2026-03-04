@@ -1,0 +1,22 @@
+# requirements.txt
+# Dependências para o projeto ABO-BA WhatsApp AI Agent
+
+# Core (obrigatório)
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+
+# Base de dados e embeddings
+openai>=1.0.0
+psycopg2-binary>=2.9.0
+
+# Opcional: Para scraping avançado do Instagram
+instagrapi>=2.0.0  # Comentar se não usar
+
+# Opcional: Para melhor parseamento de HTML
+lxml>=4.9.0
+
+# Opcional: Para trabalhar com dados
+pandas>=1.5.0  # Se quiser análise de dados
+
+# Opcional: Para logging avançado e variáveis de ambiente
+python-dotenv>=0.20.0  # Para carregar .env

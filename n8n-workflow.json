@@ -1,0 +1,1046 @@
+{
+  "name": "WhatsApp / ABO Bahia - Assistente Consultório v2",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2",
+              "name": "sender_phone",
+              "value": "={{ ( $json.body.data.key.remoteJid.endsWith('@lid') ? $json.body.data.key.remoteJidAlt.split('@')[0] : $json.body.data.key.remoteJid.split('@')[0] ) }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "sender_name",
+              "value": "={{ $json.body.data.pushName }}",
+              "type": "string"
+            },
+            {
+              "id": "4",
+              "name": "message_timestamp",
+              "value": "={{ $json.body.date_time }}",
+              "type": "string"
+            },
+            {
+              "id": "4924d945-dcea-4ba3-af5b-ae04ad088198",
+              "name": "message_type",
+              "value": "={{ $json.body.data.messageType }}",
+              "type": "string"
+            },
+            {
+              "id": "5a442f90-1d00-44cd-8063-0e25b7eb91c8",
+              "name": "message_text",
+              "value": "={{ $json.body.data.message.conversation }}",
+              "type": "string"
+            },
+            {
+              "id": "de9f30d3-a9db-4beb-9acc-34adf91fe84a",
+              "name": "message_reaction_text",
+              "value": "={{ $json.body.data.message.reactionMessage.text }}",
+              "type": "string"
+            },
+            {
+              "id": "3d5ec4dc-ebc1-4994-9209-d5675d1b7401",
+              "name": "message_image_caption",
+              "value": "={{ $json.body.data.message.imageMessage.caption }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        8368,
+        928
+      ],
+      "id": "7d721a66-0ee9-4ce2-a982-e9fd205f2138",
+      "name": "Extrair Dados da Mensagem"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validar dados da mensagem\nconst senderPhone = $input.first().json.sender_phone;\nconst messageText = $input.first().json.message_text;\nconst senderName = $input.first().json.sender_name;\n\n// Verificar se os campos essenciais existem\nif (!senderPhone || !messageText) {\n  throw new Error('Dados essenciais da mensagem estão faltando: sender_phone ou message_text');\n}\n\n// Sanitizar dados\nconst sanitizedData = {\n  sender_phone: senderPhone.trim(),\n  sender_name: senderName ? senderName.trim() : 'Usuário WhatsApp',\n  message_text: messageText.trim(),\n  message_type: $input.first().json.message_type || 'conversation',\n  message_timestamp: $input.first().json.message_timestamp || new Date().toISOString()\n};\n\nreturn [{ json: sanitizedData }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8608,
+        928
+      ],
+      "id": "c256edea-a311-4240-96e8-5e04bb56ed97",
+      "name": "Validar Dados da Mensagem"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/embeddings",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "input",
+              "value": "={{ $json.message_text }}"
+            },
+            {
+              "name": "model",
+              "value": "text-embedding-3-small"
+            },
+            {
+              "name": "encoding_format",
+              "value": "float"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "dd34422c-0ded-4a0c-a4ae-56c6119187b0",
+      "name": "Gerar Embedding da Mensagem",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        8848,
+        928
+      ],
+      "credentials": {
+        "openaiApi": {
+          "id": "9G3P8b4cLbfFdbcm",
+          "name": "NEIA OpenAi"
+        },
+        "httpBearerAuth": {
+          "id": "cGKI9g7OSPfCCooY",
+          "name": "ABO OpenAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "embedding",
+              "value": "={{ $json.data[0].embedding }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        9072,
+        928
+      ],
+      "id": "5fbe6cfe-c864-4baf-a125-e1b87f365a0f",
+      "name": "Extrair Embedding"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, titulo, conteudo, categoria, metadados, (1 - (embedding <=> $1::vector)) as similaridade \nFROM abo.documentos \nWHERE (1 - (embedding <=> $1::vector)) > 0.1 \nORDER BY embedding <=> $1::vector LIMIT 3;",
+        "options": {
+          "queryReplacement": "={{ '['+ $json.embedding + ']'}}]'"
+        }
+      },
+      "id": "befd4a1c-b6df-4ecb-9ee6-08bb27e7fdb4",
+      "name": "RAG - Busca Conhecimento ABO",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        9280,
+        928
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "66c1e19b-70ba-4ece-8a9c-c6ad6819a091",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        8048,
+        928
+      ],
+      "id": "7fde99be-cbc9-4ee8-a33a-e11ed7e34a20",
+      "name": "Webhook",
+      "webhookId": "66c1e19b-70ba-4ece-8a9c-c6ad6819a091"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\n// Se não houver itens\nif (!items || !Array.isArray(items) || items.length === 0) {\n  return [\n    {\n      json: {\n        documentos_encontrados: 0,\n        rag_context: \"Nenhum documento relevante foi encontrado na base de conhecimento.\"\n      }\n    }\n  ];\n}\n\n// Filtra apenas itens que realmente têm conteúdo válido\nconst documentosValidos = items.filter(item =>\n  item?.json?.titulo || item?.json?.conteudo\n);\n\n// Se nenhum documento válido existir\nif (documentosValidos.length === 0) {\n  return [\n    {\n      json: {\n        documentos_encontrados: 0,\n        rag_context: \"Nenhum documento relevante foi encontrado na base de conhecimento.\"\n      }\n    }\n  ];\n}\n\n// Monta o contexto\nconst rag_context = documentosValidos\n  .map((item, index) => {\n    const title = item.json.titulo ?? \"Sem título\";\n    const content = item.json.conteudo ?? \"Sem conteúdo disponível\";\n    const category = item.json.categoria ?? \"Não informada\";\n\n    const similarity =\n      typeof item.json.similaridade === \"number\"\n        ? (item.json.similaridade * 100).toFixed(1)\n        : \"N/A\";\n\n    return `📌 DOCUMENTO ${index + 1}\nTítulo: ${title}\nCategoria: ${category}\nSimilaridade: ${similarity}%\n\n${content}`;\n  })\n  .join('\\n\\n-----------------------------\\n\\n');\n\nreturn [\n  {\n    json: {\n      documentos_encontrados: documentosValidos.length,\n      rag_context\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9504,
+        928
+      ],
+      "id": "9a8ff3c4-cc65-44f1-85cd-6b1845cf5d65",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Você é a NEIA (Núcleo de Eficiência com Inteligência Artificial), assistente virtual completa do consultório odontológico da ABO-BA (Associação Brasileira de Odontologia - Seção Bahia). Você é educada, profissional, acolhedora e eficiente. Responda sempre em português brasileiro.\n\n══════════════════════════════════════\n🏥 INFORMAÇÕES DO CONSULTÓRIO\n══════════════════════════════════════\n- Nome: ABO-BA - Associação Brasileira de Odontologia - Seção Bahia\n- Endereço: Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492\n- Telefone: (71) 2203-4067 | WhatsApp: (71) 98132-8046\n- Email: contato@abo-ba.org.br\n- CNPJ: 15.187.719/0001-50\n- Horário: Seg-Sex 08:00-18:00 | Sáb 08:00-12:00 | Dom/Feriados: Fechado\n\n══════════════════════════════════════\n🛠️ FERRAMENTAS DISPONÍVEIS\n══════════════════════════════════════\nVocê tem acesso a ferramentas para gerenciar o consultório:\n\n1. **Buscar Paciente** - Busca dados do paciente pelo telefone\n   → Use quando precisar identificar o paciente ou ver seu histórico\n   → Parâmetros: { patient_phone: 'telefone' }\n\n2. **Buscar Horários Disponíveis** - Lista horários livres de dentistas\n   → Use quando o paciente quiser agendar e precisar ver disponibilidade\n   → Parâmetros: { date: 'YYYY-MM-DD', dentist_id: numero_opcional, specialty: 'especialidade_opcional' }\n\n3. **Agendar Consulta** - Cria um novo agendamento\n   → Use SOMENTE após confirmar todos os dados com o paciente\n   → Parâmetros: { patient_phone: 'tel', patient_name: 'nome', dentist_id: numero, procedure_id: numero_opcional, date: 'YYYY-MM-DD', time: 'HH:MM', notes: 'obs_opcional' }\n\n4. **Cancelar Consulta** - Cancela um agendamento existente\n   → Parâmetros: { appointment_id: numero, patient_phone: 'tel', reason: 'motivo_opcional' }\n\n5. **Consultar Agendamentos** - Lista agendamentos futuros do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n6. **Listar Dentistas/Procedimentos** - Mostra profissionais ou procedimentos\n   → Parâmetros: { type: 'dentistas' ou 'procedimentos', specialty: 'opcional', category: 'opcional' }\n\n7. **Resumo Financeiro** - Extrato financeiro do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n══════════════════════════════════════\n📋 FLUXO DE AGENDAMENTO\n══════════════════════════════════════\nSiga este fluxo ao agendar consultas:\n1. Identifique o paciente (use a ferramenta Buscar Paciente com o telefone do WhatsApp)\n2. Pergunte a especialidade/procedimento desejado\n3. Pergunte a data de preferência\n4. Use Buscar Horários Disponíveis para mostrar opções\n5. Confirme TODOS os dados: nome, data, horário, dentista, procedimento\n6. Só então use Agendar Consulta\n7. Informe o ID do agendamento para futuras referências\n\n══════════════════════════════════════\n🦷 ESPECIALIDADES DISPONÍVEIS\n══════════════════════════════════════\n- Clínica Geral (avaliação, restaurações, limpeza)\n- Endodontia (tratamento de canal)\n- Periodontia (gengivas)\n- Cirurgia Oral (extrações, implantes)\n- Prótese Dentária (coroas, pontes, dentaduras)\n- Ortodontia (aparelhos)\n- Implantodontia\n- Odontopediatria (crianças)\n- Estética Dental (clareamento, facetas)\n- Estomatologia\n\n══════════════════════════════════════\n💰 FORMAS DE PAGAMENTO\n══════════════════════════════════════\n- PIX | Cartão de Crédito (até 12x) | Cartão de Débito | Dinheiro | Boleto\n- Convênios odontológicos aceitos (verificar disponibilidade)\n\n══════════════════════════════════════\n🚨 PROTOCOLOS ESPECIAIS\n══════════════════════════════════════\n\n**URGÊNCIA/EMERGÊNCIA:**\nSe o paciente relatar dor intensa, trauma dental, sangramento ou inchaço:\n→ Oriente cuidados imediatos básicos\n→ Direcione para contato urgente: (71) 2203-4067\n→ Tente encaixar na agenda do dia\n\n**ESCALAÇÃO PARA HUMANO:**\nDirecione para atendente humano quando:\n→ Paciente insistir em falar com pessoa\n→ Reclamações ou insatisfação\n→ Questões financeiras complexas (negociação de dívida)\n→ Assuntos que você não consiga resolver\n→ Emergências médicas\n\n**CONFIRMAÇÃO DE CONSULTA:**\nSe paciente responder 'SIM' ou confirmar presença:\n→ Agradeça e confirme os dados do agendamento\nSe responder 'NÃO' ou quiser cancelar:\n→ Pergunte se deseja reagendar\n→ Se sim, ofereça novos horários\n→ Se não, cancele com a ferramenta\n\n══════════════════════════════════════\n📝 REGRAS DE RESPOSTA\n══════════════════════════════════════\n1. Respostas breves e diretas para WhatsApp (máximo 4-5 linhas por mensagem)\n2. Use emojis com moderação para melhorar legibilidade\n3. Sempre confirme dados antes de executar ações (agendar, cancelar)\n4. NUNCA invente informações médicas - quando não souber, direcione ao dentista\n5. Mantenha sigilo sobre dados de outros pacientes\n6. Se não encontrar o paciente no sistema, trate como novo paciente\n7. Inclua informações de contato quando apropriado\n8. Se a pergunta estiver fora do escopo odontológico, direcione educadamente\n9. Use as ferramentas proativamente - quando um paciente perguntar sobre consulta, já busque o cadastro dele\n10. O telefone do paciente no WhatsApp é: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\n\nCONTEXTO DA BASE DE CONHECIMENTO:\n{{ $json.rag_context }}\n\nMENSAGEM DO USUÁRIO:\nPerfil WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_name }}\nTelefone WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\nTexto enviado: {{ $('Validar Dados da Mensagem').first().json.message_text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        9792,
+        928
+      ],
+      "id": "c777ea68-36b3-433e-8e30-0852e102a4aa",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5.1",
+          "mode": "list",
+          "cachedResultName": "gpt-5.1"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        9632,
+        1168
+      ],
+      "id": "e685b631-e332-4ea4-8f4c-9ab5cfc6eb24",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "9G3P8b4cLbfFdbcm",
+          "name": "NEIA OpenAi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Validar Dados da Mensagem').first().json.sender_phone }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        9776,
+        1248
+      ],
+      "id": "69f8da40-0cb1-4a2b-8bf2-b3f202d3f800",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1.1,
+      "position": [
+        10016,
+        1216
+      ],
+      "id": "98de134a-a3e1-4b3b-a155-d90c8f9a8c6b",
+      "name": "Think"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTimeTool",
+      "typeVersion": 2,
+      "position": [
+        9888,
+        1184
+      ],
+      "id": "9e76d295-747e-45cf-91f0-d656956f7f72",
+      "name": "Date & Time"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        10128,
+        1312
+      ],
+      "id": "6a42ff7d-87bf-4c3b-9b33-7fa1fa63cbfe",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "name": "buscar_paciente",
+        "description": "Busca dados do paciente pelo número de telefone. Retorna nome, alergias, condições médicas, convênio, histórico de consultas e tratamentos ativos. Use quando precisar identificar o paciente ou ver informações dele. Parâmetros: patient_phone (string, obrigatório - número de telefone do paciente).",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{'qP7AmtAMWSJq2NuowOxCi'}}",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            { "name": "patient_phone", "stringValue": "telefone do paciente" }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [10240, 1184],
+      "id": "tool-buscar-paciente",
+      "name": "Buscar Paciente"
+    },
+    {
+      "parameters": {
+        "name": "buscar_horarios_disponiveis",
+        "description": "Busca horários disponíveis de dentistas para uma data específica. Pode filtrar por dentista (dentist_id) ou especialidade. Parâmetros: date (string, obrigatório - formato YYYY-MM-DD), dentist_id (number, opcional), specialty (string, opcional - ex: endodontia, ortodontia).",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{'UgkezWSTlblPiMvGEjhRJ'}}",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            { "name": "date", "stringValue": "data no formato YYYY-MM-DD" },
+            { "name": "dentist_id", "stringValue": "ID do dentista (opcional)" },
+            { "name": "specialty", "stringValue": "especialidade desejada (opcional)" }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [10352, 1184],
+      "id": "tool-buscar-horarios",
+      "name": "Buscar Horários"
+    },
+    {
+      "parameters": {
+        "name": "agendar_consulta",
+        "description": "Cria um novo agendamento de consulta odontológica. IMPORTANTE: só use após confirmar TODOS os dados com o paciente. Parâmetros: patient_phone (string, obrigatório), patient_name (string, obrigatório), dentist_id (number, obrigatório), procedure_id (number, opcional), date (string, obrigatório - YYYY-MM-DD), time (string, obrigatório - HH:MM), notes (string, opcional).",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{'6z60DDRnhv_0k90bvvEAY'}}",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            { "name": "patient_phone", "stringValue": "telefone do paciente" },
+            { "name": "patient_name", "stringValue": "nome do paciente" },
+            { "name": "dentist_id", "stringValue": "ID do dentista" },
+            { "name": "procedure_id", "stringValue": "ID do procedimento (opcional)" },
+            { "name": "date", "stringValue": "data YYYY-MM-DD" },
+            { "name": "time", "stringValue": "horário HH:MM" },
+            { "name": "notes", "stringValue": "observações (opcional)" }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [10464, 1184],
+      "id": "tool-agendar-consulta",
+      "name": "Agendar Consulta"
+    },
+    {
+      "parameters": {
+        "name": "cancelar_consulta",
+        "description": "Cancela um agendamento existente. Precisa do ID do agendamento e do telefone do paciente para validação. Parâmetros: appointment_id (number, obrigatório), patient_phone (string, obrigatório), reason (string, opcional - motivo do cancelamento).",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{'BW61kcoin51HUb3gD_-p2'}}",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            { "name": "appointment_id", "stringValue": "ID do agendamento" },
+            { "name": "patient_phone", "stringValue": "telefone do paciente" },
+            { "name": "reason", "stringValue": "motivo do cancelamento (opcional)" }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [10576, 1184],
+      "id": "tool-cancelar-consulta",
+      "name": "Cancelar Consulta"
+    },
+    {
+      "parameters": {
+        "name": "consultar_agendamentos",
+        "description": "Lista os próximos agendamentos futuros de um paciente. Retorna data, horário, dentista, procedimento e status. Parâmetros: patient_phone (string, obrigatório), status (string, opcional - filtrar por: agendado, confirmado, concluido).",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{'98P80bb9GyKUueDO6CTu1'}}",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            { "name": "patient_phone", "stringValue": "telefone do paciente" },
+            { "name": "status", "stringValue": "filtro de status (opcional)" }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [10688, 1184],
+      "id": "tool-consultar-agendamentos",
+      "name": "Consultar Agendamentos"
+    },
+    {
+      "parameters": {
+        "name": "listar_dentistas_procedimentos",
+        "description": "Lista dentistas disponíveis ou procedimentos odontológicos oferecidos. Para dentistas, retorna nome, CRO e especialidades. Para procedimentos, retorna nome, categoria, duração e preço. Parâmetros: type (string, obrigatório - 'dentistas' ou 'procedimentos'), specialty (string, opcional - filtro de especialidade), category (string, opcional - filtro de categoria ex: preventivo, restaurador, cirurgico, endodontia, ortodontia, estetica, protese, implantodontia).",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{/* SUBSTITUIR PELO ID DO SUB-WORKFLOW: Ferramenta: Listar Dentistas e Procedimentos */}}",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            { "name": "type", "stringValue": "dentistas ou procedimentos" },
+            { "name": "specialty", "stringValue": "especialidade (opcional)" },
+            { "name": "category", "stringValue": "categoria (opcional)" }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [10800, 1184],
+      "id": "tool-listar-dentistas",
+      "name": "Listar Dentistas/Procedimentos"
+    },
+    {
+      "parameters": {
+        "name": "resumo_financeiro",
+        "description": "Retorna o resumo financeiro do paciente: total cobrado, pago, pendente, atrasado e próximos vencimentos. Parâmetros: patient_phone (string, obrigatório).",
+        "workflowId": {
+          "__rl": true,
+          "value": "={{/* SUBSTITUIR PELO ID DO SUB-WORKFLOW: Ferramenta: Resumo Financeiro do Paciente */}}",
+          "mode": "id"
+        },
+        "fields": {
+          "values": [
+            { "name": "patient_phone", "stringValue": "telefone do paciente" }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [10912, 1184],
+      "id": "tool-resumo-financeiro",
+      "name": "Resumo Financeiro"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "abo",
+          "mode": "list",
+          "cachedResultName": "abo"
+        },
+        "table": {
+          "__rl": true,
+          "value": "conversas",
+          "mode": "list",
+          "cachedResultName": "conversas"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "telefone": "={{ $('Validar Dados da Mensagem').first().json.sender_phone }}",
+            "nome": "={{ $('Validar Dados da Mensagem').first().json.sender_name }}",
+            "mensagem": "={{ $('Validar Dados da Mensagem').first().json.message_text }}",
+            "resposta_ia": "={{ $('AI Agent').first().json.output }}",
+            "contexto_rag": "={{ $('Code in JavaScript').first().json }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "telefone",
+              "displayName": "telefone",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "nome",
+              "displayName": "nome",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "mensagem",
+              "displayName": "mensagem",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "resposta_ia",
+              "displayName": "resposta_ia",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "contexto_rag",
+              "displayName": "contexto_rag",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "data_hora",
+              "displayName": "data_hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "criado_em",
+              "displayName": "criado_em",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "atualizado_em",
+              "displayName": "atualizado_em",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        10192,
+        768
+      ],
+      "id": "32c1a19d-7173-444e-bb59-23bf8ac01917",
+      "name": "Salvar Conversa no BD",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Bahia Tecnologia Ltda",
+        "remoteJid": "={{ $('Validar Dados da Mensagem').first().json.sender_phone }}",
+        "messageText": "={{ $json.item }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        11104,
+        944
+      ],
+      "id": "4d7783c6-9322-4ddb-9583-14125adf6d80",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "JMQ37vVKU8xZgKjy",
+          "name": "Evolution account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Recebe o texto de entrada\nconst texto = $input.first().json.output;\n\n// Divide o texto apenas pela sequência de barra invertida dupla (\\n\\n)\nconst itens = texto.split(/\\n/);\n\n// Retorna cada item como um objeto separado, filtrando itens vazios\nreturn itens\n  .filter(item => item.trim() !== \"\")\n  .map(item => ({ item }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        10400,
+        928
+      ],
+      "id": "f40054a5-b2c8-4118-a65a-fe4ae2099f9b",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        10784,
+        928
+      ],
+      "id": "be998a29-6172-437f-a622-bd40213d9600",
+      "name": "Loop Over Items"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.bahiati.cloud",
+            "user-agent": "axios/1.13.2",
+            "content-length": "1470",
+            "accept": "application/json, text/plain, */*",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "n8n.bahiati.cloud",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "0559ca9a5ebb",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "event": "messages.upsert",
+            "instance": "Bahia Tecnologia Ltda",
+            "data": {
+              "key": {
+                "remoteJid": "553496620569@s.whatsapp.net",
+                "remoteJidAlt": "553496620569@s.whatsapp.net",
+                "fromMe": false,
+                "id": "3B1588A7A6776C034D46",
+                "participant": "",
+                "addressingMode": "lid"
+              },
+              "pushName": "Dalí Freire",
+              "status": "DELIVERY_ACK",
+              "message": {
+                "conversation": "bom dia",
+                "messageContextInfo": {
+                  "threadId": [],
+                  "deviceListMetadata": {
+                    "senderKeyIndexes": [],
+                    "recipientKeyIndexes": [],
+                    "senderKeyHash": {
+                      "0": 207,
+                      "1": 107,
+                      "2": 167,
+                      "3": 106,
+                      "4": 126,
+                      "5": 144,
+                      "6": 242,
+                      "7": 113,
+                      "8": 148,
+                      "9": 250
+                    },
+                    "senderTimestamp": {
+                      "low": 1770116076,
+                      "high": 0,
+                      "unsigned": true
+                    },
+                    "recipientKeyHash": {
+                      "0": 224,
+                      "1": 133,
+                      "2": 166,
+                      "3": 87,
+                      "4": 96,
+                      "5": 159,
+                      "6": 24,
+                      "7": 39,
+                      "8": 17,
+                      "9": 139
+                    },
+                    "recipientTimestamp": {
+                      "low": 1770582804,
+                      "high": 0,
+                      "unsigned": true
+                    }
+                  },
+                  "deviceListMetadataVersion": 2,
+                  "messageSecret": {
+                    "0": 153,
+                    "1": 106,
+                    "2": 119,
+                    "3": 130,
+                    "4": 128,
+                    "5": 183,
+                    "6": 47,
+                    "7": 162,
+                    "8": 225,
+                    "9": 228,
+                    "10": 79,
+                    "11": 143,
+                    "12": 139,
+                    "13": 186,
+                    "14": 131,
+                    "15": 156,
+                    "16": 138,
+                    "17": 104,
+                    "18": 43,
+                    "19": 192,
+                    "20": 48,
+                    "21": 57,
+                    "22": 136,
+                    "23": 96,
+                    "24": 210,
+                    "25": 122,
+                    "26": 19,
+                    "27": 23,
+                    "28": 145,
+                    "29": 221,
+                    "30": 60,
+                    "31": 200
+                  }
+                }
+              },
+              "messageType": "conversation",
+              "messageTimestamp": 1772363559,
+              "instanceId": "c9aff788-608b-4cea-801e-d3dcd53676af",
+              "source": "unknown"
+            },
+            "destination": "https://n8n.bahiati.cloud/webhook/66c1e19b-70ba-4ece-8a9c-c6ad6819a091",
+            "date_time": "2026-03-01T08:12:39.527Z",
+            "sender": "557183803720@s.whatsapp.net",
+            "server_url": "https://evolution.bahiati.cloud",
+            "apikey": "8994AF317C9A-4406-81A3-AA973BF65EA2"
+          },
+          "webhookUrl": "https://n8n.bahiati.cloud/webhook/66c1e19b-70ba-4ece-8a9c-c6ad6819a091",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extrair Dados da Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrair Dados da Mensagem": {
+      "main": [
+        [
+          {
+            "node": "Validar Dados da Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar Dados da Mensagem": {
+      "main": [
+        [
+          {
+            "node": "Gerar Embedding da Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gerar Embedding da Mensagem": {
+      "main": [
+        [
+          {
+            "node": "Extrair Embedding",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrair Embedding": {
+      "main": [
+        [
+          {
+            "node": "RAG - Busca Conhecimento ABO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RAG - Busca Conhecimento ABO": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Paciente": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Horários": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agendar Consulta": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cancelar Consulta": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consultar Agendamentos": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar Dentistas/Procedimentos": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resumo Financeiro": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Salvar Conversa no BD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Salvar Conversa no BD": {
+      "main": [
+        []
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "6f93db19-d8f1-4338-b1e4-fdc0c5a39675",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "68VqxzJuQsLXKbXPS4aZq",
+  "tags": []
+}

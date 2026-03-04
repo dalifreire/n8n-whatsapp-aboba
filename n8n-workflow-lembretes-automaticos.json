@@ -1,0 +1,94 @@
+{
+  "name": "ABO / ABO - Enviar Lembretes Automáticos",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "minutes", "minutesInterval": 15 }]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [340, 300],
+      "id": "cron-lembretes",
+      "name": "A cada 15 minutos"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT r.id as reminder_id, r.tipo, r.mensagem, p.nome as nome_paciente, p.telefone as telefone_paciente, a.data_consulta, a.hora_consulta, d.nome as nome_dentista\nFROM abo.lembretes r\nJOIN abo.pacientes p ON r.id_paciente = p.id\nLEFT JOIN abo.agendamentos a ON r.id_agendamento = a.id\nLEFT JOIN abo.dentistas d ON a.id_dentista = d.id\nWHERE r.status = 'pendente'\n  AND r.agendado_para <= NOW()\n  AND r.tentativas < 3\nORDER BY r.agendado_para\nLIMIT 10;"
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [580, 300],
+      "id": "query-lembretes",
+      "name": "Buscar Lembretes Pendentes",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst lembretes = items.filter(i => i.json.reminder_id);\n\nif (lembretes.length === 0) {\n  return [];\n}\n\nreturn lembretes.map(l => {\n  const d = l.json;\n  let message = d.mensagem;\n\n  if (!message) {\n    const date = d.data_consulta ? new Date(d.data_consulta).toLocaleDateString('pt-BR') : '';\n    const time = d.hora_consulta ? d.hora_consulta.substring(0,5) : '';\n    const dentist = d.nome_dentista || '';\n\n    switch (d.tipo) {\n      case 'consulta_24h':\n        message = `Olá ${d.nome_paciente}! 😊 Lembramos que você tem consulta amanhã (${date}) às ${time} com Dr(a). ${dentist}. Confirme sua presença respondendo SIM. Para cancelar ou reagendar, fale conosco!`;\n        break;\n      case 'consulta_1h':\n        message = `${d.nome_paciente}, sua consulta é em 1 hora! ⏰ Às ${time} com Dr(a). ${dentist}. Estamos esperando você! 😊`;\n        break;\n      case 'retorno':\n        message = `Olá ${d.nome_paciente}! 🦷 Está na hora do seu retorno. Agende sua consulta conosco pelo WhatsApp!`;\n        break;\n      default:\n        message = `Olá ${d.nome_paciente}! 😊 Você tem um lembrete da ABO-BA. Entre em contato para mais informações.`;\n    }\n  }\n\n  return { json: { reminder_id: d.reminder_id, phone: d.telefone_paciente, message } };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [820, 300],
+      "id": "preparar-mensagens",
+      "name": "Preparar Mensagens"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "Bahia Tecnologia Ltda",
+        "remoteJid": "={{ $json.phone }}",
+        "messageText": "={{ $json.message }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [1080, 300],
+      "id": "enviar-lembrete-whatsapp",
+      "name": "Enviar Lembrete WhatsApp",
+      "credentials": {
+        "evolutionApi": {
+          "id": "JMQ37vVKU8xZgKjy",
+          "name": "Evolution account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE abo.lembretes SET status = 'enviado', enviado_em = NOW(), tentativas = tentativas + 1 WHERE id = $1::bigint;",
+        "options": {
+          "queryReplacement": "={{ $json.reminder_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [1320, 300],
+      "id": "marcar-lembrete-enviado",
+      "name": "Marcar como Enviado",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "A cada 15 minutos": { "main": [[{ "node": "Buscar Lembretes Pendentes", "type": "main", "index": 0 }]] },
+    "Buscar Lembretes Pendentes": { "main": [[{ "node": "Preparar Mensagens", "type": "main", "index": 0 }]] },
+    "Preparar Mensagens": { "main": [[{ "node": "Enviar Lembrete WhatsApp", "type": "main", "index": 0 }]] },
+    "Enviar Lembrete WhatsApp": { "main": [[{ "node": "Marcar como Enviado", "type": "main", "index": 0 }]] }
+  },
+  "active": true,
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": true }
+}

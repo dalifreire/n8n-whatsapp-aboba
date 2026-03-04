@@ -1,0 +1,1035 @@
+{
+  "documentos": [
+    {
+      "id": "abo_001_sobre",
+      "categoria": "sobre_abo",
+      "titulo": "Quem é a ABO-BA?",
+      "conteudo": "A ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente. Valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população. A associação surgiu a partir do NEOB com o objetivo de promover discussões científicas para o aprimoramento da prática odontológica.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_002_contato_endereco",
+      "categoria": "informacoes_contato",
+      "titulo": "Endereço e Localização da ABO-BA",
+      "conteudo": "Endereço: Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492. A ABO-BA está localizada em uma área nobre de Salvador, com instalações modernas e acessíveis.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_003_contato_telefone",
+      "categoria": "informacoes_contato",
+      "titulo": "Telefone e WhatsApp para Contato",
+      "conteudo": "Para entrar em contato com a ABO-BA: Telefone: (71) 2203-4067 | WhatsApp: (71) 98132-8046 | Email: contato@abo-ba.org.br. Recomendamos usar WhatsApp para uma resposta mais rápida.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_004_horario_funcionamento",
+      "categoria": "horario_operacional",
+      "titulo": "Horário de Funcionamento",
+      "conteudo": "Horário de atendimento: Segunda a Sexta, das 08:00 às 18:00 | Sábados, das 08:00 às 12:00. A ABO-BA está fechada aos domingos e feriados nacionais.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_005_servicos_atendimento",
+      "categoria": "servicos",
+      "titulo": "Serviços de Atendimento Odontológico",
+      "conteudo": "A ABO-BA oferece programas de atendimento odontológico comunitário, atendimento ao público em suas clínicas, e possui convênios com diversas instituições para atender a população carente. Realiza atividades comunitárias focadas em promoção de saúde bucal.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_006_cursos_especializacoes",
+      "categoria": "educacao_profissional",
+      "titulo": "Cursos e Especializações",
+      "conteudo": "A ABO-BA oferece cursos de especialização em diferentes áreas da odontologia, incluindo: Reabilitação Oral, Prótese Dentária, Implantodontia e Estomatologia. Oferece modalidades presenciais e EAD (educação a distância). Acesse o painel do aluno em abo-ba.org.br/painel-do-aluno/",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_007_recursos_biblioteca",
+      "categoria": "recursos",
+      "titulo": "Biblioteca e Recursos Científicos",
+      "conteudo": "A ABO-BA possui uma biblioteca com vasto acervo de recursos científicos em odontologia, disponível para associados e estudantes. A biblioteca é um espaço dedicado a pesquisa e aprimoramento profissional contínuo.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_008_museu_imoba",
+      "categoria": "recursos",
+      "titulo": "Museu de Odontologia - IMOBA",
+      "conteudo": "A ABO-BA abriga o IMOBA (Museu de Odontologia), um espaço dedicado à história e preservação da odontologia. O museu é aberto ao público e oferece uma experiência educativa sobre a evolução da profissão dentária.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_009_beneficios_associados",
+      "categoria": "programas",
+      "titulo": "Clube de Benefícios ABO",
+      "conteudo": "A ABO-BA oferece um Clube de Benefícios exclusivo para associados com descontos em serviços odontológicos, fornecedores de produtos odontológicos e estabelecimentos parceiros. É uma vantagem importante da associação.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_010_responsabilidade_social",
+      "categoria": "programas",
+      "titulo": "Programas de Responsabilidade Social",
+      "conteudo": "A ABO-BA desenvolve diversos projetos de responsabilidade social voltados à comunidade, promovendo saúde bucal em populações carentes, realizando campanhas preventivas e oferecendo atendimento odontológico gratuito ou subsidiado.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_011_eventos",
+      "categoria": "eventos",
+      "titulo": "Eventos Científicos da ABO-BA",
+      "conteudo": "A ABO-BA realiza o Meeting Acadêmico ABO, evento importante para discussão científica e atualização profissional. Participa também de eventos maiores como CIOBA (Congresso Internacional de Odontologia da Bahia) e SINAM (Sindicato de Odontologia).",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_012_associacao",
+      "categoria": "administrativo",
+      "titulo": "Como se Associar à ABO-BA",
+      "conteudo": "Para se associar à ABO-BA, visite abo-ba.org.br/associe-se/ ou entre em contato direto. A associação oferece diversos benefícios incluindo participação em eventos, acesso a recursos e clube de benefícios. O processo é simples e a ABO está sempre aberta para novos associados.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_013_cnpj_info",
+      "categoria": "administrativo",
+      "titulo": "Informações Administrativas",
+      "conteudo": "CNPJ: 15.187.719/0001-50. A ABO-BA é uma entidade sem fins lucrativos registrada oficialmente como Associação Brasileira de Odontologia, Seção Bahia.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_014_redes_sociais",
+      "categoria": "digital",
+      "titulo": "Redes Sociais da ABO-BA",
+      "conteudo": "Siga a ABO-BA em: Instagram: @abobahia | Facebook: facebook.com/abobahia | LinkedIn: ABO-BA. Acompanhe as últimas notícias, eventos, dicas de saúde bucal e atualizações profissionais.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_015_infraestrutura",
+      "categoria": "infraestrutura",
+      "titulo": "Infraestrutura e Instalações",
+      "conteudo": "A ABO-BA possui uma estrutura moderna e completa com clínicas equipadas, salas de aula para cursos, biblioteca, museu e espaços para eventos. Localizada em uma área nobre de Pituba, Salvador, oferece conforto e acessibilidade.",
+      "metadata": {
+        "fonte": "website",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_016_faq_horario",
+      "categoria": "faq",
+      "titulo": "Perguntas Frequentes - Horário",
+      "conteudo": "P: Qual é o horário de funcionamento? R: Segunda a sexta das 08:00 às 18:00, sábados das 08:00 às 12:00. P: Qual é o melhor momento para ligar? R: Recomendamos ligar entre 09:00 e 17:00 em dias úteis para melhor atendimento.",
+      "metadata": {
+        "fonte": "faq",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_017_faq_contato",
+      "categoria": "faq",
+      "titulo": "Perguntas Frequentes - Formas de Contato",
+      "conteudo": "P: Como entro em contato com a ABO? R: Você pode ligar (71) 2203-4067, enviar WhatsApp (71) 98132-8046, mandar email contato@abo-ba.org.br ou visitar presencialmente em Pituba. P: O WhatsApp é a forma mais rápida? R: Sim, recomendamos WhatsApp para respostas mais ágeis.",
+      "metadata": {
+        "fonte": "faq",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_018_faq_servicos",
+      "categoria": "faq",
+      "titulo": "Perguntas Frequentes - Serviços",
+      "conteudo": "P: Quais serviços a ABO oferece? R: Atendimento odontológico, cursos, especialização, eventos científicos e programas sociais. P: Como agendar atendimento? R: Entre em contato conosco para agendamento. P: Há atendimento para população carente? R: Sim, através de programas de responsabilidade social.",
+      "metadata": {
+        "fonte": "faq",
+        "atualizado": "2025-02-28"
+      }
+    },
+    {
+      "id": "abo_web_homepage",
+      "categoria": "geral",
+      "titulo": "Informações Principal: São João da ABO-BA celebra tradição, alegria e união da classe odontológica",
+      "conteudo": "ABO Todo ambiente ou instituição fundamentada num trabalho de recuperação de auto estima, mereceria por si, todas as estrelas. Um lugar especial, onde os profissionais que lá se encontram demonstram amor pelo que fazem, em especial Dra. Grasieli, que mim atendeu com muito carinho.",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "homepage",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto",
+        "url": "https://abo-ba.org.br"
+      }
+    },
+    {
+      "id": "abo_instagram_post_0",
+      "categoria": "saude_bucal",
+      "titulo": "Dicas de Higiene Bucal",
+      "conteudo": "Escove os dentes 3x ao dia, passe fio dental após as refeições...",
+      "metadata": {
+        "fonte": "instagram",
+        "tipo": "post",
+        "atualizado": "2026-03-03",
+        "relevancia": "medio",
+        "url": "https://www.instagram.com/abobahia/"
+      }
+    },
+    {
+      "id": "abo_instagram_post_1",
+      "categoria": "educacao",
+      "titulo": "Novo Curso de Implantodontia",
+      "conteudo": "A ABO-BA está oferecendo especialização em Implantodontia...",
+      "metadata": {
+        "fonte": "instagram",
+        "tipo": "post",
+        "atualizado": "2026-03-03",
+        "relevancia": "medio",
+        "url": "https://www.instagram.com/abobahia/"
+      }
+    },
+    {
+      "id": "abo_web_quem_somos_quem_somos",
+      "categoria": "sobre_abo",
+      "titulo": "Quem somos",
+      "conteudo": "A ABO Bahia teve sua origem no NEOB (Núcleo de Estudos Odontológicos da Bahiana), fundado em 1946 com o propósito de fomentar debates científicos para aprimorar a teoria e prática odontológica. Seu primeiro presidente foi o Dr. Jutorib Lima e o primeiro secretário Giuseppe Mazzoni. Em 1966, o NEOB fundiu-se com a Associação Brasileira de Odontologia, tornando-se a ABO seção Bahia. A primeira diretoria da ABO Bahia teve como presidente Germano Tabacof e membros consultivos como Jutorib Lima, Jayme Bandeira, Hermano Palma, Evandro Conselho Guedes, Alberto Bustani e Alcione Dias. O secretário geral foi Antônio da Silva Araújo. Desde seu início, a ABO Bahia tem cumprido seus objetivos de promover a atualização técnico-científica profissional, tornando-se uma das mais atuantes seções da ABO no país, graças ao trabalho voluntário de suas diretorias e ao apoio dos cirurgiões-dentistas baianos. A ABO Bahia oferece todas as condições para o desenvolvimento de suas atividades, sejam elas científicas, culturais, filantrópicas ou sociais. A missão da ABO Bahia é promover a Odontologia nacional e internacionalmente, valorizar o Cirurgião-Dentista no contexto técnico-científico e sócio-cultural, além de contribuir para uma política de promoção da saúde bucal da população. Localizada em uma área nobre da cidade, a atual sede da ABO Bahia possui uma área total de 3750m² distribuídos em 04 pavimentos. O terreno, doado pelo então prefeito Fernando José Guimarães Rocha em dezembro de 1989 e aprovado por unanimidade na câmara de vereadores, serve tanto a estudantes quanto a profissionais de odontologia. No primeiro pavimento, encontram-se três ambulatórios com 12 equipamentos odontológicos cada, um ambulatório com 08 equipamentos odontológicos e um Centro Cirúrgico de Procedimentos com três salas, cada uma equipada com um equipamento odontológico.",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "quem_somos",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/quem-somos/"
+      }
+    },
+    {
+      "id": "abo_web_estrutura_sinam",
+      "categoria": "estrutura",
+      "titulo": "SINAM",
+      "conteudo": "Nossa estrutura\n\nA atual sede da ABO Bahia possui uma área total de 3750m², distribuídos em 04 pavimentos. O terreno, medindo uma área de 1318m², foi doado pelo então Prefeito Fernando José Guimarães Rocha em dezembro de 1989, tendo sido aprovado por unanimidade na Câmara de Vereadores. Todos os ambulatórios, salas de aula e demais setores são climatizados e com sinal de internet wi-fi.\n\n1º Pavimento\n2º Pavimento\n3º Pavimento\n4º Pavimento\n\n1º Pavimento\n– Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos.\n2º Pavimento\n– Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência.\n3º Pavimento\n– Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado.\n4º Pavimento\n– Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência.\n\nFachada\n\nMuseu\n\nSala\n\nAuditório\n\nSala de aula\n\nAtendimento\n\nBiblioteca\n\nBiblioteca Nossa estrutura\n\nBiblioteca Nossa estrutura Nossa estrutura Nossa estrutura A atual sede da ABO Bahia possui uma área total de 3750m², distribuídos em 04 pavimentos. O terreno, medindo uma área de 1318m², foi doado pelo então Prefeito Fernando José Guimarães Rocha em dezembro de 1989, tendo sido aprovado por unanimidade na Câmara de Vereadores. Todos os ambulatórios, salas de aula e demais setores são climatizados e com sinal de internet wi-fi.\n\n1º Pavimento\n– Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos.\n2º Pavimento\n– Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência.\n3º Pavimento\n– Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado.\n4º Pavimento\n– Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência. A atual sede da ABO Bahia possui uma área total de 3750m², distribuídos em 04 pavimentos. O terreno, medindo uma área de 1318m², foi doado pelo então Prefeito Fernando José Guimarães Rocha em dezembro de 1989, tendo sido aprovado por unanimidade na Câmara de Vereadores. Todos os ambulatórios, salas de aula e demais setores são climatizados e com sinal de internet wi-fi.\n\n1º Pavimento\n– Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos.\n2º Pavimento\n– Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência.\n3º Pavimento\n– Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado.\n4º Pavimento\n– Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência. A atual sede da ABO Bahia possui uma área total de 3750m², distribuídos em 04 pavimentos. O terreno, medindo uma área de 1318m², foi doado pelo então Prefeito Fernando José Guimarães Rocha em dezembro de 1989, tendo sido aprovado por unanimidade na Câmara de Vereadores. Todos os ambulatórios, salas de aula e demais setores são climatizados e com sinal de internet wi-fi. A atual sede da ABO Bahia possui uma área total de 3750m², distribuídos em 04 pavimentos. O terreno, medindo uma área de 1318m², foi doado pelo então Prefeito Fernando José Guimarães Rocha em dezembro de 1989, tendo sido aprovado por unanimidade na Câmara de Vereadores. Todos os ambulatórios, salas de aula e demais setores são climatizados e com sinal de internet wi-fi. A atual sede da ABO Bahia possui uma área total de 3750m², distribuídos em 04 pavimentos. O terreno, medindo uma área de 1318m², foi doado pelo então Prefeito Fernando José Guimarães Rocha em dezembro de 1989, tendo sido aprovado por unanimidade na Câmara de Vereadores. Todos os ambulatórios, salas de aula e demais setores são climatizados e com sinal de internet wi-fi. 1º Pavimento\n2º Pavimento\n3º Pavimento\n4º Pavimento\n\n1º Pavimento\n– Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos.\n2º Pavimento\n– Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência.\n3º Pavimento\n– Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado.\n4º Pavimento\n– Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência. 1º Pavimento\n2º Pavimento\n3º Pavimento\n4º Pavimento\n\n1º Pavimento\n– Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos.\n2º Pavimento\n– Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência.\n3º Pavimento\n– Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado.\n4º Pavimento\n– Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência. 1º Pavimento\n2º Pavimento\n3º Pavimento\n4º Pavimento 1º Pavimento 2º Pavimento 3º Pavimento 4º Pavimento 1º Pavimento\n– Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos.\n2º Pavimento\n– Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência.\n3º Pavimento\n– Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado.\n4º Pavimento\n– Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência. 1º Pavimento – Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos. – Ambulatório 3 com 12 equipamentos odontológicos.– Ambulatório 4 com 12 equipamentos odontológicos.– Ambulatório 5 com 08 equipamentos odontológicos.– Centro Cirúrgico de Procedimentos com 03 salas, cada sala com 01 equipamento odontológico– Laboratório de prótese e laboratório de microscopia, contendo bancadas com 16 refletores, 16 motores com saída para alta e baixa rotação, 6 microscópios e 6 ultrassons.– Sala de espera.– Central de Atendimento ao paciente (CAP).– Central de Esterilização.– Radiologia e Imaginologia Odontológicas, com Tomógrafo, RX Panorâmico, Teleradiografia e Periapical digitais.– Sala de laudos. 2º Pavimento – Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência. – Sala de imersão.– Tecnologia da informação.– Administração.– Arquivos.– Secretaria/UNIABO-EAP.– Sala de aula.– Portaria.– Biblioteca.– Museu.– Sanitários.– Sala de Reuniões.– Sala da Diretoria.– Presidência. 3º Pavimento – Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado. – Ambulatório 1 com 12 equipamentos odontológicos e microscópio móvel.– Ambulatório 2 com 12 equipamentos odontológicos e microscópio móvel.– Sala de apoio com Rx periapical.– Sanitários.– Sala de espera.– Auditório com 200 lugares.– Almoxarifado. 4º Pavimento – Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência. – Salão Nobre com capacidade para 250 pessoas.– Sala de coordenação científica/professores.– Sala de aula 1 com capacidade para 30 pessoas.– Sala de aula 2 com capacidade para 60 pessoas.– Espaço para coffee-break.– Área de convivência. Fachada\n\nBiblioteca Fachada\n\nBiblioteca Fachada Fachada Museu Museu Sala Sala Museu Museu Auditório Auditório Sala de aula Sala de aula Atendimento Atendimento Biblioteca Biblioteca Biblioteca Biblioteca Sobre\n\nA ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população.\n\nRedes Sociais\n\nRecursos\n\nClube de Benefícios\n\nAtendimento ao público\n\nResponsabilidade Social\n\nFale com a gente\n\nRua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492\n\ncontato@abo-ba.org.br\n\n(71) 22034067\n\n(71) 98132-8046\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00\n\n© 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare Sobre\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Sobre\n\nRedes Sociais Sobre\n\nRedes Sociais Sobre Sobre",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "estrutura",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/estrutura-da-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_estrutura_sobre",
+      "categoria": "estrutura",
+      "titulo": "Sobre",
+      "conteudo": "A ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população. A ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população.",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "estrutura",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/estrutura-da-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_estrutura_a_abo-ba_é_uma_entid",
+      "categoria": "estrutura",
+      "titulo": "A ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população.",
+      "conteudo": "Redes Sociais Redes Sociais",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "estrutura",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/estrutura-da-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_estrutura_redes_sociais",
+      "categoria": "estrutura",
+      "titulo": "Redes Sociais",
+      "conteudo": "Recursos\n\nBiblioteca\n\nMuseu\n\nClube de Benefícios\n\nAtendimento ao público\n\nResponsabilidade Social Recursos\n\nResponsabilidade Social Recursos Recursos",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "estrutura",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/estrutura-da-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_estrutura_recursos",
+      "categoria": "estrutura",
+      "titulo": "Recursos",
+      "conteudo": "Biblioteca\n\nMuseu\n\nClube de Benefícios\n\nAtendimento ao público\n\nResponsabilidade Social Biblioteca\n\nResponsabilidade Social Biblioteca Museu Clube de Benefícios Atendimento ao público Responsabilidade Social Fale com a gente\n\nRua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492\n\ncontato@abo-ba.org.br\n\n(71) 22034067\n\n(71) 98132-8046\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Fale com a gente\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Fale com a gente Fale com a gente",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "estrutura",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/estrutura-da-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_estrutura_fale_com_a_gente",
+      "categoria": "estrutura",
+      "titulo": "Fale com a gente",
+      "conteudo": "Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492 Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492 Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492 contato@abo-ba.org.br contato@abo-ba.org.br contato@abo-ba.org.br (71) 22034067 (71) 22034067 (71) 22034067 (71) 98132-8046 (71) 98132-8046 (71) 98132-8046 Seg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Seg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Seg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 © 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare © 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare © 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare © 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare © 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "estrutura",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/estrutura-da-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_projeto_atividades_comunitár",
+      "categoria": "projetos_sociais",
+      "titulo": "Atividades comunitárias",
+      "conteudo": "A diretoria de Atividades Comunitárias compartilha da certeza que as instituições da área de saúde devem colaborar com a sociedade, difundindo informações de prevenção e promoção da saúde. Realizamos, então, atividades educativas de higiene oral, escovação supervisionada, ART em escolares, uso preventivo/curativo do flúor e triagem/encaminhamento de lesões de câncer bucal. Desenvolvemos essas ações em parceria com a Secretaria Municipal de Salvador, Faculdade Bahiana de Odontologia, FOUFBA, UNINASSAU, Faculdade Batista Brasileira (FBB), ABO NACIONAL (Projeto “Um Sorriso do Tamanho do Brasil”), Projeto Cidade Mãe, Polícia Militar da Bahia, Instituto de Gestão e Humanização (IGH), Creche Béu Machado, entre outros. A diretoria de Atividades Comunitárias compartilha da certeza que as instituições da área de saúde devem colaborar com a sociedade, difundindo informações de prevenção e promoção da saúde. Realizamos, então, atividades educativas de higiene oral, escovação supervisionada, ART em escolares, uso preventivo/curativo do flúor e triagem/encaminhamento de lesões de câncer bucal. Desenvolvemos essas ações em parceria com a Secretaria Municipal de Salvador, Faculdade Bahiana de Odontologia, FOUFBA, UNINASSAU, Faculdade Batista Brasileira (FBB), ABO NACIONAL (Projeto “Um Sorriso do Tamanho do Brasil”), Projeto Cidade Mãe, Polícia Militar da Bahia, Instituto de Gestão e Humanização (IGH), Creche Béu Machado, entre outros. A diretoria de Atividades Comunitárias compartilha da certeza que as instituições da área de saúde devem colaborar com a sociedade, difundindo informações de prevenção e promoção da saúde. Realizamos, então, atividades educativas de higiene oral, escovação supervisionada, ART em escolares, uso preventivo/curativo do flúor e triagem/encaminhamento de lesões de câncer bucal. Desenvolvemos essas ações em parceria com a Secretaria Municipal de Salvador, Faculdade Bahiana de Odontologia, FOUFBA, UNINASSAU, Faculdade Batista Brasileira (FBB), ABO NACIONAL (Projeto “Um Sorriso do Tamanho do Brasil”), Projeto Cidade Mãe, Polícia Militar da Bahia, Instituto de Gestão e Humanização (IGH), Creche Béu Machado, entre outros. Distribuição de 200 kits infantis de higiene bucal em várias comunidades carentes de Mata de São João. Distribuição de 200 kits infantis de higiene bucal em várias comunidades carentes de Mata de São João. Distribuição de 200 kits infantis de higiene bucal em várias comunidades carentes de Mata de São João. Promovemos também, em Parceria com outras diretorias, as Sessões de 4ª, que objetivam atualizar dentistas e ASBs/TSBs da rede municipal de Salvador e região metropolitana acerca de temas contemporâneos e inovadores, incitando os participantes na busca de novos conhecimentos.\n\nDra Ivea Sant’ana Promovemos também, em Parceria com outras diretorias, as Sessões de 4ª, que objetivam atualizar dentistas e ASBs/TSBs da rede municipal de Salvador e região metropolitana acerca de temas contemporâneos e inovadores, incitando os participantes na busca de novos conhecimentos.\n\nDra Ivea Sant’ana Promovemos também, em Parceria com outras diretorias, as Sessões de 4ª, que objetivam atualizar dentistas e ASBs/TSBs da rede municipal de Salvador e região metropolitana acerca de temas contemporâneos e inovadores, incitando os participantes na busca de novos conhecimentos. Dra Ivea Sant’ana Conheça o GEPPA Conheça o GEPPA",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "projeto_social",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/projetos-sociais-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_projeto_conheça_o_geppa",
+      "categoria": "projetos_sociais",
+      "titulo": "Conheça o GEPPA",
+      "conteudo": "A ABOBA, dentro dos seus objetivos de assistir aos que não tem condições de arcar com o tratamento, de forma íntegra e profissional, conta, no seu quadro, com um espaço para atendimento as pessoas com Deformidades de Face. Temos uma equipe voluntária de profissionais especialistas, mestres e doutores, multidisciplinar (Dentistas, Fonoaudiólogos e Fisioterapeutas ), levando qualidade na assistência a essas crianças. A ABOBA, dentro dos seus objetivos de assistir aos que não tem condições de arcar com o tratamento, de forma íntegra e profissional, conta, no seu quadro, com um espaço para atendimento as pessoas com Deformidades de Face. Temos uma equipe voluntária de profissionais especialistas, mestres e doutores, multidisciplinar (Dentistas, Fonoaudiólogos e Fisioterapeutas ), levando qualidade na assistência a essas crianças. A ABOBA, dentro dos seus objetivos de assistir aos que não tem condições de arcar com o tratamento, de forma íntegra e profissional, conta, no seu quadro, com um espaço para atendimento as pessoas com Deformidades de Face. Temos uma equipe voluntária de profissionais especialistas, mestres e doutores, multidisciplinar (Dentistas, Fonoaudiólogos e Fisioterapeutas ), levando qualidade na assistência a essas crianças. Relação de Convênios para Prestação de serviços e atendimentos odontológicos Relação de Convênios para Prestação de serviços e atendimentos odontológicos",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "projeto_social",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/projetos-sociais-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_projeto_relação_de_convênios",
+      "categoria": "projetos_sociais",
+      "titulo": "Relação de Convênios para Prestação de serviços e atendimentos odontológicos",
+      "conteudo": "A sede do Itaigara, além de valorizar e reconhecer o caminho trilhado pela ABO/BA, possibilitou a expansão do trabalho de atendimento à comunidade carente, um compromisso da entidade com Salvador. Já na sede do Garcia, a entidade firmou vários convênios com instituições diversas para atendimento a pessoas carentes, principalmente crianças e gestantes, criando o Programa de saúde Bucal e dando início ao processo para se estabelecer como entidade de utilidade pública. A odonto-clínica da ABO/BA possui 17 convênios com instituições de apoio à população carente, totalizando mais de 800 atendimentos.Este trabalho é a base da filosofia de Responsabilidade Social da entidade. FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME A sede do Itaigara, além de valorizar e reconhecer o caminho trilhado pela ABO/BA, possibilitou a expansão do trabalho de atendimento à comunidade carente, um compromisso da entidade com Salvador. Já na sede do Garcia, a entidade firmou vários convênios com instituições diversas para atendimento a pessoas carentes, principalmente crianças e gestantes, criando o Programa de saúde Bucal e dando início ao processo para se estabelecer como entidade de utilidade pública. A odonto-clínica da ABO/BA possui 17 convênios com instituições de apoio à população carente, totalizando mais de 800 atendimentos.Este trabalho é a base da filosofia de Responsabilidade Social da entidade. FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME A sede do Itaigara, além de valorizar e reconhecer o caminho trilhado pela ABO/BA, possibilitou a expansão do trabalho de atendimento à comunidade carente, um compromisso da entidade com Salvador. Já na sede do Garcia, a entidade firmou vários convênios com instituições diversas para atendimento a pessoas carentes, principalmente crianças e gestantes, criando o Programa de saúde Bucal e dando início ao processo para se estabelecer como entidade de utilidade pública. A odonto-clínica da ABO/BA possui 17 convênios com instituições de apoio à população carente, totalizando mais de 800 atendimentos. Este trabalho é a base da filosofia de Responsabilidade Social da entidade. FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIASECRETARIA MUNICIPAL DE SAÚDEFUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDCGRUPO CULTURAL OLODUMARA KETU SOCIEDADE RECREATIVA E CULTURALPROJETO AXÉASSOCIAÇÃO CIDADE DA CRIANÇAFUNDAÇÃO CIDADE MÃEASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APASUNEB – UNIVERSIDADE DO ESTADO DA BAHIAGRUPO ESPIRITA JESUS DE NAZARÉASSOCIAÇÃO DE MORADORES DA POLÊMICAASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZULPROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOANFTC – Faculdade de Tecnologia e CiênciasUNIME FACULDADE DE ODONTOLOGIA DA UNIVERSIDADE FEDERAL DA BAHIA SECRETARIA MUNICIPAL DE SAÚDE FUNDAÇÃO BAHIANA PARA DESENVOLVIMENTO DAS CIÊNCIAS – FBDC GRUPO CULTURAL OLODUM ARA KETU SOCIEDADE RECREATIVA E CULTURAL PROJETO AXÉ ASSOCIAÇÃO CIDADE DA CRIANÇA FUNDAÇÃO CIDADE MÃE ASSOCIAÇÃO PRACATUM AÇÃO SOCIAL – APAS UNEB – UNIVERSIDADE DO ESTADO DA BAHIA GRUPO ESPIRITA JESUS DE NAZARÉ ASSOCIAÇÃO DE MORADORES DA POLÊMICA ASSOCIAÇÃO DOS MORADORES DO CONJUNTO COLINA AZUL PROJETO FORÇA FEMININA ASSOCIAÇÃO NATIVOS DE ITAPOAN FTC – Faculdade de Tecnologia e CiênciasUNIME UNIME Um Sorriso do Tamanho do Brasil Um Sorriso do Tamanho do Brasil",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "projeto_social",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/projetos-sociais-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_projeto_um_sorriso_do_tamanh",
+      "categoria": "projetos_sociais",
+      "titulo": "Um Sorriso do Tamanho do Brasil",
+      "conteudo": "Desde 2015, atuamos junto com a ABO Nacional com os programas : “UM SORRISO DO TAMANHO DO BRASIL” que em 2017 alcançou 250000 crianças em todo o território Nacional e na Bahia 30000 crianças. O programa aborda aspectos de responsabilidade social e ambiental , integrando a saúde aos costumes e hábitos voltados as necessidades da região ou comunidade onde acontecerá a execução do projeto visando ao reconhecimento da população em relação à importância do Cirurgião Dentista para a Saúde Integral do indivíduo. Desde 2015, atuamos junto com a ABO Nacional com os programas : “UM SORRISO DO TAMANHO DO BRASIL” que em 2017 alcançou 250000 crianças em todo o território Nacional e na Bahia 30000 crianças. O programa aborda aspectos de responsabilidade social e ambiental , integrando a saúde aos costumes e hábitos voltados as necessidades da região ou comunidade onde acontecerá a execução do projeto visando ao reconhecimento da população em relação à importância do Cirurgião Dentista para a Saúde Integral do indivíduo. Desde 2015, atuamos junto com a ABO Nacional com os programas : “UM SORRISO DO TAMANHO DO BRASIL” que em 2017 alcançou 250000 crianças em todo o território Nacional e na Bahia 30000 crianças. O programa aborda aspectos de responsabilidade social e ambiental , integrando a saúde aos costumes e hábitos voltados as necessidades da região ou comunidade onde acontecerá a execução do projeto visando ao reconhecimento da população em relação à importância do Cirurgião Dentista para a Saúde Integral do indivíduo. Responsabilidade Ambiental Responsabilidade Ambiental",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "projeto_social",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/projetos-sociais-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_projeto_responsabilidade_amb",
+      "categoria": "projetos_sociais",
+      "titulo": "Responsabilidade Ambiental",
+      "conteudo": "Como responsabilidade ambiental fazemos plantio de árvores em praças e jardins, muitas vezes revitalizando-os para uso da comunidade. Como responsabilidade ambiental fazemos plantio de árvores em praças e jardins, muitas vezes revitalizando-os para uso da comunidade. Como responsabilidade ambiental fazemos plantio de árvores em praças e jardins, muitas vezes revitalizando-os para uso da comunidade. Odontologia na Selva Odontologia na Selva",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "projeto_social",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/projetos-sociais-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_projeto_odontologia_na_selva",
+      "categoria": "projetos_sociais",
+      "titulo": "Odontologia na Selva",
+      "conteudo": "Junto com nossos parceiros professores e acadêmicos das diversas faculdades baianas como as ligas LABESB E LABOP, fazemos o atendimento das crianças com a técnica ART (TRA) Tratamento Restaurador Atraumático em muitas das nossas ações. Junto com nossos parceiros professores e acadêmicos das diversas faculdades baianas como as ligas LABESB E LABOP, fazemos o atendimento das crianças com a técnica ART (TRA) Tratamento Restaurador Atraumático em muitas das nossas ações. Junto com nossos parceiros professores e acadêmicos das diversas faculdades baianas como as ligas LABESB E LABOP, fazemos o atendimento das crianças com a técnica ART (TRA) Tratamento Restaurador Atraumático em muitas das nossas ações. Sobre\n\nA ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população.\n\nRedes Sociais\n\nRecursos\n\nBiblioteca\n\nMuseu\n\nClube de Benefícios\n\nAtendimento ao público\n\nResponsabilidade Social\n\nFale com a gente\n\nRua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492\n\ncontato@abo-ba.org.br\n\n(71) 22034067\n\n(71) 98132-8046\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00\n\n© 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare Sobre\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Sobre\n\nRedes Sociais Sobre\n\nRedes Sociais Sobre Sobre",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "projeto_social",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/projetos-sociais-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_revista_fique_por_dentro_da_",
+      "categoria": "revista",
+      "titulo": "Fique por dentro da Odontologia",
+      "conteudo": "A Revista da ABO é um instrumento de comunicação para mantermos os nossos associados sempre bem informados. Nosso objetivo é entregar conteúdo de qualidade a todos os cirurgiões-dentistas do nosso estado. A Revista da ABO é um instrumento de comunicação para mantermos os nossos associados sempre bem informados. Nosso objetivo é entregar conteúdo de qualidade a todos os cirurgiões-dentistas do nosso estado. Edição 193\n\nEdição 192\n\nEdição 191\n\nEdição 190 Edição 193\n\nEdição 190 Edição 193 Edição 192 Edição 191 Edição 190 Sobre\n\nA ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população.\n\nRedes Sociais\n\nRecursos\n\nBiblioteca\n\nMuseu\n\nClube de Benefícios\n\nAtendimento ao público\n\nResponsabilidade Social\n\nFale com a gente\n\nRua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492\n\ncontato@abo-ba.org.br\n\n(71) 22034067\n\n(71) 98132-8046\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00\n\n© 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare Sobre\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Sobre\n\nRedes Sociais Sobre\n\nRedes Sociais Sobre Sobre",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "revista",
+        "atualizado": "2026-03-03",
+        "relevancia": "medio",
+        "url": "https://abo-ba.org.br/revista-abo-ba/"
+      }
+    },
+    {
+      "id": "abo_web_curso_projeto_red:_reconhe",
+      "categoria": "cursos",
+      "titulo": "PROJETO RED: Reconhecer, examinar e diagnosticar",
+      "conteudo": "ABO|BA - Salvador, BA ABO|BA - Salvador, BA",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_abo|ba_-_salvador,_b",
+      "categoria": "cursos",
+      "titulo": "ABO|BA - Salvador, BA",
+      "conteudo": "26 e 27 de Setembro 26 e 27 de Setembro",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_março/2026",
+      "categoria": "cursos",
+      "titulo": "Março/2026",
+      "conteudo": "Restaurações Indiretas em Resinas Nanohíbridas 3D\n\nABO|BA - Salvador, BA\n\nAbril/2026 Restaurações Indiretas em Resinas Nanohíbridas 3D Restaurações Indiretas em Resinas Nanohíbridas 3D",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_abril/2026",
+      "categoria": "cursos",
+      "titulo": "Abril/2026",
+      "conteudo": "Aperfeiçoamento em Periodontia\n\nABO|BA - Salvador, BA\n\nMaio/2026 Aperfeiçoamento em Periodontia Aperfeiçoamento em Periodontia",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_maio/2026",
+      "categoria": "cursos",
+      "titulo": "Maio/2026",
+      "conteudo": "Especialização em Implantodontia\n\nABO|BA - Salvador, BA\n\n2026 - 2028 Especialização em Implantodontia Especialização em Implantodontia",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_2026_-_2028",
+      "categoria": "cursos",
+      "titulo": "2026 - 2028",
+      "conteudo": "Gestão em saúde: Da concepção à gestão de Clínicas e Consultórios odontológicos\n\nABO|BA - Salvador, BA\n\n2025.2 Gestão em saúde: Da concepção à gestão de Clínicas e Consultórios odontológicos Gestão em saúde: Da concepção à gestão de Clínicas e Consultórios odontológicos",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_2025.2",
+      "categoria": "cursos",
+      "titulo": "2025.2",
+      "conteudo": "Imersão em Pistas Diretas para Dentição Decídua\n\nABO|BA - Salvador, BA\n\nNovembro/2025 Imersão em Pistas Diretas para Dentição Decídua Imersão em Pistas Diretas para Dentição Decídua",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_novembro/2025",
+      "categoria": "cursos",
+      "titulo": "Novembro/2025",
+      "conteudo": "Odontologia do Sono na Prática Clínica\n\nABO|BA - Salvador, BA\n\nDezembro/2025 Odontologia do Sono na Prática Clínica Odontologia do Sono na Prática Clínica",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_dezembro/2025",
+      "categoria": "cursos",
+      "titulo": "Dezembro/2025",
+      "conteudo": "Aperfeiçoamento em Cirurgia Bucal\n\nABO|BA - Salvador, BA\n\nJaneiro/2026 Aperfeiçoamento em Cirurgia Bucal Aperfeiçoamento em Cirurgia Bucal",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_janeiro/2026",
+      "categoria": "cursos",
+      "titulo": "Janeiro/2026",
+      "conteudo": "Atualização em Prótese Sobre Implantes\n\nABO|BA - Salvador, BA\n\n2026.1 Atualização em Prótese Sobre Implantes Atualização em Prótese Sobre Implantes",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_2026.1",
+      "categoria": "cursos",
+      "titulo": "2026.1",
+      "conteudo": "Aperfeiçoamento em Implantes Zigomáticos\n\nABO|BA - Salvador, BA Aperfeiçoamento em Implantes Zigomáticos Aperfeiçoamento em Implantes Zigomáticos",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_outubro/2025",
+      "categoria": "cursos",
+      "titulo": "Outubro/2025",
+      "conteudo": "Especialização em Endodontia\n\nABO|BA - Salvador, BA\n\nAgosto/2025 Especialização em Endodontia Especialização em Endodontia",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_agosto/2025",
+      "categoria": "cursos",
+      "titulo": "Agosto/2025",
+      "conteudo": "Imersão em Levantamento de Seio Maxilar\n\nABO|BA - Salvador, BA Imersão em Levantamento de Seio Maxilar Imersão em Levantamento de Seio Maxilar",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_julho/2025",
+      "categoria": "cursos",
+      "titulo": "Julho/2025",
+      "conteudo": "Graduação\n\nPós Graduação\n\nExtensão\n\nEvento | Congresso\n\n2º Meeting Acadêmico ABO\n\nABO|BA - Salvador, BA\n\n26 e 27 de Setembro\n\n26 e 27 de Setembro Graduação\n\nEvento | Congresso 2º Meeting Acadêmico ABO\n\n26 e 27 de Setembro 2º Meeting Acadêmico ABO\n\n26 e 27 de Setembro 2º Meeting Acadêmico ABO 2º Meeting Acadêmico ABO",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_curso_26_e_27_de_setembro",
+      "categoria": "cursos",
+      "titulo": "26 e 27 de Setembro",
+      "conteudo": "Sobre\n\nA ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população.\n\nRedes Sociais\n\nRecursos\n\nBiblioteca\n\nMuseu\n\nClube de Benefícios\n\nAtendimento ao público\n\nResponsabilidade Social\n\nFale com a gente\n\nRua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492\n\ncontato@abo-ba.org.br\n\n(71) 22034067\n\n(71) 98132-8046\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00\n\n© 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare Sobre\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Sobre\n\nRedes Sociais Sobre\n\nRedes Sociais Sobre Sobre",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "curso",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/cursos-teste/"
+      }
+    },
+    {
+      "id": "abo_web_associe_chegou_a_hora_de_voc",
+      "categoria": "associacao",
+      "titulo": "Chegou a hora de você fazer parte deste time!",
+      "conteudo": "Nossa Associação possui um clube de Vantagens que propõe benefícios aos nossos Associados, Cirurgiões Dentistas em dias com suas anuidades, que terão acesso a descontos em empresas renomadas como escolas, planos de saúde, consórcios, seguros, serviços, lojas, academias, agencias de viagens, ao acervo da nossa biblioteca com livros e revistas dos mais atualizados da área de odontologia. Estarão sempre em contato com os profissionais em técnicas das mais avanças da odontologia. Conhecerão e poderão participar dos projetos sociais desenvolvidos pela associação. Nossa Associação possui um clube de Vantagens que propõe benefícios aos nossos Associados, Cirurgiões Dentistas em dias com suas anuidades, que terão acesso a descontos em empresas renomadas como escolas, planos de saúde, consórcios, seguros, serviços, lojas, academias, agencias de viagens, ao acervo da nossa biblioteca com livros e revistas dos mais atualizados da área de odontologia. Estarão sempre em contato com os profissionais em técnicas das mais avanças da odontologia. Conhecerão e poderão participar dos projetos sociais desenvolvidos pela associação. Anuidade 2026 Acadêmico\n\nR$\n98\n\nCadastro via RPGestor\n\nEFETUAR CADASTRO\n\nAnuidade 2026 Profissional\n\nR$\n300\n\nEFETUAR CADASTRO Anuidade 2026 Acadêmico",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "associacao",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/associe-se/"
+      }
+    },
+    {
+      "id": "abo_web_associe_anuidade_2026_acadêm",
+      "categoria": "associacao",
+      "titulo": "Anuidade 2026 Acadêmico",
+      "conteudo": "R$\n98 Cadastro via RPGestor Cadastro via RPGestor EFETUAR CADASTRO Anuidade 2026 Profissional\n\nR$\n300\n\nCadastro via RPGestor\n\nEFETUAR CADASTRO Anuidade 2026 Profissional",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "associacao",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/associe-se/"
+      }
+    },
+    {
+      "id": "abo_web_associe_anuidade_2026_profis",
+      "categoria": "associacao",
+      "titulo": "Anuidade 2026 Profissional",
+      "conteudo": "R$\n300 Cadastro via RPGestor Cadastro via RPGestor EFETUAR CADASTRO Ao clicar no botão acima você será redirecionado para o sistema de cadastro ABO-BA/Rptec. Nele poderá preencher seus dados e realizar a sua inscrição com segurança. Ao clicar no botão acima você será redirecionado para o sistema de cadastro ABO-BA/Rptec. Nele poderá preencher seus dados e realizar a sua inscrição com segurança. Ao clicar no botão acima você será redirecionado para o sistema de cadastro ABO-BA/Rptec. Nele poderá preencher seus dados e realizar a sua inscrição com segurança. Ao clicar no botão acima você será redirecionado para o sistema de cadastro ABO-BA/Rptec. Nele poderá preencher seus dados e realizar a sua inscrição com segurança. Ao clicar no botão acima você será redirecionado para o sistema de cadastro ABO-BA/Rptec. Nele poderá preencher seus dados e realizar a sua inscrição com segurança. Se já tem cadastro, acesse aqui o RP gestor\n\nSe tiver problemas no pagamento, acesse diretamente aqui. Se já tem cadastro, acesse aqui o RP gestor\n\nSe tiver problemas no pagamento, acesse diretamente aqui. Se já tem cadastro, acesse aqui o RP gestor Se já tem cadastro, acesse aqui o RP gestor Se já tem cadastro, acesse aqui o RP gestor Se tiver problemas no pagamento, acesse diretamente aqui. Se tiver problemas no pagamento, acesse diretamente aqui. Se tiver problemas no pagamento, acesse diretamente aqui. Sobre\n\nA ABO-BA é uma entidade que promove a Odontologia Nacional e Internacionalmente, valoriza o Cirurgião-Dentista e contribui para a promoção da saúde bucal da população.\n\nRedes Sociais\n\nRecursos\n\nBiblioteca\n\nMuseu\n\nClube de Benefícios\n\nAtendimento ao público\n\nResponsabilidade Social\n\nFale com a gente\n\nRua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, 41830-492\n\ncontato@abo-ba.org.br\n\n(71) 22034067\n\n(71) 98132-8046\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00\n\n© 2025. Associação Brasileira de Odontologia Seção Bahia | CNPJ 15.187.719/0001-50Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492Feito por Angulare Sobre\n\nSeg a Sex, das 08:00 - 18:00Sábados, das 08:00 às 12:00 Sobre\n\nRedes Sociais Sobre\n\nRedes Sociais Sobre Sobre",
+      "metadata": {
+        "fonte": "website",
+        "tipo": "associacao",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto",
+        "url": "https://abo-ba.org.br/associe-se/"
+      }
+    },
+    {
+      "id": "consult_001_agendamento",
+      "categoria": "agendamento",
+      "titulo": "Como Agendar uma Consulta",
+      "conteudo": "Para agendar uma consulta na ABO-BA, você pode: 1) Enviar mensagem pelo WhatsApp informando a especialidade desejada e datas de preferência; 2) Ligar para (71) 2203-4067; 3) Ir presencialmente à recepção. Ao agendar, informe: nome completo, telefone, especialidade desejada e preferência de horário. O atendimento ocorre de segunda a sexta, das 08:00 às 18:00, e sábados das 08:00 às 12:00.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "consult_002_primeira_consulta",
+      "categoria": "agendamento",
+      "titulo": "Primeira Consulta - O que Esperar",
+      "conteudo": "Na primeira consulta, o dentista realizará uma avaliação completa que inclui: exame clínico dos dentes e gengivas, análise de radiografias (se necessário), verificação de problemas como cáries, gengivite ou má oclusão, e elaboração de um plano de tratamento personalizado. Traga documentos pessoais, cartão do convênio (se tiver) e lista de medicamentos que utiliza. A consulta de avaliação dura aproximadamente 30 minutos.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "consult_003_cancelamento",
+      "categoria": "agendamento",
+      "titulo": "Cancelamento e Reagendamento de Consultas",
+      "conteudo": "Para cancelar ou reagendar sua consulta, entre em contato com pelo menos 24 horas de antecedência pelo WhatsApp ou telefone. Cancelamentos de última hora ou faltas sem aviso podem impactar o atendimento a outros pacientes. Se precisar reagendar, comunique e buscaremos o melhor horário alternativo para você.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "consult_004_confirmacao",
+      "categoria": "agendamento",
+      "titulo": "Confirmação de Consultas",
+      "conteudo": "Enviamos lembretes automáticos 24 horas antes da sua consulta via WhatsApp. Por favor, confirme sua presença respondendo SIM. Caso não possa comparecer, responda NÃO e entraremos em contato para reagendar. A confirmação nos ajuda a manter a agenda organizada e reduzir o tempo de espera.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_001_especialidades",
+      "categoria": "procedimentos",
+      "titulo": "Especialidades Odontológicas Disponíveis",
+      "conteudo": "A ABO-BA oferece atendimento nas seguintes especialidades: Clínica Geral (avaliações, restaurações, limpezas), Endodontia (tratamento de canal), Periodontia (tratamento de gengivas), Cirurgia Oral (extrações, implantes), Prótese Dentária (coroas, pontes, dentaduras), Ortodontia (aparelhos), Implantodontia (implantes dentários), Odontopediatria (crianças), Estomatologia (doenças bucais), e Estética Dental (clareamento, facetas).",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "proc_002_limpeza",
+      "categoria": "procedimentos",
+      "titulo": "Limpeza Dental (Profilaxia)",
+      "conteudo": "A limpeza dental profissional (profilaxia) remove placa bacteriana e tártaro que a escovação não consegue eliminar. Recomenda-se fazer a cada 6 meses. O procedimento dura cerca de 30 minutos, é indolor e inclui polimento dos dentes. Após a limpeza, evite comer por 30 minutos. Valor aproximado: R$ 150,00.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_003_restauracao",
+      "categoria": "procedimentos",
+      "titulo": "Restaurações Dentárias",
+      "conteudo": "As restaurações em resina composta são usadas para tratar cáries e reparar dentes fraturados. O procedimento é feito com anestesia local, remoção da cárie e preenchimento com resina da cor do dente. Duração: 30-60 minutos dependendo do tamanho. Após o procedimento, sensibilidade leve é normal por alguns dias. Valores variam de R$ 180 a R$ 350 conforme a extensão.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_004_canal",
+      "categoria": "procedimentos",
+      "titulo": "Tratamento de Canal (Endodontia)",
+      "conteudo": "O tratamento de canal é indicado quando a polpa do dente (nervo) está inflamada ou infectada, geralmente por cárie profunda ou trauma. O procedimento remove o tecido infectado, limpa e sela os canais. Pode ser feito em 1 a 3 sessões. Após o procedimento, uma restauração definitiva é necessária. Dor leve é normal por 2-3 dias. Valores variam de R$ 600 a R$ 1.100 conforme o número de canais.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_005_extracao",
+      "categoria": "procedimentos",
+      "titulo": "Extrações Dentárias",
+      "conteudo": "A extração dental é indicada quando o dente não pode ser restaurado, em casos de infecção severa, ou para remoção de sisos. Extração simples: ~30min, R$ 200. Extração de siso: ~60min, R$ 500. Após a extração: aplique gelo, dieta pastosa, não cuspa com força, não use canudo, não fume. Em caso de sangramento excessivo ou dor intensa, procure atendimento.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_006_implante",
+      "categoria": "procedimentos",
+      "titulo": "Implantes Dentários",
+      "conteudo": "O implante dentário é um pino de titânio colocado no osso maxilar para substituir a raiz de um dente perdido. O processo completo leva 3-6 meses para osseointegração. Após a cicatrização, uma coroa é instalada sobre o implante. Duração da cirurgia: ~90min. Valor aproximado: R$ 3.500 (implante unitário). Requer exames prévios e planejamento individual.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_007_clareamento",
+      "categoria": "procedimentos",
+      "titulo": "Clareamento Dental",
+      "conteudo": "Oferecemos duas modalidades de clareamento: 1) Em consultório (R$ 1.000): resultado imediato em 90 minutos com gel de alta concentração e luz LED; 2) Caseiro supervisionado (R$ 600): kit com moldeira personalizada e gel para uso em casa por 2-3 semanas. Sensibilidade dental temporária é comum. Dieta branca por 48h após o tratamento (evitar café, vinho, açaí).",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_008_ortodontia",
+      "categoria": "procedimentos",
+      "titulo": "Ortodontia (Aparelho Dentário)",
+      "conteudo": "O tratamento ortodôntico corrige o alinhamento dos dentes e a mordida. Oferecemos: aparelho metálico convencional, aparelho estético (porcelana/safira) e alinhadores transparentes. O tratamento dura de 12 a 36 meses. Consultas de manutenção mensais (R$ 200). Instalação: R$ 1.500. Desconforto nos primeiros dias é normal. Boa higiene oral é essencial durante o tratamento.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_009_protese",
+      "categoria": "procedimentos",
+      "titulo": "Próteses Dentárias",
+      "conteudo": "Tipos de próteses disponíveis: 1) Coroa unitária em porcelana (R$ 1.500) - sobre dente preparado ou implante; 2) Ponte fixa - substitui dentes ausentes apoiando nos vizinhos; 3) Prótese parcial removível - para substituir vários dentes; 4) Prótese total/dentadura (R$ 2.500) - para arcada completa. O processo envolve moldagem, prova e ajustes. A adaptação pode levar 2-4 semanas.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "proc_010_facetas",
+      "categoria": "procedimentos",
+      "titulo": "Facetas e Lentes de Contato Dental",
+      "conteudo": "As facetas de porcelana são finas lâminas coladas na frente dos dentes para corrigir cor, forma e alinhamento. Lentes de contato dental são ainda mais finas e exigem mínimo preparo do dente. Indicações: dentes manchados, espaçados, desalinhados ou lascados. Valor: a partir de R$ 2.000 por dente. Duração: pode durar mais de 10 anos com cuidados adequados.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "medio"
+      }
+    },
+    {
+      "id": "orient_001_pos_extracao",
+      "categoria": "orientacoes",
+      "titulo": "Cuidados Pós-Extração Dentária",
+      "conteudo": "Após a extração: 1) Morda a gaze por 30 minutos; 2) Aplique gelo no rosto (20min sim, 20min não) nas primeiras 24-48h; 3) Alimente-se com comida pastosa e fria por 3 dias; 4) NÃO cuspa com força, NÃO use canudo, NÃO fume por 7 dias; 5) NÃO faça bochecho vigoroso por 24h; 6) Tome os medicamentos conforme prescrito; 7) Escove normalmente, evitando a área operada; 8) Se houver sangramento excessivo ou dor intensa, entre em contato imediatamente.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "orient_002_pos_canal",
+      "categoria": "orientacoes",
+      "titulo": "Cuidados Pós-Tratamento de Canal",
+      "conteudo": "Após o tratamento de canal: 1) Dor leve é normal por 2-3 dias, use o analgésico prescrito; 2) Evite mastigar do lado tratado até a restauração definitiva; 3) Se houver inchaço ou dor forte que não melhora, entre em contato; 4) Retorne na data agendada para a restauração definitiva - o dente com tratamento de canal precisa ser protegido; 5) Tome toda a medicação prescrita, especialmente o antibiótico se for receitado.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "orient_003_pos_restauracao",
+      "categoria": "orientacoes",
+      "titulo": "Cuidados Pós-Restauração",
+      "conteudo": "Após uma restauração em resina: 1) A anestesia pode durar 2-4 horas - cuidado para não morder a bochecha ou lábio; 2) Evite alimentos muito duros nas primeiras 24h; 3) Sensibilidade ao frio/quente é normal por alguns dias; 4) Se a mordida parecer alta (um lado toca antes do outro), retorne para ajuste; 5) Mantenha boa higiene oral com escovação e fio dental.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "orient_004_pos_clareamento",
+      "categoria": "orientacoes",
+      "titulo": "Cuidados Pós-Clareamento",
+      "conteudo": "Após o clareamento dental: 1) Dieta branca por 48h: evite café, chá, vinho, açaí, beterraba, molho de tomate, mostarda, refrigerante de cola; 2) Não fume; 3) Sensibilidade é esperada por 24-48h, use pasta para sensibilidade; 4) No clareamento caseiro: use a moldeira pelo tempo indicado, não exagere; 5) Resultados duram 1-3 anos dependendo dos hábitos.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "orient_005_pos_cirurgia",
+      "categoria": "orientacoes",
+      "titulo": "Cuidados Pós-Cirurgia Oral",
+      "conteudo": "Cuidados gerais após cirurgia odontológica: 1) Repouso por 2-3 dias, evite esforço físico; 2) Gelo nas primeiras 48h; 3) Dieta líquida/pastosa fria; 4) Não exponha ao sol por 7 dias; 5) Tome TODA a medicação prescrita; 6) Não fume, não beba álcool; 7) Mantenha a cabeça elevada ao dormir; 8) Retorne para remoção de pontos conforme agendado; 9) Em caso de febre, inchaço crescente ou sangramento, procure atendimento imediato.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "saude_001_escovacao",
+      "categoria": "saude_bucal",
+      "titulo": "Escovação Correta dos Dentes",
+      "conteudo": "Escove os dentes pelo menos 3 vezes ao dia (após cada refeição principal) por no mínimo 2 minutos. Use escova macia e creme dental com flúor. Técnica: incline a escova 45 graus na gengiva, faça movimentos suaves de vai e vem ou circulares. Escove todas as superfícies: frente, trás e superfície de mastigação. Não esqueça de escovar a língua. Troque a escova a cada 3 meses ou quando as cerdas estiverem abertas.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "saude_002_fio_dental",
+      "categoria": "saude_bucal",
+      "titulo": "Uso do Fio Dental",
+      "conteudo": "Use fio dental pelo menos 1 vez ao dia, preferencialmente à noite antes de dormir. O fio dental remove a placa e restos de alimentos entre os dentes, onde a escova não alcança. Técnica: use cerca de 40cm de fio, enrole nos dedos médios, deslize suavemente entre os dentes formando um 'C' ao redor de cada dente. Não force o fio na gengiva. Sangramento inicial é normal mas deve cessar em 1-2 semanas.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "saude_003_prevencao_carie",
+      "categoria": "saude_bucal",
+      "titulo": "Prevenção de Cáries",
+      "conteudo": "Dicas para prevenir cáries: 1) Escovação 3x ao dia com creme dental com flúor; 2) Fio dental diário; 3) Reduza açúcar entre refeições; 4) Beba água após as refeições; 5) Visite o dentista a cada 6 meses para limpeza e avaliação; 6) Aplique selante nos dentes posteriores (crianças); 7) Use enxaguante bucal com flúor; 8) Evite petiscar constantemente entre refeições.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "financ_001_convenios",
+      "categoria": "financeiro",
+      "titulo": "Convênios e Planos Aceitos",
+      "conteudo": "A ABO-BA aceita diversos convênios odontológicos. Para verificar se seu plano é aceito, informe o nome do convênio que confirmaremos. Pacientes com convênio devem trazer a carteirinha e documento de identidade. Alguns procedimentos podem ter coparticipação. Procedimentos estéticos geralmente não são cobertos por convênios.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "financ_002_formas_pagamento",
+      "categoria": "financeiro",
+      "titulo": "Formas de Pagamento",
+      "conteudo": "Aceitamos as seguintes formas de pagamento: PIX (pagamento instantâneo), cartão de crédito (parcelamento em até 12x), cartão de débito, dinheiro e boleto bancário. Para tratamentos extensos, oferecemos condições especiais de parcelamento. Consulte na recepção as opções disponíveis para seu plano de tratamento.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "financ_003_orcamento",
+      "categoria": "financeiro",
+      "titulo": "Orçamento e Plano de Tratamento",
+      "conteudo": "Após a consulta de avaliação, o dentista elabora um plano de tratamento detalhado com orçamento completo. O orçamento inclui: procedimentos necessários, número de sessões estimado, valores individuais e total, e opções de parcelamento. O orçamento é apresentado para sua aprovação antes de iniciar qualquer tratamento. Solicite seu orçamento detalhado por escrito.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "urg_001_emergencia",
+      "categoria": "urgencia",
+      "titulo": "Atendimento de Urgência e Emergência",
+      "conteudo": "Em caso de urgência odontológica (dor intensa, trauma dental, sangramento), entre em contato imediatamente pelo WhatsApp (71) 98132-8046 ou telefone (71) 2203-4067. Atendimentos de urgência são encaixados na agenda do dia. Fora do horário de funcionamento, procure um pronto-socorro com serviço odontológico. Emergências incluem: dor de dente insuportável, dente quebrado/avulsionado, abscesso/inchaço, sangramento que não para.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "urg_002_dor_dente",
+      "categoria": "urgencia",
+      "titulo": "O que Fazer com Dor de Dente",
+      "conteudo": "Se estiver com dor de dente: 1) Tome analgésico (dipirona ou paracetamol conforme orientação médica); 2) Aplique gelo no rosto do lado dolorido (NÃO aplique gelo ou remédio diretamente no dente); 3) Evite alimentos muito quentes, frios ou doces; 4) NÃO tome anti-inflamatório sem prescrição; 5) Agende consulta o mais breve possível. Se o dor for muito intensa, com inchaço ou febre, procure atendimento de urgência.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "urg_003_trauma_dental",
+      "categoria": "urgencia",
+      "titulo": "Trauma Dental - Dente Quebrado ou Avulsionado",
+      "conteudo": "Em caso de trauma dental: DENTE QUEBRADO: guarde o fragmento em leite ou soro fisiológico e procure o dentista imediatamente. DENTE AVULSIONADO (saiu inteiro): segure pela coroa (nunca pela raiz), lave suavemente em água corrente sem esfregar, tente reposicionar no alvéolo OU guarde em leite/soro/saliva. Procure atendimento em ATÉ 30 MINUTOS - quanto mais rápido, maior a chance de reimplante.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "faq_001_dor_anestesia",
+      "categoria": "faq",
+      "titulo": "Os procedimentos doem? E a anestesia?",
+      "conteudo": "A maioria dos procedimentos odontológicos é realizada com anestesia local e é indolor. A picada da anestesia causa desconforto mínimo e dura poucos segundos. Usamos anestesia tópica (gel) antes da injeção para reduzir a sensação. Após o procedimento, quando a anestesia passa (2-4 horas), pode haver sensibilidade ou dor leve, facilmente controlada com analgésicos.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "faq_002_frequencia_dentista",
+      "categoria": "faq",
+      "titulo": "Com que frequência devo ir ao dentista?",
+      "conteudo": "Recomendamos visitar o dentista a cada 6 meses para avaliação e limpeza profissional. Essa frequência permite detectar problemas precocemente (cáries, doenças gengivais) quando são mais simples e baratos de tratar. Pacientes com histórico de problemas periodontais, aparelho ortodôntico ou implantes podem precisar de visitas mais frequentes (a cada 3-4 meses).",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "faq_003_gestante",
+      "categoria": "faq",
+      "titulo": "Gestantes Podem Fazer Tratamento Dentário?",
+      "conteudo": "Sim! Gestantes podem e devem manter o acompanhamento odontológico. O melhor período para procedimentos eletivos é o segundo trimestre (4º ao 6º mês). Procedimentos de urgência podem ser realizados em qualquer fase. Informe sempre ao dentista sobre a gravidez. A anestesia local com lidocaína é segura. Radiografias são evitadas, mas podem ser feitas com proteção quando necessário.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "faq_004_criancas",
+      "categoria": "faq",
+      "titulo": "Quando Levar a Criança ao Dentista pela Primeira Vez?",
+      "conteudo": "A primeira visita ao dentista é recomendada quando nasce o primeiro dente de leite, geralmente por volta dos 6 meses de idade, e no máximo até 1 ano. A consulta inclui orientação aos pais sobre higiene oral do bebê, alimentação e prevenção de cáries. A odontopediatria da ABO-BA atende crianças com ambiente acolhedor e profissionais especializados.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "faq_005_medo_dentista",
+      "categoria": "faq",
+      "titulo": "Tenho Medo de Dentista, o que Fazer?",
+      "conteudo": "O medo de dentista (odontofobia) é muito comum e tratável. Na ABO-BA, nossos profissionais são treinados para acolher pacientes ansiosos. Dicas: 1) Converse abertamente com o dentista sobre seu medo; 2) Combine um sinal (levantar a mão) para pausar quando precisar; 3) Use técnicas de respiração; 4) Traga fones de ouvido com música relaxante; 5) Em casos intensos, podemos utilizar sedação consciente. Não deixe o medo impedir seu cuidado bucal.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    },
+    {
+      "id": "faq_006_radiografia",
+      "categoria": "faq",
+      "titulo": "Radiografias Dentárias São Seguras?",
+      "conteudo": "Sim, radiografias dentárias são muito seguras. A dose de radiação é extremamente baixa, especialmente com radiografias digitais que usamos na ABO-BA (até 80% menos radiação que as convencionais). Uma radiografia periapical emite menos radiação do que a exposição natural diária. Usamos avental de chumbo e protetor de tireoide como precaução adicional.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "medio"
+      }
+    },
+    {
+      "id": "assist_001_funcionalidades",
+      "categoria": "assistente",
+      "titulo": "O que o Assistente Virtual Pode Fazer",
+      "conteudo": "Nosso assistente virtual pode ajudá-lo com: 1) Agendar, confirmar e cancelar consultas; 2) Verificar horários disponíveis; 3) Consultar seus próximos agendamentos; 4) Informações sobre procedimentos e especialidades; 5) Orientações pós-procedimento; 6) Informações sobre valores e formas de pagamento; 7) Consultar seu extrato financeiro; 8) Tirar dúvidas sobre saúde bucal; 9) Direcionamento para atendimento humano quando necessário.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "muito_alto"
+      }
+    },
+    {
+      "id": "assist_002_atendimento_humano",
+      "categoria": "assistente",
+      "titulo": "Atendimento Humano",
+      "conteudo": "Se preferir falar com um atendente humano, basta pedir! Também direcionamos automaticamente para atendimento humano em casos de: emergências, reclamações, assuntos financeiros complexos, ou quando não conseguirmos resolver sua dúvida. O atendimento humano está disponível durante o horário comercial: segunda a sexta, 08:00 às 18:00.",
+      "metadata": {
+        "fonte": "manual",
+        "atualizado": "2026-03-03",
+        "relevancia": "alto"
+      }
+    }
+  ]
+}

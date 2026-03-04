@@ -1,0 +1,61 @@
+{
+  "name": "ABO / Ferramenta: Buscar Horários Disponíveis",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [340, 300],
+      "id": "trigger-horarios",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\n\n// Extrair parâmetros\nconst dentistId = input.dentist_id || input.dentistId || null;\nconst date = input.date || input.data || null;\nconst specialty = input.specialty || input.especialidade || null;\n\nif (!date) {\n  return [{ json: { error: true, message: 'Data é obrigatória. Informe a data desejada (formato: YYYY-MM-DD).' } }];\n}\n\nreturn [{ json: { dentist_id: dentistId, date, specialty } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [560, 300],
+      "id": "parse-input-horarios",
+      "name": "Parsear Entrada"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  d.id as id_dentista,\n  d.nome as nome_dentista,\n  d.especialidade,\n  s.slot_inicio,\n  s.slot_fim\nFROM abo.dentistas d\nCROSS JOIN LATERAL abo.obter_slots_disponiveis(d.id, $1::date) s\nWHERE d.ativo = true\n  AND ($2::bigint IS NULL OR d.id = $2::bigint)\n  AND ($3::text IS NULL OR d.especialidade ILIKE '%' || $3::text || '%')\nORDER BY d.nome, s.slot_inicio\nLIMIT 20;",
+        "options": {
+          "queryReplacement": "={{ $json.date }},={{ $json.dentist_id }},={{ $json.specialty }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [780, 300],
+      "id": "query-horarios",
+      "name": "Buscar Horários",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst slots = items.filter(i => i.json.nome_dentista);\n\nif (slots.length === 0) {\n  return [{ json: { resultado: 'Nenhum horário disponível encontrado para esta data. Tente outra data ou especialidade.' } }];\n}\n\n// Agrupar por dentista\nconst byDentist = {};\nfor (const s of slots) {\n  const key = s.json.nome_dentista;\n  if (!byDentist[key]) {\n    byDentist[key] = { specialty: s.json.especialidade, id: s.json.id_dentista, slots: [] };\n  }\n  byDentist[key].slots.push(`${s.json.slot_inicio.substring(0,5)} - ${s.json.slot_fim.substring(0,5)}`);\n}\n\nlet resultado = 'Horários disponíveis:\\n';\nfor (const [name, data] of Object.entries(byDentist)) {\n  resultado += `\\nDr(a). ${name} (${data.specialty || 'Clínica Geral'}) - ID: ${data.id}:\\n`;\n  resultado += data.slots.map(s => `  • ${s}`).join('\\n');\n  resultado += '\\n';\n}\n\nreturn [{ json: { resultado } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 300],
+      "id": "format-horarios",
+      "name": "Formatar Resultado"
+    }
+  ],
+  "connections": {
+    "Trigger": { "main": [[{ "node": "Parsear Entrada", "type": "main", "index": 0 }]] },
+    "Parsear Entrada": { "main": [[{ "node": "Buscar Horários", "type": "main", "index": 0 }]] },
+    "Buscar Horários": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": true }
+}

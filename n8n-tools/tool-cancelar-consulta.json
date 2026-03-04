@@ -1,0 +1,61 @@
+{
+  "name": "ABO / Ferramenta: Cancelar Consulta",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [340, 300],
+      "id": "trigger-cancelar",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\n\nconst appointmentId = input.appointment_id || input.id_agendamento || null;\nconst patientPhone = input.patient_phone || input.telefone_paciente || null;\nconst reason = input.reason || input.motivo || null;\n\nif (!appointmentId || !patientPhone) {\n  return [{ json: { error: true, message: 'É necessário o ID do agendamento e o telefone do paciente para cancelar.' } }];\n}\n\nreturn [{ json: { appointment_id: parseInt(appointmentId), patient_phone: patientPhone, reason } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [560, 300],
+      "id": "parse-input-cancelar",
+      "name": "Parsear Entrada"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM abo.cancelar_agendamento($1::bigint, $2::varchar, $3::text);",
+        "options": {
+          "queryReplacement": "={{ $json.appointment_id }},={{ $json.patient_phone }},={{ $json.reason }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [780, 300],
+      "id": "query-cancelar",
+      "name": "Cancelar Agendamento",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.first().json;\n\nif (result.error) {\n  return [{ json: { resultado: result.mensagem } }];\n}\n\nif (result.sucesso) {\n  return [{ json: { resultado: `✅ ${result.mensagem}` } }];\n} else {\n  return [{ json: { resultado: `❌ ${result.mensagem}` } }];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 300],
+      "id": "format-cancelar",
+      "name": "Formatar Resultado"
+    }
+  ],
+  "connections": {
+    "Trigger": { "main": [[{ "node": "Parsear Entrada", "type": "main", "index": 0 }]] },
+    "Parsear Entrada": { "main": [[{ "node": "Cancelar Agendamento", "type": "main", "index": 0 }]] },
+    "Cancelar Agendamento": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": true }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "ABO / Ferramenta: Buscar Paciente",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [340, 300],
+      "id": "trigger-paciente",
+      "name": "Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM abo.buscar_paciente_por_telefone($1::varchar);",
+        "options": {
+          "queryReplacement": "={{ $json.patient_phone || $json.telefone || $json.phone }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [580, 300],
+      "id": "query-paciente",
+      "name": "Buscar Paciente",
+      "credentials": {
+        "postgres": {
+          "id": "rtR0aIfgqJvl8ozT",
+          "name": "Postgres supabase cloud"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const result = $input.first().json;\n\nif (!result.patient_id) {\n  return [{ json: { resultado: 'Paciente não encontrado no cadastro. Pode ser um novo paciente.' } }];\n}\n\nlet resultado = `Paciente encontrado:\\n`;\nresultado += `👤 ${result.name}\\n`;\nresultado += `📱 ${result.phone}\\n`;\nif (result.birth_date) resultado += `🎂 ${new Date(result.birth_date).toLocaleDateString('pt-BR')}\\n`;\nif (result.health_insurance) resultado += `🏥 Convênio: ${result.health_insurance}\\n`;\nif (result.allergies && result.allergies.length > 0) resultado += `⚠️ Alergias: ${result.allergies.join(', ')}\\n`;\nif (result.medical_conditions && result.medical_conditions.length > 0) resultado += `🩺 Condições: ${result.medical_conditions.join(', ')}\\n`;\nresultado += `📊 Total de consultas: ${result.total_appointments}\\n`;\nif (result.active_treatments > 0) resultado += `🔄 Tratamentos ativos: ${result.active_treatments}\\n`;\nif (result.last_appointment) resultado += `📅 Última consulta: ${new Date(result.last_appointment).toLocaleDateString('pt-BR')}\\n`;\n\nreturn [{ json: { resultado, patient_id: result.patient_id } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [820, 300],
+      "id": "format-paciente",
+      "name": "Formatar Resultado"
+    }
+  ],
+  "connections": {
+    "Trigger": { "main": [[{ "node": "Buscar Paciente", "type": "main", "index": 0 }]] },
+    "Buscar Paciente": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateCredsSetupCompleted": true }
+}
