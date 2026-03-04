@@ -5,8 +5,11 @@
       "parameters": {},
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
-      "position": [340, 300],
-      "id": "trigger-agendamentos",
+      "position": [
+        0,
+        0
+      ],
+      "id": "1d16a3da-d30b-47cf-8475-fcef9085bec7",
       "name": "Trigger"
     },
     {
@@ -19,16 +22,19 @@
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [580, 300],
-      "id": "query-agendamentos",
+      "position": [
+        240,
+        0
+      ],
+      "id": "8a57b744-68d8-491b-ab96-5192037b1838",
       "name": "Buscar Agendamentos",
+      "alwaysOutputData": true,
       "credentials": {
         "postgres": {
           "id": "rtR0aIfgqJvl8ozT",
           "name": "Postgres supabase cloud"
         }
-      },
-      "alwaysOutputData": true
+      }
     },
     {
       "parameters": {
@@ -36,15 +42,48 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [820, 300],
-      "id": "format-agendamentos",
+      "position": [
+        480,
+        0
+      ],
+      "id": "f81fa81e-7f42-4ad2-b735-edacd08bcf97",
       "name": "Formatar Resultado"
     }
   ],
+  "pinData": {},
   "connections": {
-    "Trigger": { "main": [[{ "node": "Buscar Agendamentos", "type": "main", "index": 0 }]] },
-    "Buscar Agendamentos": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Buscar Agendamentos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Agendamentos": {
+      "main": [
+        [
+          {
+            "node": "Formatar Resultado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
-  "meta": { "templateCredsSetupCompleted": true }
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "98a680b4-c8ce-44da-a04a-d773625ab662",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "98P80bb9GyKUueDO6CTu1",
+  "tags": []
 }

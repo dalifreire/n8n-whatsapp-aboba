@@ -5,8 +5,11 @@
       "parameters": {},
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
-      "position": [340, 300],
-      "id": "trigger-horarios",
+      "position": [
+        0,
+        0
+      ],
+      "id": "03e8e532-dddb-4413-9990-4c2d33f49506",
       "name": "Trigger"
     },
     {
@@ -15,8 +18,11 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [560, 300],
-      "id": "parse-input-horarios",
+      "position": [
+        224,
+        0
+      ],
+      "id": "20d0c8ce-4353-40a0-bc77-566769abff72",
       "name": "Parsear Entrada"
     },
     {
@@ -29,16 +35,19 @@
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [780, 300],
-      "id": "query-horarios",
+      "position": [
+        448,
+        0
+      ],
+      "id": "ccdb5cda-1691-4961-ad8a-3bdad3ebfa5b",
       "name": "Buscar Horários",
+      "alwaysOutputData": true,
       "credentials": {
         "postgres": {
           "id": "rtR0aIfgqJvl8ozT",
           "name": "Postgres supabase cloud"
         }
-      },
-      "alwaysOutputData": true
+      }
     },
     {
       "parameters": {
@@ -46,16 +55,59 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1000, 300],
-      "id": "format-horarios",
+      "position": [
+        672,
+        0
+      ],
+      "id": "67707d96-8414-4630-8450-31fde60cbc89",
       "name": "Formatar Resultado"
     }
   ],
+  "pinData": {},
   "connections": {
-    "Trigger": { "main": [[{ "node": "Parsear Entrada", "type": "main", "index": 0 }]] },
-    "Parsear Entrada": { "main": [[{ "node": "Buscar Horários", "type": "main", "index": 0 }]] },
-    "Buscar Horários": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Parsear Entrada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parsear Entrada": {
+      "main": [
+        [
+          {
+            "node": "Buscar Horários",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Horários": {
+      "main": [
+        [
+          {
+            "node": "Formatar Resultado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
-  "meta": { "templateCredsSetupCompleted": true }
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "cf25193e-73ce-4392-92cc-728c9bb09719",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "UgkezWSTlblPiMvGEjhRJ",
+  "tags": []
 }

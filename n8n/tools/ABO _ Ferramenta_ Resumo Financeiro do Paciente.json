@@ -5,8 +5,11 @@
       "parameters": {},
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
-      "position": [340, 300],
-      "id": "trigger-financeiro",
+      "position": [
+        0,
+        0
+      ],
+      "id": "c901a239-be8b-4da9-a38e-cd22e8438ca7",
       "name": "Trigger"
     },
     {
@@ -19,16 +22,19 @@
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [580, 300],
-      "id": "query-financeiro",
+      "position": [
+        240,
+        0
+      ],
+      "id": "f6fe577b-649b-4a1b-b3e2-a6735252ef6a",
       "name": "Buscar Financeiro",
+      "alwaysOutputData": true,
       "credentials": {
         "postgres": {
           "id": "rtR0aIfgqJvl8ozT",
           "name": "Postgres supabase cloud"
         }
-      },
-      "alwaysOutputData": true
+      }
     },
     {
       "parameters": {
@@ -36,15 +42,48 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [820, 300],
-      "id": "format-financeiro",
+      "position": [
+        480,
+        0
+      ],
+      "id": "178bcb2a-c514-41d7-beca-3facba88d67c",
       "name": "Formatar Resultado"
     }
   ],
+  "pinData": {},
   "connections": {
-    "Trigger": { "main": [[{ "node": "Buscar Financeiro", "type": "main", "index": 0 }]] },
-    "Buscar Financeiro": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Buscar Financeiro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Financeiro": {
+      "main": [
+        [
+          {
+            "node": "Formatar Resultado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
-  "meta": { "templateCredsSetupCompleted": true }
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "c8daac4f-9b1f-4e43-b434-0a7422965ce4",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "gQaJfKayq-yF1nyHn9IfF",
+  "tags": []
 }

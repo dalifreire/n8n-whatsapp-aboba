@@ -1,35 +1,47 @@
 {
-  "name": "ABO / ABO - Enviar Lembretes Automáticos",
+  "name": "WhatsApp / ABO Bahia - Enviar Lembretes Automáticos",
   "nodes": [
     {
       "parameters": {
         "rule": {
-          "interval": [{ "field": "minutes", "minutesInterval": 15 }]
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
         }
       },
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [340, 300],
-      "id": "cron-lembretes",
+      "position": [
+        0,
+        0
+      ],
+      "id": "cdb5dd54-2e7f-4959-bc13-cb50788a709d",
       "name": "A cada 15 minutos"
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "SELECT r.id as reminder_id, r.tipo, r.mensagem, p.nome as nome_paciente, p.telefone as telefone_paciente, a.data_consulta, a.hora_consulta, d.nome as nome_dentista\nFROM abo.lembretes r\nJOIN abo.pacientes p ON r.id_paciente = p.id\nLEFT JOIN abo.agendamentos a ON r.id_agendamento = a.id\nLEFT JOIN abo.dentistas d ON a.id_dentista = d.id\nWHERE r.status = 'pendente'\n  AND r.agendado_para <= NOW()\n  AND r.tentativas < 3\nORDER BY r.agendado_para\nLIMIT 10;"
+        "query": "SELECT r.id as reminder_id, r.tipo, r.mensagem, p.nome as nome_paciente, p.telefone as telefone_paciente, a.data_consulta, a.hora_consulta, d.nome as nome_dentista\nFROM abo.lembretes r\nJOIN abo.pacientes p ON r.id_paciente = p.id\nLEFT JOIN abo.agendamentos a ON r.id_agendamento = a.id\nLEFT JOIN abo.dentistas d ON a.id_dentista = d.id\nWHERE r.status = 'pendente'\n  AND r.agendado_para <= NOW()\n  AND r.tentativas < 3\nORDER BY r.agendado_para\nLIMIT 10;",
+        "options": {}
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [580, 300],
-      "id": "query-lembretes",
+      "position": [
+        240,
+        0
+      ],
+      "id": "9e17cfb5-9559-428d-8f3e-ab03b6819ba1",
       "name": "Buscar Lembretes Pendentes",
+      "alwaysOutputData": true,
       "credentials": {
         "postgres": {
           "id": "rtR0aIfgqJvl8ozT",
           "name": "Postgres supabase cloud"
         }
-      },
-      "alwaysOutputData": true
+      }
     },
     {
       "parameters": {
@@ -37,8 +49,11 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [820, 300],
-      "id": "preparar-mensagens",
+      "position": [
+        480,
+        0
+      ],
+      "id": "99e0f3a3-dcba-4a0b-b74c-1db45cf8b26a",
       "name": "Preparar Mensagens"
     },
     {
@@ -51,8 +66,11 @@
       },
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
-      "position": [1080, 300],
-      "id": "enviar-lembrete-whatsapp",
+      "position": [
+        752,
+        0
+      ],
+      "id": "354f451c-80ed-4fb6-bd30-0aa25dcd9012",
       "name": "Enviar Lembrete WhatsApp",
       "credentials": {
         "evolutionApi": {
@@ -71,8 +89,11 @@
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [1320, 300],
-      "id": "marcar-lembrete-enviado",
+      "position": [
+        992,
+        0
+      ],
+      "id": "ac933fe3-4280-4c3f-b6e6-0ce7a64a59c0",
       "name": "Marcar como Enviado",
       "credentials": {
         "postgres": {
@@ -82,13 +103,62 @@
       }
     }
   ],
+  "pinData": {},
   "connections": {
-    "A cada 15 minutos": { "main": [[{ "node": "Buscar Lembretes Pendentes", "type": "main", "index": 0 }]] },
-    "Buscar Lembretes Pendentes": { "main": [[{ "node": "Preparar Mensagens", "type": "main", "index": 0 }]] },
-    "Preparar Mensagens": { "main": [[{ "node": "Enviar Lembrete WhatsApp", "type": "main", "index": 0 }]] },
-    "Enviar Lembrete WhatsApp": { "main": [[{ "node": "Marcar como Enviado", "type": "main", "index": 0 }]] }
+    "A cada 15 minutos": {
+      "main": [
+        [
+          {
+            "node": "Buscar Lembretes Pendentes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Lembretes Pendentes": {
+      "main": [
+        [
+          {
+            "node": "Preparar Mensagens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Mensagens": {
+      "main": [
+        [
+          {
+            "node": "Enviar Lembrete WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar Lembrete WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "Marcar como Enviado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "active": true,
-  "settings": { "executionOrder": "v1" },
-  "meta": { "templateCredsSetupCompleted": true }
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "7867a55d-2300-432b-b902-af67ddab17e8",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "KgfINl0XVKJz1Lz7NZyrq",
+  "tags": []
 }

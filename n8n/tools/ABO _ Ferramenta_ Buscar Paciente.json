@@ -5,8 +5,11 @@
       "parameters": {},
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
-      "position": [340, 300],
-      "id": "trigger-paciente",
+      "position": [
+        0,
+        0
+      ],
+      "id": "ec496d9e-797d-4b13-938f-21e5b22706d9",
       "name": "Trigger"
     },
     {
@@ -19,16 +22,19 @@
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [580, 300],
-      "id": "query-paciente",
+      "position": [
+        240,
+        0
+      ],
+      "id": "60dd2116-e5fc-40a5-82f1-bc027b80992d",
       "name": "Buscar Paciente",
+      "alwaysOutputData": true,
       "credentials": {
         "postgres": {
           "id": "rtR0aIfgqJvl8ozT",
           "name": "Postgres supabase cloud"
         }
-      },
-      "alwaysOutputData": true
+      }
     },
     {
       "parameters": {
@@ -36,15 +42,48 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [820, 300],
-      "id": "format-paciente",
+      "position": [
+        480,
+        0
+      ],
+      "id": "b5812769-54cd-471d-b0b2-a2d79afdeef7",
       "name": "Formatar Resultado"
     }
   ],
+  "pinData": {},
   "connections": {
-    "Trigger": { "main": [[{ "node": "Buscar Paciente", "type": "main", "index": 0 }]] },
-    "Buscar Paciente": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Buscar Paciente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Paciente": {
+      "main": [
+        [
+          {
+            "node": "Formatar Resultado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
-  "meta": { "templateCredsSetupCompleted": true }
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "23637935-6c5e-4b36-9fca-02a886db202a",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "qP7AmtAMWSJq2NuowOxCi",
+  "tags": []
 }

@@ -54,10 +54,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        8368,
-        928
+        5840,
+        704
       ],
-      "id": "7d721a66-0ee9-4ce2-a982-e9fd205f2138",
+      "id": "3fa984a4-e951-4d92-b658-038da09c9739",
       "name": "Extrair Dados da Mensagem"
     },
     {
@@ -67,10 +67,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        8608,
-        928
+        6080,
+        704
       ],
-      "id": "c256edea-a311-4240-96e8-5e04bb56ed97",
+      "id": "7aa22241-2d75-4c06-9b83-f2945238d9a9",
       "name": "Validar Dados da Mensagem"
     },
     {
@@ -98,13 +98,13 @@
         },
         "options": {}
       },
-      "id": "dd34422c-0ded-4a0c-a4ae-56c6119187b0",
+      "id": "c4a6602d-2694-4193-a47f-24af5d9a0af0",
       "name": "Gerar Embedding da Mensagem",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        8848,
-        928
+        6320,
+        704
       ],
       "credentials": {
         "openaiApi": {
@@ -134,27 +134,27 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        9072,
-        928
+        6544,
+        704
       ],
-      "id": "5fbe6cfe-c864-4baf-a125-e1b87f365a0f",
+      "id": "a054f19d-429f-4d58-9182-61b7c208656f",
       "name": "Extrair Embedding"
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "SELECT id, titulo, conteudo, categoria, metadados, (1 - (embedding <=> $1::vector)) as similaridade \nFROM abo.documentos \nWHERE (1 - (embedding <=> $1::vector)) > 0.1 \nORDER BY embedding <=> $1::vector LIMIT 3;",
+        "query": "SELECT id, titulo, conteudo, categoria, metadados, (1 - (embedding <=> $1::vector)) as similaridade \nFROM abo.documentos \nWHERE (1 - (embedding <=> $1::vector)) > 0.4 \nORDER BY embedding <=> $1::vector LIMIT 3;",
         "options": {
           "queryReplacement": "={{ '['+ $json.embedding + ']'}}]'"
         }
       },
-      "id": "befd4a1c-b6df-4ecb-9ee6-08bb27e7fdb4",
+      "id": "6f98dce0-d07e-4f34-8493-0cf24f144e77",
       "name": "RAG - Busca Conhecimento ABO",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        9280,
-        928
+        6752,
+        704
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -173,10 +173,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        8048,
-        928
+        5520,
+        704
       ],
-      "id": "7fde99be-cbc9-4ee8-a33a-e11ed7e34a20",
+      "id": "bb4dc896-5963-4736-9ae4-622b5e56ad71",
       "name": "Webhook",
       "webhookId": "66c1e19b-70ba-4ece-8a9c-c6ad6819a091"
     },
@@ -187,25 +187,25 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        9504,
-        928
+        6976,
+        704
       ],
-      "id": "9a8ff3c4-cc65-44f1-85cd-6b1845cf5d65",
+      "id": "46512d49-c1d2-4398-9b72-165815b4a435",
       "name": "Code in JavaScript"
     },
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Você é a NEIA (Núcleo de Eficiência com Inteligência Artificial), assistente virtual completa do consultório odontológico da ABO-BA (Associação Brasileira de Odontologia - Seção Bahia). Você é educada, profissional, acolhedora e eficiente. Responda sempre em português brasileiro.\n\n══════════════════════════════════════\n🏥 INFORMAÇÕES DO CONSULTÓRIO\n══════════════════════════════════════\n- Nome: ABO-BA - Associação Brasileira de Odontologia - Seção Bahia\n- Endereço: Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492\n- Telefone: (71) 2203-4067 | WhatsApp: (71) 98132-8046\n- Email: contato@abo-ba.org.br\n- CNPJ: 15.187.719/0001-50\n- Horário: Seg-Sex 08:00-18:00 | Sáb 08:00-12:00 | Dom/Feriados: Fechado\n\n══════════════════════════════════════\n🛠️ FERRAMENTAS DISPONÍVEIS\n══════════════════════════════════════\nVocê tem acesso a ferramentas para gerenciar o consultório:\n\n1. **Buscar Paciente** - Busca dados do paciente pelo telefone\n   → Use quando precisar identificar o paciente ou ver seu histórico\n   → Parâmetros: { patient_phone: 'telefone' }\n\n2. **Buscar Horários Disponíveis** - Lista horários livres de dentistas\n   → Use quando o paciente quiser agendar e precisar ver disponibilidade\n   → Parâmetros: { date: 'YYYY-MM-DD', dentist_id: numero_opcional, specialty: 'especialidade_opcional' }\n\n3. **Agendar Consulta** - Cria um novo agendamento\n   → Use SOMENTE após confirmar todos os dados com o paciente\n   → Parâmetros: { patient_phone: 'tel', patient_name: 'nome', dentist_id: numero, procedure_id: numero_opcional, date: 'YYYY-MM-DD', time: 'HH:MM', notes: 'obs_opcional' }\n\n4. **Cancelar Consulta** - Cancela um agendamento existente\n   → Parâmetros: { appointment_id: numero, patient_phone: 'tel', reason: 'motivo_opcional' }\n\n5. **Consultar Agendamentos** - Lista agendamentos futuros do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n6. **Listar Dentistas/Procedimentos** - Mostra profissionais ou procedimentos\n   → Parâmetros: { type: 'dentistas' ou 'procedimentos', specialty: 'opcional', category: 'opcional' }\n\n7. **Resumo Financeiro** - Extrato financeiro do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n══════════════════════════════════════\n📋 FLUXO DE AGENDAMENTO\n══════════════════════════════════════\nSiga este fluxo ao agendar consultas:\n1. Identifique o paciente (use a ferramenta Buscar Paciente com o telefone do WhatsApp)\n2. Pergunte a especialidade/procedimento desejado\n3. Pergunte a data de preferência\n4. Use Buscar Horários Disponíveis para mostrar opções\n5. Confirme TODOS os dados: nome, data, horário, dentista, procedimento\n6. Só então use Agendar Consulta\n7. Informe o ID do agendamento para futuras referências\n\n══════════════════════════════════════\n🦷 ESPECIALIDADES DISPONÍVEIS\n══════════════════════════════════════\n- Clínica Geral (avaliação, restaurações, limpeza)\n- Endodontia (tratamento de canal)\n- Periodontia (gengivas)\n- Cirurgia Oral (extrações, implantes)\n- Prótese Dentária (coroas, pontes, dentaduras)\n- Ortodontia (aparelhos)\n- Implantodontia\n- Odontopediatria (crianças)\n- Estética Dental (clareamento, facetas)\n- Estomatologia\n\n══════════════════════════════════════\n💰 FORMAS DE PAGAMENTO\n══════════════════════════════════════\n- PIX | Cartão de Crédito (até 12x) | Cartão de Débito | Dinheiro | Boleto\n- Convênios odontológicos aceitos (verificar disponibilidade)\n\n══════════════════════════════════════\n🚨 PROTOCOLOS ESPECIAIS\n══════════════════════════════════════\n\n**URGÊNCIA/EMERGÊNCIA:**\nSe o paciente relatar dor intensa, trauma dental, sangramento ou inchaço:\n→ Oriente cuidados imediatos básicos\n→ Direcione para contato urgente: (71) 2203-4067\n→ Tente encaixar na agenda do dia\n\n**ESCALAÇÃO PARA HUMANO:**\nDirecione para atendente humano quando:\n→ Paciente insistir em falar com pessoa\n→ Reclamações ou insatisfação\n→ Questões financeiras complexas (negociação de dívida)\n→ Assuntos que você não consiga resolver\n→ Emergências médicas\n\n**CONFIRMAÇÃO DE CONSULTA:**\nSe paciente responder 'SIM' ou confirmar presença:\n→ Agradeça e confirme os dados do agendamento\nSe responder 'NÃO' ou quiser cancelar:\n→ Pergunte se deseja reagendar\n→ Se sim, ofereça novos horários\n→ Se não, cancele com a ferramenta\n\n══════════════════════════════════════\n📝 REGRAS DE RESPOSTA\n══════════════════════════════════════\n1. Respostas breves e diretas para WhatsApp (máximo 4-5 linhas por mensagem)\n2. Use emojis com moderação para melhorar legibilidade\n3. Sempre confirme dados antes de executar ações (agendar, cancelar)\n4. NUNCA invente informações médicas - quando não souber, direcione ao dentista\n5. Mantenha sigilo sobre dados de outros pacientes\n6. Se não encontrar o paciente no sistema, trate como novo paciente\n7. Inclua informações de contato quando apropriado\n8. Se a pergunta estiver fora do escopo odontológico, direcione educadamente\n9. Use as ferramentas proativamente - quando um paciente perguntar sobre consulta, já busque o cadastro dele\n10. O telefone do paciente no WhatsApp é: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\n\nCONTEXTO DA BASE DE CONHECIMENTO:\n{{ $json.rag_context }}\n\nMENSAGEM DO USUÁRIO:\nPerfil WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_name }}\nTelefone WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\nTexto enviado: {{ $('Validar Dados da Mensagem').first().json.message_text }}",
+        "text": "=Você é a Estela, assistente virtual completa do consultório odontológico da ABO-BA (Associação Brasileira de Odontologia - Seção Bahia). Você é educada, profissional, acolhedora e eficiente. Responda sempre em português brasileiro.\n\n══════════════════════════════════════\n🏥 INFORMAÇÕES DO CONSULTÓRIO\n══════════════════════════════════════\n- Nome: ABO-BA - Associação Brasileira de Odontologia - Seção Bahia\n- Endereço: Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492\n- Telefone: (71) 2203-4067 | WhatsApp: (71) 98132-8046\n- Email: contato@abo-ba.org.br\n- CNPJ: 15.187.719/0001-50\n- Horário: Seg-Sex 08:00-18:00 | Sáb 08:00-12:00 | Dom/Feriados: Fechado\n\n══════════════════════════════════════\n🛠️ FERRAMENTAS DISPONÍVEIS\n══════════════════════════════════════\nVocê tem acesso a ferramentas para gerenciar o consultório:\n\n1. **Buscar Paciente** - Busca dados do paciente pelo telefone\n   → Use quando precisar identificar o paciente ou ver seu histórico\n   → Parâmetros: { patient_phone: 'telefone' }\n\n2. **Buscar Horários Disponíveis** - Lista horários livres de dentistas\n   → Use quando o paciente quiser agendar e precisar ver disponibilidade\n   → Parâmetros: { date: 'YYYY-MM-DD', dentist_id: numero_opcional, specialty: 'especialidade_opcional' }\n\n3. **Agendar Consulta** - Cria um novo agendamento\n   → Use SOMENTE após confirmar todos os dados com o paciente\n   → Parâmetros: { patient_phone: 'tel', patient_name: 'nome', dentist_id: numero, procedure_id: numero_opcional, date: 'YYYY-MM-DD', time: 'HH:MM', notes: 'obs_opcional' }\n\n4. **Cancelar Consulta** - Cancela um agendamento existente\n   → Parâmetros: { appointment_id: numero, patient_phone: 'tel', reason: 'motivo_opcional' }\n\n5. **Consultar Agendamentos** - Lista agendamentos futuros do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n6. **Listar Dentistas/Procedimentos** - Mostra profissionais ou procedimentos\n   → Parâmetros: { type: 'dentistas' ou 'procedimentos', specialty: 'opcional', category: 'opcional' }\n\n7. **Resumo Financeiro** - Extrato financeiro do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n══════════════════════════════════════\n📋 FLUXO DE AGENDAMENTO\n══════════════════════════════════════\nSiga este fluxo ao agendar consultas:\n1. Identifique o paciente (use a ferramenta Buscar Paciente com o telefone do WhatsApp)\n2. Pergunte a especialidade/procedimento desejado\n3. Pergunte a data de preferência\n4. Use Buscar Horários Disponíveis para mostrar opções\n5. Confirme TODOS os dados: nome, data, horário, dentista, procedimento\n6. Só então use Agendar Consulta\n7. Informe o ID do agendamento para futuras referências\n\n══════════════════════════════════════\n🦷 ESPECIALIDADES DISPONÍVEIS\n══════════════════════════════════════\n- Clínica Geral (avaliação, restaurações, limpeza)\n- Endodontia (tratamento de canal)\n- Periodontia (gengivas)\n- Cirurgia Oral (extrações, implantes)\n- Prótese Dentária (coroas, pontes, dentaduras)\n- Ortodontia (aparelhos)\n- Implantodontia\n- Odontopediatria (crianças)\n- Estética Dental (clareamento, facetas)\n- Estomatologia\n\n══════════════════════════════════════\n💰 FORMAS DE PAGAMENTO\n══════════════════════════════════════\n- PIX | Cartão de Crédito (até 12x) | Cartão de Débito | Dinheiro | Boleto\n- Convênios odontológicos aceitos (verificar disponibilidade)\n\n══════════════════════════════════════\n🚨 PROTOCOLOS ESPECIAIS\n══════════════════════════════════════\n\n**URGÊNCIA/EMERGÊNCIA:**\nSe o paciente relatar dor intensa, trauma dental, sangramento ou inchaço:\n→ Oriente cuidados imediatos básicos\n→ Direcione para contato urgente: (71) 2203-4067\n→ Tente encaixar na agenda do dia\n\n**ESCALAÇÃO PARA HUMANO:**\nDirecione para atendente humano quando:\n→ Paciente insistir em falar com pessoa\n→ Reclamações ou insatisfação\n→ Questões financeiras complexas (negociação de dívida)\n→ Assuntos que você não consiga resolver\n→ Emergências médicas\n\n**CONFIRMAÇÃO DE CONSULTA:**\nSe paciente responder 'SIM' ou confirmar presença:\n→ Agradeça e confirme os dados do agendamento\nSe responder 'NÃO' ou quiser cancelar:\n→ Pergunte se deseja reagendar\n→ Se sim, ofereça novos horários\n→ Se não, cancele com a ferramenta\n\n══════════════════════════════════════\n📝 REGRAS DE RESPOSTA\n══════════════════════════════════════\n1. Respostas breves e diretas para WhatsApp (máximo 4-5 linhas por mensagem)\n2. Use emojis com moderação para melhorar legibilidade\n3. Sempre confirme dados antes de executar ações (agendar, cancelar)\n4. NUNCA invente informações médicas - quando não souber, direcione ao dentista\n5. Mantenha sigilo sobre dados de outros pacientes\n6. Se não encontrar o paciente no sistema, trate como novo paciente\n7. Inclua informações de contato quando apropriado\n8. Se a pergunta estiver fora do escopo odontológico, direcione educadamente\n9. Use as ferramentas proativamente - quando um paciente perguntar sobre consulta, já busque o cadastro dele\n10. O telefone do paciente no WhatsApp é: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\n\nCONTEXTO DA BASE DE CONHECIMENTO:\n{{ $json.rag_context }}\n\nMENSAGEM DO USUÁRIO:\nPerfil WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_name }}\nTelefone WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\nTexto enviado: {{ $('Validar Dados da Mensagem').first().json.message_text }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        9792,
-        928
+        7264,
+        704
       ],
-      "id": "c777ea68-36b3-433e-8e30-0852e102a4aa",
+      "id": "2df8ed1a-ffcc-48c5-877a-4de6d4796d08",
       "name": "AI Agent"
     },
     {
@@ -222,10 +222,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        9632,
-        1168
+        7104,
+        944
       ],
-      "id": "e685b631-e332-4ea4-8f4c-9ab5cfc6eb24",
+      "id": "c1d48b88-e9f0-4a67-a34d-d27f99bcbcd1",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -237,15 +237,17 @@
     {
       "parameters": {
         "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Validar Dados da Mensagem').first().json.sender_phone }}"
+        "sessionKey": "={{ $('Validar Dados da Mensagem').first().json.sender_phone }}",
+        "tableName": "abo.n8n_chat_histories",
+        "contextWindowLength": 15
       },
       "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
       "typeVersion": 1.3,
       "position": [
-        9776,
-        1248
+        7248,
+        1024
       ],
-      "id": "69f8da40-0cb1-4a2b-8bf2-b3f202d3f800",
+      "id": "f6f6c28e-3240-4dc3-9851-8b11417bd81c",
       "name": "Postgres Chat Memory",
       "credentials": {
         "postgres": {
@@ -259,10 +261,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolThink",
       "typeVersion": 1.1,
       "position": [
-        10016,
-        1216
+        7488,
+        992
       ],
-      "id": "98de134a-a3e1-4b3b-a155-d90c8f9a8c6b",
+      "id": "d384cb3a-dbac-40ba-8c4a-a0cc8e799010",
       "name": "Think"
     },
     {
@@ -272,10 +274,10 @@
       "type": "n8n-nodes-base.dateTimeTool",
       "typeVersion": 2,
       "position": [
-        9888,
-        1184
+        7360,
+        960
       ],
-      "id": "9e76d295-747e-45cf-91f0-d656956f7f72",
+      "id": "4482fdb7-49bd-4094-b920-1ece40875a5f",
       "name": "Date & Time"
     },
     {
@@ -283,10 +285,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
       "position": [
-        10128,
-        1312
+        7600,
+        1088
       ],
-      "id": "6a42ff7d-87bf-4c3b-9b33-7fa1fa63cbfe",
+      "id": "af7bc73e-9ca8-4827-92a7-e089dae705ab",
       "name": "Calculator"
     },
     {
@@ -298,16 +300,22 @@
           "value": "={{'qP7AmtAMWSJq2NuowOxCi'}}",
           "mode": "id"
         },
-        "fields": {
-          "values": [
-            { "name": "patient_phone", "stringValue": "telefone do paciente" }
-          ]
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
-      "position": [10240, 1184],
-      "id": "tool-buscar-paciente",
+      "position": [
+        7728,
+        1056
+      ],
+      "id": "861c33b1-99e5-4a06-8a8b-978f33bcf754",
       "name": "Buscar Paciente"
     },
     {
@@ -319,18 +327,22 @@
           "value": "={{'UgkezWSTlblPiMvGEjhRJ'}}",
           "mode": "id"
         },
-        "fields": {
-          "values": [
-            { "name": "date", "stringValue": "data no formato YYYY-MM-DD" },
-            { "name": "dentist_id", "stringValue": "ID do dentista (opcional)" },
-            { "name": "specialty", "stringValue": "especialidade desejada (opcional)" }
-          ]
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
-      "position": [10352, 1184],
-      "id": "tool-buscar-horarios",
+      "position": [
+        7824,
+        960
+      ],
+      "id": "23d7cc37-76c5-4eb3-94b6-b2e5481e8c0e",
       "name": "Buscar Horários"
     },
     {
@@ -342,22 +354,22 @@
           "value": "={{'6z60DDRnhv_0k90bvvEAY'}}",
           "mode": "id"
         },
-        "fields": {
-          "values": [
-            { "name": "patient_phone", "stringValue": "telefone do paciente" },
-            { "name": "patient_name", "stringValue": "nome do paciente" },
-            { "name": "dentist_id", "stringValue": "ID do dentista" },
-            { "name": "procedure_id", "stringValue": "ID do procedimento (opcional)" },
-            { "name": "date", "stringValue": "data YYYY-MM-DD" },
-            { "name": "time", "stringValue": "horário HH:MM" },
-            { "name": "notes", "stringValue": "observações (opcional)" }
-          ]
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
-      "position": [10464, 1184],
-      "id": "tool-agendar-consulta",
+      "position": [
+        7936,
+        1040
+      ],
+      "id": "80e5db41-bfbe-418d-9399-373a279d1372",
       "name": "Agendar Consulta"
     },
     {
@@ -369,18 +381,22 @@
           "value": "={{'BW61kcoin51HUb3gD_-p2'}}",
           "mode": "id"
         },
-        "fields": {
-          "values": [
-            { "name": "appointment_id", "stringValue": "ID do agendamento" },
-            { "name": "patient_phone", "stringValue": "telefone do paciente" },
-            { "name": "reason", "stringValue": "motivo do cancelamento (opcional)" }
-          ]
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
-      "position": [10576, 1184],
-      "id": "tool-cancelar-consulta",
+      "position": [
+        8048,
+        960
+      ],
+      "id": "2e86bf8f-8234-46c5-96ee-3a9599331135",
       "name": "Cancelar Consulta"
     },
     {
@@ -392,17 +408,22 @@
           "value": "={{'98P80bb9GyKUueDO6CTu1'}}",
           "mode": "id"
         },
-        "fields": {
-          "values": [
-            { "name": "patient_phone", "stringValue": "telefone do paciente" },
-            { "name": "status", "stringValue": "filtro de status (opcional)" }
-          ]
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
-      "position": [10688, 1184],
-      "id": "tool-consultar-agendamentos",
+      "position": [
+        8160,
+        1040
+      ],
+      "id": "88ae2e0d-8799-4003-9bc8-7c69e66aebb4",
       "name": "Consultar Agendamentos"
     },
     {
@@ -411,21 +432,26 @@
         "description": "Lista dentistas disponíveis ou procedimentos odontológicos oferecidos. Para dentistas, retorna nome, CRO e especialidades. Para procedimentos, retorna nome, categoria, duração e preço. Parâmetros: type (string, obrigatório - 'dentistas' ou 'procedimentos'), specialty (string, opcional - filtro de especialidade), category (string, opcional - filtro de categoria ex: preventivo, restaurador, cirurgico, endodontia, ortodontia, estetica, protese, implantodontia).",
         "workflowId": {
           "__rl": true,
-          "value": "={{/* SUBSTITUIR PELO ID DO SUB-WORKFLOW: Ferramenta: Listar Dentistas e Procedimentos */}}",
-          "mode": "id"
+          "value": "={{'Avz5jBevAoikbkoDADkRY'}}",
+          "mode": "id",
+          "cachedResultUrl": "/workflow/=%7B%7B'Avz5jBevAoikbkoDADkRY'%7D%7D"
         },
-        "fields": {
-          "values": [
-            { "name": "type", "stringValue": "dentistas ou procedimentos" },
-            { "name": "specialty", "stringValue": "especialidade (opcional)" },
-            { "name": "category", "stringValue": "categoria (opcional)" }
-          ]
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
-      "position": [10800, 1184],
-      "id": "tool-listar-dentistas",
+      "position": [
+        8272,
+        960
+      ],
+      "id": "25217a54-3b36-4846-88a6-e63dab714fc4",
       "name": "Listar Dentistas/Procedimentos"
     },
     {
@@ -434,19 +460,26 @@
         "description": "Retorna o resumo financeiro do paciente: total cobrado, pago, pendente, atrasado e próximos vencimentos. Parâmetros: patient_phone (string, obrigatório).",
         "workflowId": {
           "__rl": true,
-          "value": "={{/* SUBSTITUIR PELO ID DO SUB-WORKFLOW: Ferramenta: Resumo Financeiro do Paciente */}}",
-          "mode": "id"
+          "value": "={{'gQaJfKayq-yF1nyHn9IfF'}}",
+          "mode": "id",
+          "cachedResultUrl": "/workflow/=%7B%7B'gQaJfKayq-yF1nyHn9IfF'%7D%7D"
         },
-        "fields": {
-          "values": [
-            { "name": "patient_phone", "stringValue": "telefone do paciente" }
-          ]
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
-      "position": [10912, 1184],
-      "id": "tool-resumo-financeiro",
+      "position": [
+        8384,
+        1040
+      ],
+      "id": "c977269e-7aec-4227-80a9-7d2459af0807",
       "name": "Resumo Financeiro"
     },
     {
@@ -570,10 +603,10 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        10192,
-        768
+        7664,
+        544
       ],
-      "id": "32c1a19d-7173-444e-bb59-23bf8ac01917",
+      "id": "a9d6e028-b568-44ce-84e7-e8355cada873",
       "name": "Salvar Conversa no BD",
       "credentials": {
         "postgres": {
@@ -593,10 +626,10 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        11104,
-        944
+        8576,
+        720
       ],
-      "id": "4d7783c6-9322-4ddb-9583-14125adf6d80",
+      "id": "c2b29cb4-ebdb-47df-afc3-a1a847085972",
       "name": "Enviar texto",
       "credentials": {
         "evolutionApi": {
@@ -612,10 +645,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        10400,
-        928
+        7872,
+        704
       ],
-      "id": "f40054a5-b2c8-4118-a65a-fe4ae2099f9b",
+      "id": "7d53146c-ef4d-4847-9e48-aa0f86b0ca10",
       "name": "Code in JavaScript2"
     },
     {
@@ -625,10 +658,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        10784,
-        928
+        8256,
+        704
       ],
-      "id": "be998a29-6172-437f-a622-bd40213d9600",
+      "id": "e58b5d8b-ed37-46bd-9404-a4918b138e0b",
       "name": "Loop Over Items"
     }
   ],
@@ -639,7 +672,7 @@
           "headers": {
             "host": "n8n.bahiati.cloud",
             "user-agent": "axios/1.13.2",
-            "content-length": "1470",
+            "content-length": "1462",
             "accept": "application/json, text/plain, */*",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
@@ -660,14 +693,14 @@
                 "remoteJid": "553496620569@s.whatsapp.net",
                 "remoteJidAlt": "553496620569@s.whatsapp.net",
                 "fromMe": false,
-                "id": "3B1588A7A6776C034D46",
+                "id": "3BBEC59D17808A832838",
                 "participant": "",
                 "addressingMode": "lid"
               },
               "pushName": "Dalí Freire",
               "status": "DELIVERY_ACK",
               "message": {
-                "conversation": "bom dia",
+                "conversation": "olá",
                 "messageContextInfo": {
                   "threadId": [],
                   "deviceListMetadata": {
@@ -710,48 +743,48 @@
                   },
                   "deviceListMetadataVersion": 2,
                   "messageSecret": {
-                    "0": 153,
-                    "1": 106,
-                    "2": 119,
-                    "3": 130,
-                    "4": 128,
-                    "5": 183,
-                    "6": 47,
-                    "7": 162,
-                    "8": 225,
-                    "9": 228,
-                    "10": 79,
-                    "11": 143,
-                    "12": 139,
-                    "13": 186,
-                    "14": 131,
-                    "15": 156,
-                    "16": 138,
-                    "17": 104,
-                    "18": 43,
-                    "19": 192,
-                    "20": 48,
-                    "21": 57,
-                    "22": 136,
-                    "23": 96,
-                    "24": 210,
-                    "25": 122,
-                    "26": 19,
-                    "27": 23,
-                    "28": 145,
-                    "29": 221,
-                    "30": 60,
-                    "31": 200
+                    "0": 91,
+                    "1": 84,
+                    "2": 117,
+                    "3": 160,
+                    "4": 7,
+                    "5": 211,
+                    "6": 202,
+                    "7": 170,
+                    "8": 109,
+                    "9": 103,
+                    "10": 38,
+                    "11": 161,
+                    "12": 62,
+                    "13": 252,
+                    "14": 203,
+                    "15": 102,
+                    "16": 199,
+                    "17": 197,
+                    "18": 26,
+                    "19": 121,
+                    "20": 10,
+                    "21": 198,
+                    "22": 76,
+                    "23": 66,
+                    "24": 22,
+                    "25": 21,
+                    "26": 7,
+                    "27": 117,
+                    "28": 182,
+                    "29": 168,
+                    "30": 210,
+                    "31": 156
                   }
                 }
               },
               "messageType": "conversation",
-              "messageTimestamp": 1772363559,
+              "messageTimestamp": 1772570602,
               "instanceId": "c9aff788-608b-4cea-801e-d3dcd53676af",
               "source": "unknown"
             },
             "destination": "https://n8n.bahiati.cloud/webhook/66c1e19b-70ba-4ece-8a9c-c6ad6819a091",
-            "date_time": "2026-03-01T08:12:39.527Z",
+            "date_time": "2026-03-03T17:43:22.591Z",
             "sender": "557183803720@s.whatsapp.net",
             "server_url": "https://evolution.bahiati.cloud",
             "apikey": "8994AF317C9A-4406-81A3-AA973BF65EA2"
@@ -991,11 +1024,6 @@
         ]
       ]
     },
-    "Salvar Conversa no BD": {
-      "main": [
-        []
-      ]
-    },
     "Enviar texto": {
       "main": [
         [
@@ -1036,7 +1064,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "6f93db19-d8f1-4338-b1e4-fdc0c5a39675",
+  "versionId": "dc270a81-84e4-4d88-9581-23782c278254",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"

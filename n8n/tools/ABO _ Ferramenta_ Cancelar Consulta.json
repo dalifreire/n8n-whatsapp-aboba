@@ -5,8 +5,11 @@
       "parameters": {},
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
-      "position": [340, 300],
-      "id": "trigger-cancelar",
+      "position": [
+        0,
+        0
+      ],
+      "id": "ccc7f9ba-e4ee-4127-a59b-acdbf93520ae",
       "name": "Trigger"
     },
     {
@@ -15,8 +18,11 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [560, 300],
-      "id": "parse-input-cancelar",
+      "position": [
+        224,
+        0
+      ],
+      "id": "92abd1e8-e880-49de-9d7d-4d39ab8555f9",
       "name": "Parsear Entrada"
     },
     {
@@ -29,16 +35,19 @@
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [780, 300],
-      "id": "query-cancelar",
+      "position": [
+        448,
+        0
+      ],
+      "id": "c62f0473-3a52-4b4d-85a9-5d2654ec4a5c",
       "name": "Cancelar Agendamento",
+      "alwaysOutputData": true,
       "credentials": {
         "postgres": {
           "id": "rtR0aIfgqJvl8ozT",
           "name": "Postgres supabase cloud"
         }
-      },
-      "alwaysOutputData": true
+      }
     },
     {
       "parameters": {
@@ -46,16 +55,59 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1000, 300],
-      "id": "format-cancelar",
+      "position": [
+        672,
+        0
+      ],
+      "id": "855e3a29-dbc1-4e7c-8678-40b84b08200e",
       "name": "Formatar Resultado"
     }
   ],
+  "pinData": {},
   "connections": {
-    "Trigger": { "main": [[{ "node": "Parsear Entrada", "type": "main", "index": 0 }]] },
-    "Parsear Entrada": { "main": [[{ "node": "Cancelar Agendamento", "type": "main", "index": 0 }]] },
-    "Cancelar Agendamento": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Parsear Entrada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parsear Entrada": {
+      "main": [
+        [
+          {
+            "node": "Cancelar Agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cancelar Agendamento": {
+      "main": [
+        [
+          {
+            "node": "Formatar Resultado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
-  "meta": { "templateCredsSetupCompleted": true }
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "a6c33d72-cb09-4734-8645-f5172990826e",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "BW61kcoin51HUb3gD_-p2",
+  "tags": []
 }

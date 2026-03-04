@@ -5,8 +5,11 @@
       "parameters": {},
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
-      "position": [340, 300],
-      "id": "trigger-listar",
+      "position": [
+        0,
+        0
+      ],
+      "id": "570d6de4-11c4-4764-bcc0-183d662f4db9",
       "name": "Trigger"
     },
     {
@@ -15,8 +18,11 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [560, 300],
-      "id": "parse-input-listar",
+      "position": [
+        224,
+        0
+      ],
+      "id": "a50021aa-3ae2-42b0-a8ad-0e86dd43f1c8",
       "name": "Parsear Entrada"
     },
     {
@@ -29,16 +35,19 @@
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
-      "position": [780, 300],
-      "id": "query-listar",
+      "position": [
+        448,
+        0
+      ],
+      "id": "50dd57e7-e63b-4e42-a9ca-99df056c13af",
       "name": "Buscar Dados",
+      "alwaysOutputData": true,
       "credentials": {
         "postgres": {
           "id": "rtR0aIfgqJvl8ozT",
           "name": "Postgres supabase cloud"
         }
-      },
-      "alwaysOutputData": true
+      }
     },
     {
       "parameters": {
@@ -46,16 +55,59 @@
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1000, 300],
-      "id": "format-listar",
+      "position": [
+        672,
+        0
+      ],
+      "id": "259a71c2-162c-456b-bcee-8686e68c888a",
       "name": "Formatar Resultado"
     }
   ],
+  "pinData": {},
   "connections": {
-    "Trigger": { "main": [[{ "node": "Parsear Entrada", "type": "main", "index": 0 }]] },
-    "Parsear Entrada": { "main": [[{ "node": "Buscar Dados", "type": "main", "index": 0 }]] },
-    "Buscar Dados": { "main": [[{ "node": "Formatar Resultado", "type": "main", "index": 0 }]] }
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Parsear Entrada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parsear Entrada": {
+      "main": [
+        [
+          {
+            "node": "Buscar Dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Dados": {
+      "main": [
+        [
+          {
+            "node": "Formatar Resultado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
-  "settings": { "executionOrder": "v1" },
-  "meta": { "templateCredsSetupCompleted": true }
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "29369826-0a1d-4159-8322-f81090b185cd",
+  "meta": {
+    "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
+  },
+  "id": "Avz5jBevAoikbkoDADkRY",
+  "tags": []
 }
