@@ -301,12 +301,8 @@
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
@@ -328,12 +324,8 @@
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
@@ -355,12 +347,8 @@
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
@@ -382,12 +370,8 @@
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
@@ -409,12 +393,8 @@
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
@@ -437,12 +417,8 @@
           "cachedResultUrl": "/workflow/=%7B%7B'Avz5jBevAoikbkoDADkRY'%7D%7D"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
@@ -465,12 +441,8 @@
           "cachedResultUrl": "/workflow/=%7B%7B'gQaJfKayq-yF1nyHn9IfF'%7D%7D"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
@@ -492,12 +464,8 @@
           "mode": "id"
         },
         "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {},
-          "matchingColumns": [],
-          "schema": [],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
+          "mappingMode": "autoMapInputData",
+          "value": {}
         }
       },
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
