@@ -32,7 +32,7 @@
             {
               "id": "5a442f90-1d00-44cd-8063-0e25b7eb91c8",
               "name": "message_text",
-              "value": "={{ $json.body.data.message.conversation }}",
+              "value": "={{ $json.body.data.message.conversation || ($json.body.data.message.extendedTextMessage ? $json.body.data.message.extendedTextMessage.text : '') || '' }}",
               "type": "string"
             },
             {
@@ -54,23 +54,23 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6640,
+        7488,
         832
       ],
-      "id": "850288e2-9af1-4300-91fa-eb2a216949fa",
+      "id": "82be9690-e641-40a5-9c27-994269db5b89",
       "name": "Extrair Dados da Mensagem"
     },
     {
       "parameters": {
-        "jsCode": "// Validar dados da mensagem\nconst senderPhone = $input.first().json.sender_phone;\nconst messageText = $input.first().json.message_text;\nconst senderName = $input.first().json.sender_name;\n\n// Verificar se os campos essenciais existem\nif (!senderPhone || !messageText) {\n  throw new Error('Dados essenciais da mensagem estão faltando: sender_phone ou message_text');\n}\n\nconst trimmedText = messageText.trim();\nconst lowerText = trimmedText.toLowerCase();\n\n// Detectar comando de reiniciar conversa\nconst resetCommands = ['#reiniciar', '#reset', '#limpar', 'reiniciar conversa', 'limpar conversa', 'nova conversa', 'recomeçar conversa', 'recomecar conversa'];\nconst isResetCommand = resetCommands.some(cmd => lowerText === cmd || lowerText.startsWith(cmd));\n\n// Sanitizar dados\nconst sanitizedData = {\n  sender_phone: senderPhone.trim(),\n  sender_name: senderName ? senderName.trim() : 'Usuário WhatsApp',\n  message_text: trimmedText,\n  message_type: $input.first().json.message_type || 'conversation',\n  message_timestamp: $input.first().json.message_timestamp || new Date().toISOString(),\n  is_reset_command: isResetCommand\n};\n\nreturn [{ json: sanitizedData }];"
+        "jsCode": "// Validar dados da mensagem\nconst senderPhone = $input.first().json.sender_phone;\nconst messageText = $input.first().json.message_text;\nconst senderName = $input.first().json.sender_name;\n\n// Verificar se os campos essenciais existem\nif (!senderPhone || !messageText) {\n  throw new Error('Dados essenciais da mensagem estão faltando: sender_phone ou message_text');\n}\n\nconst trimmedText = messageText.trim();\nconst lowerText = trimmedText.toLowerCase();\n\n// Detectar comando de reiniciar conversa\nconst resetCommands = ['#reiniciar', '#reset', '#limpar', 'reiniciar conversa', 'limpar conversa', 'nova conversa', 'recomeçar conversa', 'recomecar conversa', \n'começar denovo', 'comecar denovo'];\nconst isResetCommand = resetCommands.some(cmd => lowerText === cmd || lowerText.startsWith(cmd));\n\n// Sanitizar dados\nconst sanitizedData = {\n  sender_phone: senderPhone.trim(),\n  sender_name: senderName ? senderName.trim() : 'Usuário WhatsApp',\n  message_text: trimmedText,\n  message_type: $input.first().json.message_type || 'conversation',\n  message_timestamp: $input.first().json.message_timestamp || new Date().toISOString(),\n  is_reset_command: isResetCommand\n};\n\nreturn [{ json: sanitizedData }];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        6880,
+        8928,
         832
       ],
-      "id": "b18f19b2-385d-4a05-a45c-ceada8524677",
+      "id": "87750c24-a0d2-4392-a09c-11e444ce4224",
       "name": "Validar Dados da Mensagem"
     },
     {
@@ -98,12 +98,12 @@
         },
         "options": {}
       },
-      "id": "5b220591-343b-4998-95b0-6bdd0b9d9905",
+      "id": "0b404bd1-61a5-48c7-938a-3191ea3b98ef",
       "name": "Gerar Embedding da Mensagem",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        7504,
+        9552,
         848
       ],
       "credentials": {
@@ -134,10 +134,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        7728,
+        9776,
         848
       ],
-      "id": "0f045e14-5d38-46ca-8ec8-04cd75b735a7",
+      "id": "ee66c50f-7889-4e74-85cf-becefd65ab06",
       "name": "Extrair Embedding"
     },
     {
@@ -148,12 +148,12 @@
           "queryReplacement": "={{ '['+ $json.embedding + ']'}}]'"
         }
       },
-      "id": "a1522193-d4a6-4041-ade7-83331fa62ce1",
+      "id": "aebab89e-13f0-4727-904e-f86c087129db",
       "name": "RAG - Busca Conhecimento ABO",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        7936,
+        9984,
         848
       ],
       "alwaysOutputData": true,
@@ -173,10 +173,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        6320,
+        7168,
         832
       ],
-      "id": "fbfc4336-6623-479e-b81d-4fd15f56eb92",
+      "id": "5eb252a8-8dad-4237-be09-b79ec0b621b0",
       "name": "Webhook",
       "webhookId": "66c1e19b-70ba-4ece-8a9c-c6ad6819a091"
     },
@@ -187,25 +187,25 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        8160,
+        10208,
         848
       ],
-      "id": "464fc6c0-75e9-48dc-b3f3-939e94e98fed",
+      "id": "fea6580f-605b-4de1-b3d9-10616dff66c7",
       "name": "Code in JavaScript"
     },
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Você é a Estela, assistente virtual completa do consultório odontológico da ABO-BA (Associação Brasileira de Odontologia - Seção Bahia). Você é educada, profissional, acolhedora e eficiente. Responda sempre em português brasileiro.\n\n══════════════════════════════════════\n🏥 INFORMAÇÕES DO CONSULTÓRIO\n══════════════════════════════════════\n- Nome: ABO-BA - Associação Brasileira de Odontologia - Seção Bahia\n- Endereço: Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492\n- Telefone: (71) 2203-4067 | WhatsApp: (71) 98132-8046\n- Email: contato@abo-ba.org.br\n- CNPJ: 15.187.719/0001-50\n- Horário: Seg-Sex 08:00-18:00 | Sáb 08:00-12:00 | Dom/Feriados: Fechado\n\n══════════════════════════════════════\n🛠️ FERRAMENTAS DISPONÍVEIS\n══════════════════════════════════════\nVocê tem acesso a ferramentas para gerenciar o consultório:\n\n1. **Buscar Paciente** - Busca dados do paciente pelo telefone\n   → Use quando precisar identificar o paciente ou ver seu histórico\n   → Parâmetros: { patient_phone: 'telefone' }\n\n2. **Buscar Horários Disponíveis** - Lista horários livres de dentistas\n   → Use quando o paciente quiser agendar e precisar ver disponibilidade\n   → Parâmetros: { date: 'YYYY-MM-DD', dentist_id: numero_opcional, specialty: 'especialidade_opcional' }\n\n3. **Agendar Consulta** - Cria um novo agendamento\n   → Use SOMENTE após confirmar todos os dados com o paciente\n   → Parâmetros: { patient_phone: 'tel', patient_name: 'nome', dentist_id: numero, procedure_id: numero_opcional, date: 'YYYY-MM-DD', time: 'HH:MM', notes: 'obs_opcional' }\n\n4. **Cancelar Consulta** - Cancela um agendamento existente\n   → Parâmetros: { appointment_id: numero, patient_phone: 'tel', reason: 'motivo_opcional' }\n\n5. **Consultar Agendamentos** - Lista agendamentos futuros do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n6. **Listar Dentistas/Procedimentos** - Mostra profissionais ou procedimentos\n   → Parâmetros: { type: 'dentistas' ou 'procedimentos', specialty: 'opcional', category: 'opcional' }\n\n7. **Resumo Financeiro** - Extrato financeiro do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n8. **Reiniciar Conversa** - Limpa todo o histórico e contexto da conversa\n   → Use quando o paciente pedir para reiniciar, limpar ou começar uma nova conversa\n   → Parâmetros: { patient_phone: 'telefone' }\n\n══════════════════════════════════════\n📋 FLUXO DE AGENDAMENTO\n══════════════════════════════════════\nSiga este fluxo ao agendar consultas:\n1. Identifique o paciente (use a ferramenta Buscar Paciente com o telefone do WhatsApp)\n2. Pergunte a especialidade/procedimento desejado\n3. Pergunte a data de preferência\n4. Use Buscar Horários Disponíveis para mostrar opções\n5. Confirme TODOS os dados: nome, data, horário, dentista, procedimento\n6. Só então use Agendar Consulta\n7. Informe o ID do agendamento para futuras referências\n\n══════════════════════════════════════\n🦷 ESPECIALIDADES DISPONÍVEIS\n══════════════════════════════════════\n- Clínica Geral (avaliação, restaurações, limpeza)\n- Endodontia (tratamento de canal)\n- Periodontia (gengivas)\n- Cirurgia Oral (extrações, implantes)\n- Prótese Dentária (coroas, pontes, dentaduras)\n- Ortodontia (aparelhos)\n- Implantodontia\n- Odontopediatria (crianças)\n- Estética Dental (clareamento, facetas)\n- Estomatologia\n\n══════════════════════════════════════\n💰 FORMAS DE PAGAMENTO\n══════════════════════════════════════\n- PIX | Cartão de Crédito (até 12x) | Cartão de Débito | Dinheiro | Boleto\n- Convênios odontológicos aceitos (verificar disponibilidade)\n\n══════════════════════════════════════\n🚨 PROTOCOLOS ESPECIAIS\n══════════════════════════════════════\n\n**URGÊNCIA/EMERGÊNCIA:**\nSe o paciente relatar dor intensa, trauma dental, sangramento ou inchaço:\n→ Oriente cuidados imediatos básicos\n→ Direcione para contato urgente: (71) 2203-4067\n→ Tente encaixar na agenda do dia\n\n**ESCALAÇÃO PARA HUMANO:**\nDirecione para atendente humano quando:\n→ Paciente insistir em falar com pessoa\n→ Reclamações ou insatisfação\n→ Questões financeiras complexas (negociação de dívida)\n→ Assuntos que você não consiga resolver\n→ Emergências médicas\n\n**CONFIRMAÇÃO DE CONSULTA:**\nSe paciente responder 'SIM' ou confirmar presença:\n→ Agradeça e confirme os dados do agendamento\nSe responder 'NÃO' ou quiser cancelar:\n→ Pergunte se deseja reagendar\n→ Se sim, ofereça novos horários\n→ Se não, cancele com a ferramenta\n\n══════════════════════════════════════\n📝 REGRAS DE RESPOSTA\n══════════════════════════════════════\n1. Respostas breves e diretas para WhatsApp (máximo 4-5 linhas por mensagem)\n2. Use emojis com moderação para melhorar legibilidade\n3. Sempre confirme dados antes de executar ações (agendar, cancelar)\n4. NUNCA invente informações médicas - quando não souber, direcione ao dentista\n5. Mantenha sigilo sobre dados de outros pacientes\n6. Se não encontrar o paciente no sistema, trate como novo paciente\n7. Inclua informações de contato quando apropriado\n8. Se a pergunta estiver fora do escopo odontológico, direcione educadamente\n9. Use as ferramentas proativamente - quando um paciente perguntar sobre consulta, já busque o cadastro dele\n10. O telefone do paciente no WhatsApp é: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\n\nCONTEXTO DA BASE DE CONHECIMENTO:\n{{ $json.rag_context }}\n\nMENSAGEM DO USUÁRIO:\nPerfil WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_name }}\nTelefone WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\nTexto enviado: {{ $('Validar Dados da Mensagem').first().json.message_text }}",
+        "text": "=Você é a Estela, assistente virtual completa do consultório odontológico da ABO-BA (Associação Brasileira de Odontologia - Seção Bahia). Você é educada, profissional, acolhedora e eficiente. Responda sempre em português brasileiro.\n\n══════════════════════════════════════\n🏥 INFORMAÇÕES DO CONSULTÓRIO\n══════════════════════════════════════\n- Nome: ABO-BA - Associação Brasileira de Odontologia - Seção Bahia\n- Endereço: Rua Altino Serbeto de Barros, 138 - Pituba, Salvador - BA, CEP 41830-492\n- Telefone: (71) 2203-4067 | WhatsApp: (71) 98132-8046\n- Email: contato@abo-ba.org.br\n- CNPJ: 15.187.719/0001-50\n- Horário: Seg-Sex 08:00-18:00 | Sáb 08:00-12:00 | Dom/Feriados: Fechado\n\n══════════════════════════════════════\n🛠️ FERRAMENTAS DISPONÍVEIS\n══════════════════════════════════════\nVocê tem acesso a ferramentas para gerenciar o consultório:\n\n1. **Buscar Paciente** - Busca dados do paciente pelo telefone\n   → Use quando precisar identificar o paciente ou ver seu histórico\n   → Parâmetros: { patient_phone: 'telefone' }\n\n2. **Buscar Horários Disponíveis** - Lista horários livres de dentistas\n   → Use quando o paciente quiser agendar e precisar ver disponibilidade\n   → Parâmetros: { date: 'YYYY-MM-DD', dentist_id: numero_opcional, specialty: 'especialidade_opcional' }\n\n3. **Agendar Consulta** - Cria um novo agendamento\n   → Use SOMENTE após confirmar todos os dados com o paciente\n   → Parâmetros: { patient_phone: 'tel', patient_name: 'nome', dentist_id: numero, procedure_id: numero_opcional, date: 'YYYY-MM-DD', time: 'HH:MM', notes: 'obs_opcional' }\n\n4. **Cancelar Consulta** - Cancela um agendamento existente\n   → Parâmetros: { appointment_id: numero, patient_phone: 'tel', reason: 'motivo_opcional' }\n\n5. **Consultar Agendamentos** - Lista agendamentos futuros do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n6. **Listar Dentistas/Procedimentos** - Mostra profissionais ou procedimentos\n   → Parâmetros: { type: 'dentistas' ou 'procedimentos', specialty: 'opcional', category: 'opcional' }\n\n7. **Resumo Financeiro** - Extrato financeiro do paciente\n   → Parâmetros: { patient_phone: 'tel' }\n\n8. **Reiniciar Conversa** - Limpa todo o histórico e contexto da conversa\n   → Use quando o paciente pedir para reiniciar, limpar ou começar uma nova conversa\n   → Parâmetros: { patient_phone: 'telefone' }\n\n══════════════════════════════════════\n📋 FLUXO DE AGENDAMENTO\n══════════════════════════════════════\nSiga este fluxo ao agendar consultas:\n1. Identifique o paciente (use a ferramenta Buscar Paciente com o telefone do WhatsApp)\n2. Pergunte a especialidade/procedimento desejado\n3. Pergunte a data de preferência\n4. Use Buscar Horários Disponíveis para mostrar opções\n5. Confirme TODOS os dados: nome, data, horário, dentista, procedimento\n6. Só então use Agendar Consulta\n7. Informe o ID do agendamento para futuras referências\n\n══════════════════════════════════════\n🦷 ESPECIALIDADES DISPONÍVEIS\n══════════════════════════════════════\n- Clínica Geral (avaliação, restaurações, limpeza)\n- Endodontia (tratamento de canal)\n- Periodontia (gengivas)\n- Cirurgia Oral (extrações, implantes)\n- Prótese Dentária (coroas, pontes, dentaduras)\n- Ortodontia (aparelhos)\n- Implantodontia\n- Odontopediatria (crianças)\n- Estética Dental (clareamento, facetas)\n- Estomatologia\n\n══════════════════════════════════════\n💰 FORMAS DE PAGAMENTO\n══════════════════════════════════════\n- PIX | Cartão de Crédito (até 12x) | Cartão de Débito | Dinheiro | Boleto\n- Convênios odontológicos aceitos (verificar disponibilidade)\n\n══════════════════════════════════════\n🚨 PROTOCOLOS ESPECIAIS\n══════════════════════════════════════\n\n**URGÊNCIA/EMERGÊNCIA:**\nSe o paciente relatar dor intensa, trauma dental, sangramento ou inchaço:\n→ Oriente cuidados imediatos básicos\n→ Direcione para contato urgente: (71) 2203-4067\n→ Tente encaixar na agenda do dia\n\n**ESCALAÇÃO PARA HUMANO:**\nDirecione para atendente humano quando:\n→ Paciente insistir em falar com pessoa\n→ Reclamações ou insatisfação\n→ Questões financeiras complexas (negociação de dívida)\n→ Assuntos que você não consiga resolver\n→ Emergências médicas\n\n**CONFIRMAÇÃO DE CONSULTA:**\nSe paciente responder 'SIM' ou confirmar presença:\n→ Agradeça e confirme os dados do agendamento\nSe responder 'NÃO' ou quiser cancelar:\n→ Pergunte se deseja reagendar\n→ Se sim, ofereça novos horários\n→ Se não, cancele com a ferramenta\n\n══════════════════════════════════════\n📝 REGRAS DE RESPOSTA\n══════════════════════════════════════\n1. Respostas breves e diretas para WhatsApp (máximo 4-5 linhas por mensagem)\n2. Use emojis com moderação para melhorar legibilidade\n3. Sempre confirme dados antes de executar ações (agendar, cancelar)\n4. NUNCA invente informações médicas - quando não souber, direcione ao dentista\n5. Mantenha sigilo sobre dados de outros pacientes\n6. Se não encontrar o paciente no sistema, trate como novo paciente\n7. Inclua informações de contato quando apropriado\n8. Se a pergunta estiver fora do escopo odontológico, direcione educadamente\n9. Use as ferramentas proativamente - quando um paciente perguntar sobre consulta, já busque o cadastro dele\n10. Não seja repetitiva (por exemplo, vc não precisa ficar se apresentando em toda mensagem)\n11. Mensagens de áudio são automaticamente transcritas para texto. Se o tipo da mensagem for audioMessage, você pode mencionar brevemente que entendeu o áudio do paciente.\n12. O telefone do paciente no WhatsApp é: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\n\nCONTEXTO DA BASE DE CONHECIMENTO:\n{{ $json.rag_context }}\n\nMENSAGEM DO USUÁRIO:\nPerfil WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_name }}\nTelefone WhatsApp: {{ $('Validar Dados da Mensagem').first().json.sender_phone }}\nTipo de mensagem: {{ $('Validar Dados da Mensagem').first().json.message_type }}\nTexto enviado: {{ $('Validar Dados da Mensagem').first().json.message_text }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        8448,
+        10496,
         848
       ],
-      "id": "6a4f3a8c-9d48-4385-a3ce-ff9a4865bf16",
+      "id": "c364417e-ca33-4671-9e16-70c1bc94baae",
       "name": "AI Agent"
     },
     {
@@ -222,10 +222,10 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
       "position": [
-        8288,
+        10336,
         1088
       ],
-      "id": "25fc75ac-2bc9-4ced-910d-eb8fa4c55384",
+      "id": "efaddca3-85c5-4357-9d58-6b441a53d88d",
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
@@ -244,10 +244,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
       "typeVersion": 1.3,
       "position": [
-        8432,
+        10480,
         1168
       ],
-      "id": "6cfb0689-62e7-4ce9-bb7f-615e792a7b98",
+      "id": "9c5bb040-5f90-420d-908c-fa2a5a0f5628",
       "name": "Postgres Chat Memory",
       "credentials": {
         "postgres": {
@@ -261,10 +261,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolThink",
       "typeVersion": 1.1,
       "position": [
-        8672,
+        10720,
         1136
       ],
-      "id": "a920ead0-1ce0-4d17-8b0e-e2b312d3dcd4",
+      "id": "fa12a582-8f36-4876-8895-668b58e446de",
       "name": "Think"
     },
     {
@@ -274,10 +274,10 @@
       "type": "n8n-nodes-base.dateTimeTool",
       "typeVersion": 2,
       "position": [
-        8544,
+        10592,
         1104
       ],
-      "id": "7b7f7ae8-eb2d-4722-8f58-6d9564a2319a",
+      "id": "c69836b4-83e4-471a-987d-7d45a55253c9",
       "name": "Date & Time"
     },
     {
@@ -285,10 +285,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
       "position": [
-        8784,
+        10832,
         1232
       ],
-      "id": "ecf706bf-47ae-401e-b39b-ecf670149ed8",
+      "id": "440124b1-e76c-4905-a3c4-21238f07f6a4",
       "name": "Calculator"
     },
     {
@@ -308,10 +308,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        8912,
+        10960,
         1200
       ],
-      "id": "512491bc-ba18-418e-9b68-56f37232af25",
+      "id": "b5054466-65e8-449b-9b7d-8385fb3c2e4b",
       "name": "Buscar Paciente"
     },
     {
@@ -331,10 +331,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        9008,
+        11056,
         1104
       ],
-      "id": "1a4fb858-9858-469f-bda4-e706c088da4c",
+      "id": "452c524e-a4d5-4df5-959f-f93397e1c2a1",
       "name": "Buscar Horários"
     },
     {
@@ -354,10 +354,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        9120,
+        11168,
         1184
       ],
-      "id": "428e6187-0ff7-433a-9866-9c6e9851932b",
+      "id": "bb063347-5758-46fb-b3b9-ee7ff982f01d",
       "name": "Agendar Consulta"
     },
     {
@@ -377,10 +377,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        9232,
+        11280,
         1104
       ],
-      "id": "556a89a8-aeb8-417d-83df-8eb3e8b667a8",
+      "id": "acff9578-3fab-4a10-9a70-f99abca8d259",
       "name": "Cancelar Consulta"
     },
     {
@@ -400,10 +400,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        9344,
+        11392,
         1184
       ],
-      "id": "18032789-8b81-4b43-b834-9d5e4e050406",
+      "id": "43e3cc2e-8039-4a4f-8350-bdf23a411718",
       "name": "Consultar Agendamentos"
     },
     {
@@ -424,10 +424,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        9456,
+        11504,
         1104
       ],
-      "id": "6166db7e-a1b7-4f43-ba0c-f8aff8fa942a",
+      "id": "f04e5cdc-0db2-4a57-91e2-465bb550b734",
       "name": "Listar Dentistas/Procedimentos"
     },
     {
@@ -448,10 +448,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        9568,
+        11616,
         1184
       ],
-      "id": "493215ab-4882-4704-8de5-d715fd3c64b6",
+      "id": "0596fe45-d1d9-40d5-80c8-f02c26b48c32",
       "name": "Resumo Financeiro"
     },
     {
@@ -471,10 +471,10 @@
       "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
       "typeVersion": 2,
       "position": [
-        9680,
+        11728,
         1184
       ],
-      "id": "7b1208a2-8cd8-4b1a-a33d-44e25aebefb4",
+      "id": "c4ac3065-2186-4605-8728-f8042369293f",
       "name": "Reiniciar Conversa"
     },
     {
@@ -504,10 +504,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        7200,
+        9248,
         832
       ],
-      "id": "6f111464-fc63-4fee-8826-9feaf5704bd4",
+      "id": "4b9a1f3c-5124-4a68-9593-3e46a24a7442",
       "name": "É comando reiniciar?"
     },
     {
@@ -521,10 +521,10 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        7504,
+        9552,
         576
       ],
-      "id": "3e6a6c34-0aca-47c9-971e-4e93356ff721",
+      "id": "136e495d-b78b-4ae9-8232-1684c2b59d7b",
       "name": "Executar Reset",
       "alwaysOutputData": true,
       "credentials": {
@@ -541,10 +541,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        7728,
+        9776,
         576
       ],
-      "id": "154f0cc9-bbc4-41aa-a55d-9ae471a0eff1",
+      "id": "b704cc75-58dd-422d-8009-be23ae4700d2",
       "name": "Mensagem de Reset"
     },
     {
@@ -668,10 +668,10 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        8848,
+        10896,
         688
       ],
-      "id": "f944e712-f36e-456c-83d9-25273e4b7045",
+      "id": "71c36cf0-99ba-4f17-82cc-226cf1c47e22",
       "name": "Salvar Conversa no BD",
       "credentials": {
         "postgres": {
@@ -691,10 +691,10 @@
       "type": "n8n-nodes-evolution-api.evolutionApi",
       "typeVersion": 1,
       "position": [
-        9760,
+        11808,
         864
       ],
-      "id": "cd345b5e-f10b-4b42-b7e1-24d432c11006",
+      "id": "c5f263f1-c1db-4318-b7bd-683fbb253073",
       "name": "Enviar texto",
       "credentials": {
         "evolutionApi": {
@@ -710,10 +710,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        9056,
+        11104,
         848
       ],
-      "id": "41144844-6981-4688-8e2d-58ee605229f7",
+      "id": "9d761437-5ee6-4d81-9fe8-2b706afc3db5",
       "name": "Code in JavaScript2"
     },
     {
@@ -723,11 +723,142 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        9440,
+        11488,
         848
       ],
-      "id": "eb1708ff-a35a-415e-9724-5ed61511ebab",
+      "id": "10544113-191a-49d1-8855-bd021920e8cc",
       "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "audio-condition",
+              "leftValue": "={{ $json.message_type }}",
+              "rightValue": "audioMessage",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        7728,
+        832
+      ],
+      "id": "dfd4a144-d5e1-4f9a-842f-be44b75f57b0",
+      "name": "É áudio?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Webhook').first().json.body.server_url + '/chat/getBase64FromMediaMessage/' + encodeURIComponent($('Webhook').first().json.body.instance) }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Webhook').first().json.body.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: { key: $('Webhook').first().json.body.data.key } }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        7968,
+        440
+      ],
+      "id": "335125ff-b578-4e84-bd4f-0cd945f730ff",
+      "name": "Baixar Áudio"
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nlet base64Data = response.base64;\nconst extractedData = $('Extrair Dados da Mensagem').first().json;\n\nif (!base64Data) {\n  throw new Error('Não foi possível baixar o áudio. O campo base64 está vazio.');\n}\n\n// Remove data URI prefix if present (e.g., 'data:audio/ogg;base64,...')\nif (base64Data.includes(',')) {\n  base64Data = base64Data.split(',')[1];\n}\n\nreturn [{\n  json: extractedData,\n  binary: {\n    audio: {\n      data: base64Data,\n      mimeType: response.mimetype || 'audio/ogg; codecs=opus',\n      fileName: 'audio.ogg'\n    }\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8208,
+        440
+      ],
+      "id": "057d2ae5-08a8-42a9-be21-c2a8f1f46b16",
+      "name": "Preparar Áudio"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/audio/transcriptions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "audio"
+            },
+            {
+              "parameterType": "formData",
+              "name": "model",
+              "value": "whisper-1"
+            },
+            {
+              "parameterType": "formData",
+              "name": "language",
+              "value": "pt"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        8448,
+        440
+      ],
+      "id": "1f7df57e-83bf-4af2-a3f9-472ed02d6144",
+      "name": "Transcrever Áudio",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "cGKI9g7OSPfCCooY",
+          "name": "ABO OpenAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const transcription = $input.first().json.text;\nconst extractedData = $('Extrair Dados da Mensagem').first().json;\n\nreturn [{\n  json: {\n    ...extractedData,\n    message_text: (transcription && transcription.trim())\n      ? transcription.trim()\n      : '[Áudio recebido mas não foi possível transcrever. Por favor, envie em texto.]'\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        8688,
+        440
+      ],
+      "id": "d93e452b-82bd-4769-85de-d2cc110df02c",
+      "name": "Definir Texto Transcrito"
     }
   ],
   "pinData": {
@@ -737,7 +868,7 @@
           "headers": {
             "host": "n8n.bahiati.cloud",
             "user-agent": "axios/1.13.2",
-            "content-length": "1462",
+            "content-length": "1480",
             "accept": "application/json, text/plain, */*",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
@@ -758,14 +889,14 @@
                 "remoteJid": "553496620569@s.whatsapp.net",
                 "remoteJidAlt": "553496620569@s.whatsapp.net",
                 "fromMe": false,
-                "id": "3BBEC59D17808A832838",
+                "id": "3BF14C88F54D8D216F43",
                 "participant": "",
                 "addressingMode": "lid"
               },
               "pushName": "Dalí Freire",
               "status": "DELIVERY_ACK",
               "message": {
-                "conversation": "olá",
+                "conversation": "quero agendar uma consulta",
                 "messageContextInfo": {
                   "threadId": [],
                   "deviceListMetadata": {
@@ -808,48 +939,48 @@
                   },
                   "deviceListMetadataVersion": 2,
                   "messageSecret": {
-                    "0": 91,
-                    "1": 84,
-                    "2": 117,
-                    "3": 160,
-                    "4": 7,
-                    "5": 211,
-                    "6": 202,
-                    "7": 170,
-                    "8": 109,
-                    "9": 103,
-                    "10": 38,
-                    "11": 161,
-                    "12": 62,
-                    "13": 252,
-                    "14": 203,
-                    "15": 102,
-                    "16": 199,
-                    "17": 197,
-                    "18": 26,
-                    "19": 121,
-                    "20": 10,
-                    "21": 198,
-                    "22": 76,
-                    "23": 66,
-                    "24": 22,
-                    "25": 21,
-                    "26": 7,
-                    "27": 117,
-                    "28": 182,
-                    "29": 168,
-                    "30": 210,
-                    "31": 156
+                    "0": 24,
+                    "1": 68,
+                    "2": 105,
+                    "3": 98,
+                    "4": 193,
+                    "5": 37,
+                    "6": 29,
+                    "7": 81,
+                    "8": 40,
+                    "9": 19,
+                    "10": 195,
+                    "11": 208,
+                    "12": 238,
+                    "13": 135,
+                    "14": 1,
+                    "15": 121,
+                    "16": 128,
+                    "17": 226,
+                    "18": 76,
+                    "19": 62,
+                    "20": 186,
+                    "21": 28,
+                    "22": 159,
+                    "23": 46,
+                    "24": 153,
+                    "25": 78,
+                    "26": 209,
+                    "27": 171,
+                    "28": 231,
+                    "29": 82,
+                    "30": 96,
+                    "31": 12
                   }
                 }
               },
               "messageType": "conversation",
-              "messageTimestamp": 1772570602,
+              "messageTimestamp": 1772630641,
               "instanceId": "c9aff788-608b-4cea-801e-d3dcd53676af",
               "source": "unknown"
             },
             "destination": "https://n8n.bahiati.cloud/webhook/66c1e19b-70ba-4ece-8a9c-c6ad6819a091",
-            "date_time": "2026-03-03T17:43:22.591Z",
+            "date_time": "2026-03-04T10:24:01.605Z",
             "sender": "557183803720@s.whatsapp.net",
             "server_url": "https://evolution.bahiati.cloud",
             "apikey": "8994AF317C9A-4406-81A3-AA973BF65EA2"
@@ -879,7 +1010,7 @@
       "main": [
         [
           {
-            "node": "Validar Dados da Mensagem",
+            "node": "É áudio?",
             "type": "main",
             "index": 0
           }
@@ -1173,6 +1304,68 @@
           }
         ]
       ]
+    },
+    "É áudio?": {
+      "main": [
+        [
+          {
+            "node": "Baixar Áudio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Validar Dados da Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Baixar Áudio": {
+      "main": [
+        [
+          {
+            "node": "Preparar Áudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar Áudio": {
+      "main": [
+        [
+          {
+            "node": "Transcrever Áudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcrever Áudio": {
+      "main": [
+        [
+          {
+            "node": "Definir Texto Transcrito",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Definir Texto Transcrito": {
+      "main": [
+        [
+          {
+            "node": "Validar Dados da Mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": true,
@@ -1180,7 +1373,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "3c9351e6-4ab2-4e9b-96fd-5de6b0f94fad",
+  "versionId": "e2d16499-4f98-45c1-8769-825c9d5974e5",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "d07a57d7c2add559a13f166055a90b89bb4e767a13639a3a9399707bf04755c3"
