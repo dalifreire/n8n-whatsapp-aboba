@@ -922,6 +922,24 @@ INSERT INTO abo.procedimentos (codigo, nome, descricao, categoria, duracao_media
 ON CONFLICT (codigo) DO NOTHING;
 
 -- ============================================
+-- DADOS INICIAIS - DENTISTAS
+-- ============================================
+INSERT INTO abo.dentistas (nome, cro, especialidade, especialidades, telefone, ativo, dias_trabalho, inicio_jornada, fim_jornada, duracao_consulta_minutos)
+VALUES (
+  'Andreia Mota Mussi',
+  'CRO-4407',                          -- Substitua pelo CRO real
+  'Clínico Geral',
+  ARRAY['Clínico Geral', 'Prótese Dentária'],
+  '7133537900',
+  true,
+  '{1,2,3,4,5}',                             -- Segunda a Sexta
+  '08:00',
+  '18:00',
+  30
+)
+ON CONFLICT (cro) DO NOTHING;
+
+-- ============================================
 -- FUNÇÃO: Criar agendamento via WhatsApp
 -- ============================================
 CREATE OR REPLACE FUNCTION abo.criar_agendamento_whatsapp(
